@@ -17,4 +17,4 @@ http://railscasts.com/episodes/260-messaging-with-faye?view=asciicast
 
 Needed for dev: 'sudo apt-get install libsqlite3-dev'
 
-After you bundle install be sure to run 'rackup faye.ru -s thin -E production' to install faye on your machine
+After you bundle install be sure to run 'rackup faye.ru -s thin -E production' to load up faye on your machine
