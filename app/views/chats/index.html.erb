@@ -1,15 +1,17 @@
 <row>
 <div class="col-md-10 col-md-offset-1" style="padding-top:5px;">
-<div class="panel panel-info" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
-<ol class="formList">
+<p class="panel-body-heading" align="center">Active chats</p>
+<table class="table table-striped table-condensed">
 	<% if @chats.count == 0%>
-	<li>No Chats active, create a <a href="chatlog/new">new chat</a>?</li>
+	<tr><td>No Chats active, create a <a href="chatlog/new">new chat</a>?</td></tr>
 	<% end %>
 	<% @chats.each do |chat|%>
-  <li><%= chat.created_on.to_s.to_datetime %></li>
+  <tr><td><%= link_to "#{chat.chatname.titleize}", chat, style: "margin-right: 20px;" %> Started on: <%= chat.created_at.to_s.to_datetime.strftime('%H:%M %D') %></td></tr>
 	<% end %>
-</ol>
+</table>
+<p style="margin-top: 50px; border-top: solid">Create a <a href="chatlog/new">new chat</a></p>
 </div>
 </div>
 </div>

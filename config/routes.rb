@@ -10,6 +10,8 @@ Livepost::Application.routes.draw do
   #FIX ME -- I SHOULD BE A /:id not this ugly .:id shit
   match '/chatlog/:id', to: 'chats#show', via: :get
   match '/chatlog.:id', to: 'chats#show', via: :get
+  match '/chatlog/:id', to: 'chats#update', via: :patch
+  match '/chatlog.:id', to: 'chats#update', via: :patch
   #-- end FIX ME
   
   match '/chatlog', to: 'chats#index', via: :get
