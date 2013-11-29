@@ -20,4 +20,9 @@ def show
   @chat = Chatlog.find(params[:id])
 end
   
+def index
+  @chats = Chatlog.all
+end
+  
+  
 end

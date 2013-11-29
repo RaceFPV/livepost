@@ -5,7 +5,8 @@ Livepost::Application.routes.draw do
   match '/about', to: 'static_pages#about', via: :get
   match '/contact', to: 'static_pages#contact', via: :get
   root  to: 'static_pages#home'
-  match '/chatlog', to: 'chat#new', via: :get
+  match '/chatlog/new', to: 'chat#new', via: :get
+  match '/chatlog', to: 'chat#index', via: :get
   match '/chatlog', to: 'chat#create', via: :post
   match '/chatlog/:id', to: 'chat#show', via: :get
   match '/chatlog/:id', to: 'chat#update', via: :post

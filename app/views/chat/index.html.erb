@@ -1,0 +1,16 @@
+<row>
+<div class="col-md-10 col-md-offset-1" style="padding-top:5px;">
+<div class="panel panel-info" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-body">
+<ol class="formList">
+	<% if @chats.count == 0%>
+	<li>No Chats active, create a <a href="chatlog/new">new chat</a>?</li>
+	<% end %>
+	<% @chats.each do |chat|%>
+  <li><%= chat.created_on.to_s.to_datetime %></li>
+	<% end %>
+</ol>
+</div>
+</div>
+</div>
+</row>
