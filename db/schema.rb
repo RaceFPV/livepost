@@ -14,13 +14,15 @@
 ActiveRecord::Schema.define(version: 20131128185335) do
 
   create_table "chatlogs", force: true do |t|
-    t.text     "chathistory"
+    t.text     "chatname"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "chatposts", force: true do |t|
     t.text     "post"
+    t.text     "username"
+    t.integer  "chatlog_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

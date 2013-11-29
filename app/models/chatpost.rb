@@ -1,3 +1,3 @@
 class Chatpost < ActiveRecord::Base
-  belongs_to :chatlog, dependant: :destroy
+  belongs_to :chatlog, dependent: :destroy
 end

@@ -1,0 +1,31 @@
+<row>
+<div class="col-md-10 col-md-offset-1" style="padding-top:5px;">
+<div class="panel panel-info" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-body">
+<table class="table table-striped">
+<% @chatposts.each do |x| %>
+<tr><td>
+	<%= x.username%>
+</td><td>
+	<%= x.post %>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+
+<div class="col-md-10 col-md-offset-1" style="padding-top:5px;">
+<div class="panel panel-info" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-body">
+<%= form_for :chatparams, url: chatlog_path(@chat.id), method: :patch do |f| %>
+<ol class="formList">
+  <li><%= f.label :username, "Name:" %> <%= f.text_field :username %></li>
+  <li><%= f.label :post, "Message:" %> <%= f.text_area :post, :rows => 5 %></li>
+  <li><%= submit_tag "Send" %></li>
+</ol>
+<% end %>
+</div>
+</div>
+</div>
+</row>
