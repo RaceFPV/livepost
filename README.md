@@ -5,6 +5,9 @@ Welcome to livepost!
 This app is in active development alpha mode
 
 
+****  IF YOU HAVE GIT PULLED RECENTLY BE SURE TO 'RAKE DB:RESET' !!!!!
+
+
 == Guides used:
 
 For faye chat framework:
