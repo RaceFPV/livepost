@@ -1,6 +1,6 @@
 $(function() {
   var faye = new Faye.Client('http://localhost:9292/faye');
-  faye.subscribe('/messages/new', function (data) {
-    alert(data);
+  faye.subscribe('/chatlogs/update', function (data) {
+    eval(data);
   });
 });

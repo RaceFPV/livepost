@@ -2,7 +2,7 @@
 <div class="col-md-6 col-md-offset-3" style="padding-top:5px;">
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
-<%= form_for :chatparams, url: chatlog_path do |f| %>
+<%= form_for :chatparams, url: @chatlog do |f| %>
   <%= f.label :chatname, "Chat name:" %> <%= f.text_field :chatname %>
   <%= submit_tag "Create" %>
 <% end %>
