@@ -9,6 +9,7 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
+
 require 'securerandom'
 
 def secure_token
@@ -25,3 +26,4 @@ def secure_token
 end
 
 Livepost::Application.config.secret_key_base = secure_token
+
