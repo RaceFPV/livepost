@@ -1,9 +1,25 @@
+<% if signed_in? %>
+	<div class="row">
+		<aside class="span4">
+			<section>
+				<%= render 'shared/user_info' %>
+			</section>
+		</aside>
+	</div>
+
+<% else %>
+
     <!-- header -->
       <div id="top" class="header">
       <div class="vert-text">
         <h1>LivePost</h1>
         <h4 align="center" style="color: red;">This application is in <b>Active Development</b></h4>
         <a href="#about" class="btn btn-default btn-lg">Find Out More</a>
+        <br>
+        <br>
+        <%= link_to "Sign In", signin_path, class: "btn btn-lg btn-default" %>
+        <br>
+        <%= link_to "Sign Up", signup_path, class: "btn btn-lg btn-primary" %> 
       </div>
     </div>
     <!-- /header -->   
@@ -32,3 +48,4 @@
       </div>
     </div>
     <!-- /Call to Action -->
+<% end %>
