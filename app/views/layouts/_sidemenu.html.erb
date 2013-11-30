@@ -8,6 +8,9 @@
         <li><a href="/about">About</a></li>
         <li><a href="chatlog">Chat</a></li>
         <li><a href="chatlog/new">New chat</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="chatlogs">Chat</a></li>
+        <li><a href="chatlogs/new">New chat</a></li>
         <% if signed_in? %>
           <hr>
           <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>

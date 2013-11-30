@@ -8,21 +8,9 @@ Livepost::Application.routes.draw do
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   root  to: 'static_pages#home'
-  match '/chatlog/new', to: 'chats#new', via: :get
-  
-  #FIX ME -- I SHOULD BE A /:id not this ugly .:id shit
-  match '/chatlog/:id', to: 'chats#show', via: :get
-  match '/chatlog.:id', to: 'chats#show', via: :get
-  match '/chatlog/:id', to: 'chats#update', via: :patch
-  match '/chatlog.:id', to: 'chats#update', via: :patch
-  #-- end FIX ME
-  
-  match '/chatlog', to: 'chats#index', via: :get
-  match '/chatlog', to: 'chats#create', via: :post
-  match '/chatlog/:id', to: 'chats#update', via: :post
-  resources :chatlog, param: :id do
+  resources :chatlogs, param: :id do
     member do
-      resources :chatpost
+      resources :chatposts
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

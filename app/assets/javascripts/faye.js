@@ -1,6 +1,6 @@
 $(function() {
-  var faye = new Faye.Client('http://localhost:9292/faye');
-  faye.subscribe('/messages/new', function (data) {
-    alert(data);
+  var faye = new Faye.Client('http://livepost-backend.herokuapp.com/faye');
+  faye.subscribe('/chatlogs/update', function (data) {
+    eval(data);
   });
 });

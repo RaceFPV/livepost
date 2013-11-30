@@ -1,0 +1,4 @@
+<% publish_to "/chatlogs/update" do %>
+$("#chatlog").append("<%= escape_javascript render('/chatposts/show') %>");
+<% end %>
+$("#newpost")[0].reset();

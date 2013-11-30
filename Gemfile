@@ -20,6 +20,7 @@ end
 
 # Use faye as the chat framework
 gem 'faye'
+gem 'private_pub'
 
 #faye depends on thin webserver
 gem 'thin'

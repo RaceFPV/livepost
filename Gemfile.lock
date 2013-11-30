@@ -52,7 +52,6 @@ GEM
       eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.2)
     faye (1.0.0)
       cookiejar (>= 0.3.0)
@@ -85,6 +84,8 @@ GEM
     pg (0.17.0)
     pg (0.17.0-x86-mingw32)
     polyglot (0.3.3)
+    private_pub (1.0.3)
+      faye
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -174,6 +175,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   pg
+  private_pub
   rails (= 4.0.0)
   rails_12factor
   rspec-rails
