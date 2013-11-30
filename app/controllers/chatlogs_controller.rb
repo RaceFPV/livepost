@@ -1,5 +1,6 @@
 class ChatlogsController < ApplicationController
-
+  require 'json'
+  
 def new
   @chatlog = Chatlog.new
 end
@@ -21,13 +22,15 @@ def update
   @chatpost[:username] = params[:chatparams][:username]
   @chatpost[:post] = params[:chatparams][:post]
   
+  @chatposts = @chatlog.chatpost.all
+  
   #redirect_to @chatlog, :flash => {:success => "Successfully sent message"}
   # stuff for ajax, not yet working
     flash[:success] = "Successfully sent message via redirect_to"
   respond_to do |format|
     if @chatpost.save
     flash[:success] = "Successfully sent message via redirect_to"
-    format.html { redirect_to @chat }
+    format.html { redirect_to @chatlog }
     format.js   {}
     format.json { render json: @chatpost, status: :created, location: @chatpost}
     end
