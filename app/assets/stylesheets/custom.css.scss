@@ -120,8 +120,3 @@ input, textarea, select, .uneditable-input {
   }
 }
 
-.field_with_errors {
-  @extend .control-group;
-  @extend .error;
-}
-
