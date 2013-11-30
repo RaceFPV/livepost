@@ -1,4 +1,4 @@
 
 
-FAYE_TOKEN = "anything_here"
+FAYE_TOKEN = "privatepub"
 
