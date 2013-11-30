@@ -8,21 +8,18 @@ gem 'bootstrap-sass', '~> 3.0.2.0'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'therubyracer'
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'therubyracer'
 end
 
 
 # Use faye as the chat framework
-gem 'faye'
 
 #faye depends on thin webserver
-gem 'thin'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
