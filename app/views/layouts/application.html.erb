@@ -11,20 +11,9 @@
 	<%= javascript_include_tag :defaults, "http://localhost:9292/faye.js" %>
   </head>
   <body>
-<<<<<<< HEAD
-	<%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
-=======
   	<%= render partial: "layouts/flash_messages", flash: flash %>
   	<%= render partial: "layouts/sidemenu"%>
     <%= yield %>
     <%= render 'layouts/footer' %>
->>>>>>> 005df61f9f27beee1bef9b0bad770d43441ea8e1
   </body>
 </html>
