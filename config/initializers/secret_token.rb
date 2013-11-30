@@ -9,23 +9,7 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-<<<<<<< HEAD
 
-def secure_token
-        token_file = Rails.root.join('.secret')
-        if File.exist?(token_file)
-                # Use the existing token.
-                File.read(token_file).chomp
-        else
-                # Generate a new token and store it in token_file
-                token = SecureRandom.hex(64)
-                File.write(token_file, token)
-                token
-        end
-end
-
-Livepost::Application.config.secret_key_base = secure_token
-=======
 require 'securerandom'
 
 def secure_token
@@ -42,4 +26,4 @@ def secure_token
 end
 
 Livepost::Application.config.secret_key_base = secure_token
->>>>>>> 06fe95945de593655dea6b1df1ec9b292e3900d9
+
