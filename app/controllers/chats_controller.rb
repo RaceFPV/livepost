@@ -22,13 +22,13 @@ def update
   @chatpost[:post] = params[:chatparams][:post]
   @chatpost.save
   
-  redirect_to @chatlog, :flash => {:success => "Successfully sent message"}
+  #redirect_to @chatlog, :flash => {:success => "Successfully sent message"}
   # stuff for ajax, not yet working
-  #  flash[:success] = "Successfully sent message"
-  #  respond_to do |format|
-  #  format.html { redirect_to chat_path(params[:chat_id]) }
-  #  format.js
-  #  end
+    flash[:success] = "Successfully sent message via redirect_to"
+    respond_to do |format|
+    format.html { redirect_to @chatlog }
+    format.js
+    end
 end
 
 def show

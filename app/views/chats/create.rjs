@@ -1,1 +1,4 @@
-page.insert_html :bottom, :reviews, :partial => 'review', :object => @review
+page.insert_html :bottom, :chatposts, :partial => 'post', :object => @chatpost
+page[:new_post].reset
+page.replace_html :success, flash[:success]
+flash.discard

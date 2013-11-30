@@ -1,38 +1,5 @@
 <h4 align="center">Chat name: <b><i><%= @chat.chatname %></i></b></h4>
 <row>
-<div class="col-md-8 col-md-offset-2" style="padding-top:5px;">
-<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-<div class="panel panel-body">
-<p class="panel-body-heading" align="center">Recent posts</p>
-<table class="table table-striped">
-<% if @chatposts.count == 0 %>
-<tr><td>
-	None
-</td></tr>
-<% else %>
-<% @chatposts.each do |x| %>
-<tr><td>
-	<%= x.username%>:
-</td><td>
-	<%= x.post %>
-</td>
-</tr>
-<% end %>
-<% end %>
-</table>
-</div>
-</div>
-</div>
-
-<div class="col-md-10 col-md-offset-1" style="padding-top:5px;">
-<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-<div class="panel panel-body">
-<%= form_for :chatparams, url: chatlog_path(@chat.id), method: :patch do |f| %>
-  <%= f.label :username, "Name:" %> <%= f.text_field :username %>
-  <%= f.label :post, "Message:" %> <%= f.text_area :post, :rows => 5 %>
-  <%= submit_tag "Send" %>
-<% end %>
-</div>
-</div>
-</div>
+<%= render 'chats/chatlog' %>
+<%= render 'chats/newpost' %>
 </row>

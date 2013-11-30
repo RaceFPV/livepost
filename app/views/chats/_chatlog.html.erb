@@ -1,0 +1,23 @@
+<div class="col-md-8 col-md-offset-2" style="padding-top:5px;">
+<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-body">
+<p class="panel-body-heading" align="center">Recent posts</p>
+<table class="table table-striped">
+<% if @chatposts.count == 0 %>
+<tr><td>
+	None
+</td></tr>
+<% else %>
+<% @chatposts.each do |x| %>
+<tr><td>
+	<%= x.username%>:
+</td><td>
+	<%= x.post %>
+</td>
+</tr>
+<% end %>
+<% end %>
+</table>
+</div>
+</div>
+</div>
