@@ -23,6 +23,7 @@ def update
   @chatpost[:post] = params[:chatparams][:post]
   
   @chatposts = @chatlog.chatpost.all
+  PrivatePub.publish_to("/chatlogs/update", "alert('alert!');")
   
   #redirect_to @chatlog, :flash => {:success => "Successfully sent message"}
   # stuff for ajax, not yet working
