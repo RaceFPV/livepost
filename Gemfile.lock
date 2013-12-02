@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ryanb/private_pub.git
+  revision: 7ad77617b1f48980d6f114bc96018f2964a07bdc
+  specs:
+    private_pub (1.0.3)
+      faye
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -29,6 +36,7 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     bootstrap-sass (3.0.2.1)
       sass (~> 3.2)
     builder (3.1.4)
@@ -52,6 +60,7 @@ GEM
       eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.2)
     faye (1.0.0)
       cookiejar (>= 0.3.0)
@@ -84,8 +93,6 @@ GEM
     pg (0.17.0)
     pg (0.17.0-x86-mingw32)
     polyglot (0.3.3)
-    private_pub (1.0.3)
-      faye
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -175,7 +182,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   pg
-  private_pub
+  private_pub!
   rails (= 4.0.0)
   rails_12factor
   rspec-rails
