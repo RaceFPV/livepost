@@ -6,7 +6,7 @@ class ChatpostsController < ApplicationController
   def create
   @chatlog = Chatlog.find(params[:id])
   @chatpost = @chatlog.chatpost.new(params[:chatpost])
-  @chatpost[:username] = params[:chatparams][:username]
+  @chatpost[:username] = User.find(params[:id]).name
   @chatpost[:post] = params[:chatparams][:post]
   
   #redirect_to @chatlog, :flash => {:success => "Successfully sent message"}
