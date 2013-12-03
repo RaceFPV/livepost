@@ -1,4 +1,5 @@
 Livepost::Application.routes.draw do
+  root to: 'static_pages#home'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   match '/help',  to: 'static_pages#help', via: 'get'
@@ -7,7 +8,6 @@ Livepost::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-  root  to: 'static_pages#home'
   resources :chatlogs, param: :id do
     member do
       resources :chatposts
