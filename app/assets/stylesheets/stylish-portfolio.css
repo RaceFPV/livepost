@@ -227,16 +227,12 @@ i.scroll:hover {
 	
   .header {
 	background-image: url('bg.jpg');
-	no-repeat;
-	center;
-	center scroll; 
+	no-repeat center center scroll; 
   }
 
   .callout {
 	background-image: url('callout.jpg');
-	no-repeat;
-	center;
-	center scroll; 
+	no-repeat center center scroll; 
   }
 
   .map {
