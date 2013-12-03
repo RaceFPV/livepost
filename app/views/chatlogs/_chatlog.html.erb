@@ -6,7 +6,7 @@
 <% else %>
 <% @chatposts.each do |x| %>
 <tr><td>
-	<%= x.username%>:
+	<%= link_to x.username, "#" %>:
 </td><td>
 	<%= x.post %>
 </td>
