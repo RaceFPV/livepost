@@ -40,6 +40,7 @@ end
 def show
   @chat = Chatlog.find(params[:id])
   @chatposts = @chat.chatpost.all
+  @users = User.all
 end
   
 def index
