@@ -19,7 +19,7 @@ end
 def update
   @chatlog = Chatlog.find(params[:id])
   @chatpost = @chatlog.chatpost.new(params[:chatpost])
-  @chatpost[:username] = params[:chatparams][:username]
+  @chatpost[:username] = current_user.name
   @chatpost[:post] = params[:chatparams][:post]
   
   @chatposts = @chatlog.chatpost.all
@@ -40,7 +40,6 @@ end
 def show
   @chat = Chatlog.find(params[:id])
   @chatposts = @chat.chatpost.all
-  
 end
   
 def index
