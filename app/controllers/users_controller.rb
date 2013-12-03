@@ -12,6 +12,10 @@ class UsersController < ApplicationController
 	end
 
 	def new
+	  #redirect if we are already signed in
+    redirect_to root_path if signed_in?
+    
+    #create a new variable to hold User params
 		@user = User.new
 	end
 

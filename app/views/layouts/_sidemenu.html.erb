@@ -11,6 +11,9 @@
           <hr>
           <li><%= link_to @current_user.name, @current_user %></li>
           <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
+        <% else %>
+        <hr>
+        <li><%= link_to "Sign In", signin_path %></li>
         <% end %>
       </ul>
     </div>
