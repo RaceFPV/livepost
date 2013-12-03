@@ -153,12 +153,40 @@ i.service-icon {
 /* Callout */
 
 .callout {
-  color: #ffffff;
   display: table;
-  height: 400px;
+  height: 100%;
   width: 100%;
+  position: relative;
   background-image: url('callout.jpg');
-  no-repeat center; 
+  no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Sign in */
+.signin {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('portfolio-4.jpg');
+  no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Sign up */
+.signup {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('portfolio-2.jpg');
+  no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

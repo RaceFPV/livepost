@@ -5012,6 +5012,19 @@ td.visible-print {
   td.hidden-print {
     display: none !important; } }
 /* mixins, variables, etc. */
+/* change the alerts style */
+.alert {
+  font-weight: bold;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  -moz-box-shadow: 3px 3px 1px 1px #CCCCCC;
+  -webkit-box-shadow: 3px 3px 1px 1px #CCCCCC;
+  box-shadow: 3px 3px 1px 1px #CCCCCC;
+  position: fixed;
+  top: 2px;
+  left: 15px; }
+
 /* universal */
 section {
   overflow: auto; }
@@ -5078,20 +5091,9 @@ aside section {
   float: left;
   margin-right: 10px; }
 
-/* miscellaneous */
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-
 /* forms */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
   padding: 10px;
   height: auto;
   margin-bottom: 15px;
@@ -5104,6 +5106,15 @@ input, textarea, select, .uneditable-input {
   #error_explanation ul {
     list-style: none;
     margin: 0 0 18px 0; }
+
+/* panels */
+.panel-footer {
+  border-top: 0 none;
+  border-bottom: 0 none;
+  background-color: #fff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 0px; }
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -6443,6 +6454,39 @@ input, textarea, select, .uneditable-input {
 .fa-plus-square-o:before {
   content: "\f196";
 }
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto; }
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px; }
+
+.form-signin .checkbox {
+  font-weight: normal; }
+
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.form-signin .form-control:focus {
+  z-index: 2; }
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
 /* Global Styles */
 
 
@@ -6450,6 +6494,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background: #eaeaea;
 }
 
 .vert-text {
@@ -6558,7 +6603,7 @@ body {
   width: 100%;
   position: relative;
   background-image: url('bg.jpg');
-  no-repeat center center fixed; 
+  no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -6598,12 +6643,40 @@ i.service-icon {
 /* Callout */
 
 .callout {
-  color: #ffffff;
   display: table;
-  height: 400px;
+  height: 100%;
   width: 100%;
+  position: relative;
   background-image: url('callout.jpg');
-  no-repeat center center fixed; 
+  no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Sign in */
+.signin {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('portfolio-4.jpg');
+  no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Sign up */
+.signup {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('portfolio-2.jpg');
+  no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -6630,7 +6703,8 @@ i.service-icon {
 .call-to-action {
   color: #ffffff;
   background: #0a5175;
-  padding: 50px 0;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .call-to-action .btn {
@@ -6671,16 +6745,12 @@ i.scroll:hover {
 	
   .header {
 	background-image: url('bg.jpg');
-	no-repeat;
-	center;
-	center scroll; 
+	no-repeat center center scroll; 
   }
 
   .callout {
 	background-image: url('callout.jpg');
-	no-repeat;
-	center;
-	center scroll; 
+	no-repeat center center scroll; 
   }
 
   .map {

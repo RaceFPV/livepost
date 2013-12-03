@@ -18,13 +18,12 @@ box-sizing: border-box;
    -moz-border-radius: 4px 4px 4px 4px;
    -webkit-border-radius: 4px 4px 4px 4px;
    border-radius: 4px 4px 4px 4px;
-   padding-right: 0px;
-   margin-bottom: 18px;
-   margin-left: 150px;
-   margin-right: 150px;
    -moz-box-shadow: 3px 3px 1px 1px #CCCCCC;
    -webkit-box-shadow: 3px 3px 1px 1px #CCCCCC;
    box-shadow: 3px 3px 1px 1px #CCCCCC;
+   position: fixed;
+   top: 2px;
+   left: 15px;
 }
 
 
