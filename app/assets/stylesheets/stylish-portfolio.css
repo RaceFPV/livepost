@@ -220,6 +220,21 @@ i.service-icon {
   background-size: cover;
 }
 
+/* Show user */
+.showuser {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('rebar.jpg');
+  no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 /* Portfolio */
 
 .portfolio {

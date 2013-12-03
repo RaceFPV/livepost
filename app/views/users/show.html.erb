@@ -1,12 +1,16 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-	<aside class="span4">
-		<section>
-			<h1>
-				<%= @user.name %>
-			</h1>
-		</section>
-		<section>
-		</section>
-	</aside>
+<% provide(:title, @user.name.titleize) %>
+<div class="showuser">
+<row>
+<div class="col-md-6 col-md-offset-3" style="margin-top: 6%;">
+<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-body">
+<h3 class="form-signin-heading" align="center"><b><%= @user.name.titleize %></b></h3>
+<%= @user.created_at.to_s.to_date %>
+<% if @user == current_user %>
+<%= link_to "Edit your profile", edit_user_path(@user) %>
+<% end %>
+</div>
+</div>
+</div>
+</row>
 </div>
