@@ -1,11 +1,6 @@
-<div class="col-md-10 col-md-offset-1" style="padding-top:5px;">
-<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-<div class="panel panel-body">
-<%= form_for :chatparams, url: chatlog_path(@chat.id),:method => :patch, :remote => true, :html => { :id => "newpost"} do |f| %>
-  <p><%= current_user.name %></p>
-  <%= f.label :post, "Message:" %> <%= f.text_area :post, :rows => 5 %>
-  <%= submit_tag "Send" %>
+<%= form_for :chatparams, class: "form-signin", url: chatlog_path(@chat.id),:method => :patch, :remote => true, :html => { :id => "newpost"} do |f| %>
+<%= f.text_area :post, :rows => 2, class: "form-control", placeholder: "Enter post" %>
+<div align="center">
+<%= submit_tag "Send", class: "btn btn-large btn-primary", style: "width: 200px;"  %>
+</div>
 <% end %>
-</div>
-</div>
-</div>

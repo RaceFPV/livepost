@@ -4,7 +4,6 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background: #eaeaea;
 }
 
 .vert-text {
@@ -186,6 +185,34 @@ i.service-icon {
   width: 100%;
   position: relative;
   background-image: url('portfolio-2.jpg');
+  no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* chat logs index */
+.chatlogs {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('traincars.jpg');
+  no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* new chat log */
+.chatlognew {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('portfolio-1.jpg');
   no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;

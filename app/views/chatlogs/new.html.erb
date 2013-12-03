@@ -1,12 +1,18 @@
+<% provide(:title, "New Chat") %>
+<div class="chatlognew">
 <row>
-<div class="col-md-6 col-md-offset-3" style="padding-top:5px;">
+<div class="col-md-6 col-md-offset-3" style="padding-top:5px;margin-top: 10%;">
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
-<%= form_for :chatparams, url: @chatlog do |f| %>
-  <%= f.label :chatname, "Chat name:" %> <%= f.text_field :chatname %>
-  <%= submit_tag "Create" %>
+<h1 class="form-signin-heading"><b>New Chat</b></h1>
+<%= form_for :chatparams, url: @chatlog, class: "form-signin" do |f| %>
+  <%= f.text_field :chatname, class: "form-control", placeholder: "New chat name" %>
+  <div align="center">
+  <%= submit_tag "Create", class: "btn btn-large btn-primary", style: "width: 200px;"  %>
+  </div>
 <% end %>
 </div>
 </div>
 </div>
 </row>
+</div>

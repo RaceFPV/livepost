@@ -1,11 +1,7 @@
-<div class="col-md-8 col-md-offset-2" style="padding-top:5px;">
-<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-<div class="panel panel-body">
-<p class="panel-body-heading" align="center">Recent posts</p>
 <table class="table table-striped" id="chatlog">
 <% if @chatposts.count == 0 %>
 <tr><td>
-	None
+	No posts
 </td></tr>
 <% else %>
 <% @chatposts.each do |x| %>
@@ -18,6 +14,3 @@
 <% end %>
 <% end %>
 </table>
-</div>
-</div>
-</div>
