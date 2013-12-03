@@ -10,6 +10,10 @@
 			<%= render 'shared/error_messages', object: f.object %>
 			<%= f.text_field :name, class: "form-control", placeholder: "Your name" %>
 			<%= f.text_field :email, class: "form-control", placeholder: "Email Address" %>
+			<div>
+			<%= gravatar_for @user %>
+			<a href="http://gravatar.com/emails">Change avatar</a>
+			</div>
 			<br>
 			<p align="center">Change your password:</p>
 			<%= f.password_field :password, class: "form-control", placeholder: "Password" %>

@@ -11,7 +11,7 @@
 	<% @postuser = y %>
 	<% end %>
 	<% end %>
-	<%= link_to x.username, @postuser %>:
+	<%= gravatar_for @postuser %><%= link_to x.username, @postuser %>:
 </td><td>
 	<%= x.post %>
 </td>

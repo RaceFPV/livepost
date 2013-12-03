@@ -5,7 +5,8 @@
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
 <h3 class="form-signin-heading" align="center"><b><%= @user.name.titleize %>'s profile</b></h3>
-<%= @user.created_at.to_s.to_date %>
+<%= gravatar_for @user %>
+<p>Profile created on: <%= @user.created_at.to_s.to_date %></p>
 <% if @user == current_user %>
 <%= link_to "Edit your profile", edit_user_path(@user) %>
 <% end %>
