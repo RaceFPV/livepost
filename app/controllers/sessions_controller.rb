@@ -18,5 +18,5 @@ class SessionsController < ApplicationController
 		redirect_to root_url
 	end
 	
-  skip_before_filter :require_login, :only => [:new, :create, :root_path]
+  skip_before_filter :require_login, :only => [:new, :create]
 end
