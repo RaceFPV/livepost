@@ -4,6 +4,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background-color: #eaeaea;
 }
 
 .vert-text {
@@ -184,7 +185,8 @@ i.service-icon {
 .call-to-action {
   color: #ffffff;
   background: #0a5175;
-  padding: 50px 0;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .call-to-action .btn {

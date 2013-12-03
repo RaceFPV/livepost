@@ -108,23 +108,10 @@ aside {
   margin-right: 10px;
 }
 
-
-
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
 /* forms */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
   padding: 10px;
   height: auto;
   margin-bottom: 15px;
@@ -138,6 +125,17 @@ input, textarea, select, .uneditable-input {
     
   }
 }
+
+/* panels */
+.panel-footer{
+  border-top: 0 none;
+  border-bottom: 0 none;
+  background-color: #fff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 0px;
+}
+
 
 .field_with_errors {
   @extend .control-group;
