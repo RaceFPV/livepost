@@ -18,7 +18,7 @@ module SessionsHelper
   #Don't allow someone access to a page before they login
   def require_login
    if ! signed_in?
-     redirect_to signin_path, :flash => { :alert => "You must be logged in to access this section" }
+     redirect_to signin_url, notice: "Please sign in."
    end
   end
 
