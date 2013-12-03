@@ -15,6 +15,7 @@
 			<%= f.password_field :password, class: "form-control", placeholder: "Password" %>
 			<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
 			<div align="center">
+			<%= link_to "Cancel", @user, style: "margin-right: 50px;" %>
 			<%= f.submit "Update", class: "btn btn-large btn-primary" %>
 			</div>
 		<% end %>
