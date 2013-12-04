@@ -1,6 +1,7 @@
 <tr>
 <td>
-<%= @chatpost.username %>:
+
+	<%= gravatar_for @chatpost %><%= link_to @chatpost.username, @chatpost %>:<%= @chatpost.username %>:
 </td><td>
 <%= @chatpost.post %>
 </td>
