@@ -198,7 +198,7 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('traincars.jpg');
+  background-image: url('pillars.jpg');
   no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -212,13 +212,28 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('crane.jpg');
+  background-image: url('sticks.jpg');
   no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+
+/* current chat log */
+.chatlog {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('brick.jpg');
+  no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 
 /* Show user */
 .showuser {
