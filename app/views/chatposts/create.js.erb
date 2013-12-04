@@ -1,4 +1,5 @@
 <% publish_to '/chatlogs/#{@chat.id}/chatposts/create' do %>
 $("#chatlog").append("<%= j render('/chatposts/show') %>");
 <% end %>
+$("#chatlog").append("<%= j render('/chatposts/show') %>");
 $("#newpost")[0].reset();
