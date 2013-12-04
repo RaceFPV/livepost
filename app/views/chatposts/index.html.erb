@@ -7,6 +7,7 @@
 <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
 <%= render 'chatposts/chatlog' %>
 <%= subscribe_to '/chatlogs/#{@chat.id}/chatposts/create' %>
+<%= @chat.id %>
 </div>
 </div>
 </div>
