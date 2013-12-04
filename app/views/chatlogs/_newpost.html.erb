@@ -1,4 +1,4 @@
-<%= form_for :chatparams, class: "form-signin", url: chatposts_path(@chat.id),:method => :patch, :remote => true, :html => { :id => "newpost"} do |f| %>
+<%= form_for :chatparams, class: "form-signin", url: chatposts_path(@chat.id),:method => :post, :remote => true, :html => { :id => "newpost"} do |f| %>
 <%= f.text_area :post, :rows => 2, class: "form-control", placeholder: "Enter post" %>
 <div align="center">
 <%= submit_tag "Send", class: "btn btn-large btn-primary", style: "width: 200px;"  %>
