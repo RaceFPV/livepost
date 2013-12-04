@@ -10,8 +10,7 @@
 	<% if y.name == x.username %>
 	<% @postuser = y %>
 	<% end %>
-	<% end %>
-	<%= gravatar_for @postuser %><%= link_to x.username, @postuser %>:
+	<% end %><%= link_to x.username, @postuser %>:
 </td><td>
 	<%= x.post %>
 </td>
