@@ -1,6 +1,6 @@
 class ChatpostsController < ApplicationController
 
-def update
+def create
   @chatlog = Chatlog.find(params[:id])
   @chatpost = @chatlog.chatpost.new(params[:chatpost])
   @chatpost[:username] = current_user.name
