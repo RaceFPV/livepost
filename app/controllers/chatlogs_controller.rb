@@ -24,10 +24,11 @@ def update
   @chat = @chatlog
   @chatsubscribe = "/chatlog/#{@chat.id}/update" 
   @chatshow = "/chatposts/show"
-  PrivatePub.publish_to(@chatsubscribe, render(@chatshow))
   @chatposts = @chatlog.chatpost.all
   respond_to do |format|
     if @chatpost.save
+      
+  PrivatePub.publish_to(@chatsubscribe, render(@chatshow))
     flash[:success] = "Successfully sent message"
     format.html { redirect_to @chatlog }
     format.js   {}
