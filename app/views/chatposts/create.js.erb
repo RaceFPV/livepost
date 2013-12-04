@@ -1,5 +1,7 @@
 <% @chatsubscribe = "/chatlog/#{@chat.id}/create" %>
+<% @chatshow = "/chatposts/show" %>
 <% publish_to @chatsubscribe do %>
-$("#chatlog").append("<%= j render('/chatposts/show') %>");
+$('##{dom_id @chatshow').remove();
+$("#chatlog").append("<%= j render(@chatshow) %>");
 <% end %>
 $("#newpost")[0].reset();
