@@ -14,7 +14,7 @@ def create
     format.html { redirect_to @chatlog }
     format.js   {}
     end
-    end
+   end
 end
 
 def show
