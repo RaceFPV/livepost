@@ -25,4 +25,9 @@ def show
   @chatlog = Chatlog.find(params[:id])
   @chatpost = @chatlog.chatpost.new(params[:chatpost])
 end
+
+def index
+  @chats = Chatlog.all
+end
+
 end
