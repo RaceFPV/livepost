@@ -27,8 +27,6 @@ def update
   @chatposts = @chatlog.chatpost.all
   respond_to do |format|
     if @chatpost.save
-      
-  PrivatePub.publish_to(@chatsubscribe, render(@chatshow))
     flash[:success] = "Successfully sent message"
     format.html { redirect_to @chatlog }
     format.js   {}
