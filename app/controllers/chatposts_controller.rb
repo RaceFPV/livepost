@@ -9,7 +9,6 @@ class ChatpostsController < ApplicationController
   @chatpost = @chatlog.chatpost.new(params[:chatpost])
   @chatpost[:username] = current_user.name
   @chatpost[:post] = params[:chatparams][:post]
-  @chat = @chatlog
   
   @chatposts = @chatlog.chatpost.all
   
