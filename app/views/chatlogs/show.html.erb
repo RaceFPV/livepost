@@ -6,7 +6,7 @@
 <div class="panel panel-body">
 <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
 <%= render 'chatlogs/chatlog' %>
-<%= subscribe_to '/chatlog/#{@chat.id}/update' %>
+<%= subscribe_to '/chatlogs/#{@chat.id}/chatposts/update' %>
 </div>
 </div>
 </div>
