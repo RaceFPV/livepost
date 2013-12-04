@@ -1,0 +1,12 @@
+<tr>
+<td>
+	<% User.all.each do |x|%>
+	<% if x.name == @chatpost.username %>
+	<% @postuser = x %>
+	<% end %>
+	<% end %>
+	<%= gravatar_for @postuser %><%= link_to @chatpost.username, @postuser %>:
+</td><td>
+<%= @chatpost.post %>
+</td>
+</tr>
