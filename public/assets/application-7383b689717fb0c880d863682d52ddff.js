@@ -10606,9 +10606,6 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 }).call(this);
 $(function() {
   var faye = new Faye.Client('http://localhost:9292/faye');
-  faye.subscribe('/chatlogs/update', function (data) {
-    eval(data);
-  });
 });
 function buildPrivatePub(doc) {
   var self = {
@@ -10682,16 +10679,6 @@ function buildPrivatePub(doc) {
 }
 
 var PrivatePub = buildPrivatePub(document);
-(function() {
-  $(document).ready(function() {
-    return $("#new_post").on("ajax:success", function(e, data, status, xhr) {
-      return $("#new_post").append(xhr.responseText);
-    }).bind("ajax:error", function(e, xhr, status, error) {
-      return $("#new_post").append("<p>ERROR</p>");
-    });
-  });
-
-}).call(this);
 (function() {
 
 
