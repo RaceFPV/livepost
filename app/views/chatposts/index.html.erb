@@ -1,19 +1,19 @@
-<% provide(:title, "All Chats") %>
-<div class="chatlogs">
+<% provide(:title, @chat.chatname.titleize) %>
+<div class="chatlog">
 <row>
-<div class="col-md-10 col-md-offset-1" style="padding-top:5px;margin-top: 3%;">
+<div class="col-md-6 col-md-offset-3" style="margin-top: 6%;">
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
-<h1 class="form-signin-heading"><b>Active chats</b></h1>
-<table class="table table-striped table-condensed">
-	<% if @chats.count == 0%>
-	<tr><td>No Chats active, create a <a href="chatlogs/new">new chat</a>?</td></tr>
-	<% end %>
-	<% @chats.each do |chat|%>
-  <tr><td><%= link_to "#{chat.chatname.titleize}", chat, style: "margin-right: 20px;" %> Started on: <%= chat.created_at.to_s.to_datetime.strftime('%H:%M %D') %></td></tr>
-	<% end %>
-</table>
-<p style="margin-top: 50px; border-top: solid">Create a <a href="chatlogs/new">new chat</a></p>
+<h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
+<%= render 'chatlogs/chatlog' %>
+<%= subscribe_to '/chatlogs/#{params[:id]}/chatposts' %>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-md-offset-3" style="padding-top:5px;margin-top: 2%;">
+<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-body">
+<%= render 'chatlogs/newpost' %>
 </div>
 </div>
 </div>
