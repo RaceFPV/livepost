@@ -1,11 +1,11 @@
 <tr>
 <td>
-	<% @users.each do |x|%>
+	<% User.all.each do |x|%>
 	<% if x.name == @chatpost.username %>
 	<% @postuser = x %>
 	<% end %>
 	<% end %>
-	<%= gravatar_for @postuser %><%= link_to x.username, @postuser %>:
+	<%= gravatar_for @postuser %><%= link_to @chatpost.username, @postuser %>:
 </td><td>
 <%= @chatpost.post %>
 </td>
