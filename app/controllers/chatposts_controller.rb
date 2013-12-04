@@ -9,7 +9,7 @@ def create
   
   @chatposts = @chatlog.chatpost.all
   respond_to do |format|
-    if @chatpost.save
+    if @chatpost.save and @chatpost != nil
     flash[:success] = "Successfully sent message"
     format.html { redirect_to @chatlog }
     format.js   {}
