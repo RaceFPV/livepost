@@ -24,7 +24,7 @@ def update
   @chat = @chatlog
   @chatsubscribe = "/chatlog/#{@chat.id}/update" 
   @chatshow = "/chatposts/show"
-  PrivatePub.publish_to(@chatsubscribe, "alert('done');")
+  PrivatePub.publish_to(@chatsubscribe, render(@chatshow))
   @chatposts = @chatlog.chatpost.all
   respond_to do |format|
     if @chatpost.save
