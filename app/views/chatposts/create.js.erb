@@ -4,4 +4,13 @@ $("#chatlog").append("<%= j render('/chatposts/show') %>");
 <% publish_to "/chatlogs/6/create" do %>
 $("#chatlog").append("<%= j render('/chatposts/show') %>");
 <% end %>
+<% publish_to "/chatlogs/6" do %>
+$("#chatlog").append("<%= j render('/chatposts/show') %>");
+<% end %>
+<% publish_to "/chatlog/6" do %>
+$("#chatlog").append("<%= j render('/chatposts/show') %>");
+<% end %>
+<% publish_to "/chatlog/6/create" do %>
+$("#chatlog").append("<%= j render('/chatposts/show') %>");
+<% end %>
 $("#newpost")[0].reset();

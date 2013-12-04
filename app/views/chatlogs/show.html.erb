@@ -8,6 +8,10 @@
 <%= render 'chatlogs/chatlog' %>
 <%= subscribe_to '/chatlogs/#{@chat.id}/create' %>
 <%= subscribe_to '/chatlogs/#{@chat.id}/chatposts/create' %>
+<%= subscribe_to '/chatlogs/#{@chat.id}/chatposts/create' %>
+<%= subscribe_to '/chatlogs/6' %>
+<%= subscribe_to '/chatlog/6' %>
+<%= subscribe_to '/chatlog/6/create' %>
 </div>
 </div>
 </div>
