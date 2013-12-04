@@ -5,6 +5,7 @@ def create
   @chatpost = @chatlog.chatpost.new(params[:chatpost])
   @chatpost[:username] = current_user.name
   @chatpost[:post] = params[:chatparams][:post]
+  @users = User.all
   @chat = @chatlog
   
   @chatposts = @chatlog.chatpost.all
