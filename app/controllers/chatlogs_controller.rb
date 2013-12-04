@@ -22,7 +22,9 @@ def update
   @chatpost[:username] = current_user.name
   @chatpost[:post] = params[:chatparams][:post]
   @chat = @chatlog
-  
+  @chatsubscribe = "/chatlog/#{@chat.id}/update" 
+  @chatshow = "/chatposts/show"
+  PrivatePub.publish_to(@chatsubscribe, "alert('done');")
   @chatposts = @chatlog.chatpost.all
   respond_to do |format|
     if @chatpost.save
