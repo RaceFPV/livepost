@@ -6,11 +6,7 @@
 <% else %>
 <% @chatposts.each do |x| %>
 <tr><td>
-	<% @users.each do |y|%>
-	<% if y.name == x.username %>
-	<% @postuser = y %>
-	<% end %>
-	<% end %><%= link_to x.username, @postuser %>:
+	<%= x.username %>:
 </td><td>
 	<%= x.post %>
 </td>
