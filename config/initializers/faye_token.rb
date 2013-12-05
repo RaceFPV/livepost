@@ -1,1 +1,1 @@
-FAYE_TOKEN = "secret"
+FAYE_TOKEN = "privatepub"
