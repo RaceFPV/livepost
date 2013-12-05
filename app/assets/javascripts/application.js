@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require private_pub
 //= require chatlogs
-//= require boostrap
+//= require bootstrap
 //= require_tree .
