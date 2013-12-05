@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require private_pub
 //= require chatlogs
 //= require boostrap
