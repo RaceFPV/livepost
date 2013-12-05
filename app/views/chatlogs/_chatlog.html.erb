@@ -1,22 +1,25 @@
-<table class="table table-striped" id="chatlog" height="300px">
+<table id="chatlog" height="300px">
 <% if @chatposts.count == 0 %>
 <tr><td>
 	No posts
 </td></tr>
 <% else %>
 <% @chatposts.each do |x| %>
-<tr><td>
+<tr><td height="70px">
 	<% @users.each do |y|%>
 	<% if y.name == x.username %>
 	<% @postuser = y %>
 	<% end %>
 	<% end %>
-	<%= gravatar_for @postuser %><%= link_to x.username, @postuser %>:
-</td><td>
+	<%= gravatar_for @postuser %><%= link_to x.username, @postuser %>
+	<div class="popover fade right in" style="display: inline-block; position: relative;">
+	<div class="arrow"></div>
+	<div class="popover-content">
 	<%= x.post %>
-</td>
+	</div>
+	</div>
+	</td>
 </tr>
-<!-- -->
 <% end %>
 <% end %>
 </table>

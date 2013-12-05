@@ -3,4 +3,8 @@
 <% publish_to @chatsubscribe do %>
 $("#chatlog").append("<%= j render(@chatshow) %>");
 <% end %>
+$(document).ready(function(){
+var objDiv = document.getElementById("chatscroll");
+objDiv.scrollTop = objDiv.scrollHeight;
+});
 $("#newpost")[0].reset();
