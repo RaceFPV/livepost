@@ -3,7 +3,7 @@ development:
   secret_token: "secret"
 test:
   server: "http://localhost:9292/faye"
-  secret_token: "privatepub"
+  secret_token: "secret"
 production:
   server: "http://livepost-backend.herokuapp.com/faye"
   secret_token: "privatepub"
