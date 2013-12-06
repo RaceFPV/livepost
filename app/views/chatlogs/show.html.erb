@@ -8,7 +8,6 @@
 <div style="height: 350px; overflow-y: auto;" id ="chatscroll">
 <%= render 'chatlogs/chatlog' %>
 </div>
-<% @chatsubscribe = "/chatlog/#{@chat.id}/update" %>
 <%= subscribe_to @chatsubscribe %>
 </div>
 </div>

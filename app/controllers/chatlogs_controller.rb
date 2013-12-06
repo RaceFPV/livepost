@@ -22,8 +22,6 @@ def update
   @chatpost[:username] = current_user.name
   @chatpost[:post] = params[:chatparams][:post]
   @chat = @chatlog
-  @chatsubscribe = "/chatlog/#{@chat.id}/update" 
-  @chatshow = "/chatposts/show"
   @chatposts = @chatlog.chatpost.all
   respond_to do |format|
     if @chatpost.save
@@ -38,6 +36,9 @@ end
 def show
   @chat = Chatlog.find(params[:id])
   @chatposts = @chat.chatpost.all
+  
+  @chatsubscribe = "/chatlog/#{@chat.id}/update" 
+  @chatshow = "/chatposts/show"
   @users = User.all
 end
   
