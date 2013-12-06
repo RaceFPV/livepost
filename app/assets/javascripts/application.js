@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require turbolinks
 //= require sidebar
+//= require_tree .
