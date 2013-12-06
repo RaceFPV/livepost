@@ -15,3 +15,4 @@
 //= require chatlogs
 //= require bootstrap
 //= require turbolinks
+//= require sidebar
