@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require turbolinks
 //= require private_pub
+//= require sidebar
 //= require_tree .
