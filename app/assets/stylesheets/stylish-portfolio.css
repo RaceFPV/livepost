@@ -112,7 +112,8 @@ body {
   width: 100%;
   position: relative;
   background-image: url('bg.jpg');
-  no-repeat center;
+  background-repeat: no-repeat;
+  backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -157,7 +158,8 @@ i.service-icon {
   width: 100%;
   position: relative;
   background-image: url('callout.jpg');
-  no-repeat center;
+  background-repeat: no-repeat;
+  backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -171,7 +173,8 @@ i.service-icon {
   width: 100%;
   position: relative;
   background-image: url('chain.jpg');
-  no-repeat center;
+  background-repeat: no-repeat;
+  backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -185,7 +188,8 @@ i.service-icon {
   width: 100%;
   position: relative;
   background-image: url('cones.jpg');
-  no-repeat center;
+  background-repeat: no-repeat;
+  backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -199,7 +203,8 @@ i.service-icon {
   width: 100%;
   position: relative;
   background-image: url('pillars.jpg');
-  no-repeat center;
+  background-repeat: no-repeat;
+  backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -213,7 +218,8 @@ i.service-icon {
   width: 100%;
   position: relative;
   background-image: url('sticks.jpg');
-  no-repeat center;
+  background-repeat: no-repeat;
+  backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -227,7 +233,8 @@ i.service-icon {
   width: 100%;
   position: relative;
   background-image: url('brick.jpg');
-  no-repeat center;
+  background-repeat: no-repeat;
+  backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -242,7 +249,8 @@ i.service-icon {
   width: 100%;
   position: relative;
   background-image: url('rebar.jpg');
-  no-repeat center;
+  background-repeat: no-repeat;
+  backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -312,12 +320,14 @@ i.scroll:hover {
 	
   .header {
 	background-image: url('bg.jpg');
-	no-repeat center center scroll; 
+  background-repeat: no-repeat;
+  backround-position: center;
   }
 
   .callout {
 	background-image: url('callout.jpg');
-	no-repeat center center scroll; 
+  background-repeat: no-repeat;
+  backround-position: center;
   }
 
   .map {
