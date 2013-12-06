@@ -137,9 +137,3 @@ input, textarea, select, .uneditable-input {
   padding-top: 0px;
 }
 
-
-.field_with_errors {
-  @extend .control-group;
-  @extend .error;
-}
-
