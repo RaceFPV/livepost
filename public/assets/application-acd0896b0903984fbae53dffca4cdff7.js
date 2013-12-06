@@ -9788,16 +9788,6 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 }
 
 })( window );
-$(document).ready(function(){
-var objDiv = document.getElementById("chatscroll");
-objDiv.scrollTop = objDiv.scrollHeight;
-});
-
-$(function() {
-	$('[data-toggle="popover-right"]').popover({'show','placement': 'right', html: 'true'});
-	$('[data-toggle="popover-bottom"]').popover({'placement': 'bottom', html: 'true'});
-	$('[data-toggle="popover-top"]').popover({trigger: 'hover', 'placement': 'top'});
-});
 /* ========================================================================
  * Bootstrap: affix.js v3.0.2
  * http://getbootstrap.com/javascript/#affix
@@ -12298,14 +12288,45 @@ function buildPrivatePub(doc) {
 
 var PrivatePub = buildPrivatePub(document);
 $(document).ready(function(){
-  $("#menu-toggle").click(function(){
-    $("div").toggleClass("active");
-  });
+var objDiv = document.getElementById("chatscroll");
+objDiv.scrollTop = objDiv.scrollHeight;
+});
+
+$(function() {
+	$('[data-toggle="popover-right"]').popover({'show','placement': 'right', html: 'true'});
+	$('[data-toggle="popover-bottom"]').popover({'placement': 'bottom', html: 'true'});
+	$('[data-toggle="popover-top"]').popover({trigger: 'hover', 'placement': 'top'});
 });
 (function() {
 
 
 }).call(this);
+$(document).ready(function(){
+        $("#menu-close").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });});
+$(document).ready(function(){
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        });
+      $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
+          }
+        });
+});
 (function() {
 
 
@@ -12326,8 +12347,6 @@ $(document).ready(function(){
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-
 
 
 
