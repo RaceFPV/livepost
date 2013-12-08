@@ -12,10 +12,10 @@
 	</tr>
 </thead>
 <tbody>
-<div style="height: 350px; overflow-y: auto;" id ="chatscroll">
 <div id="chatlog">
 <% @chatposts.each do |x| %>
-<tr><td height="70px">
+<tr>
+	<td height="70px">
 	<% @users.each do |y|%>
 	<% if y.name == x.username %>
 	<% @postuser = y %>
@@ -31,7 +31,6 @@
 	</td>
 </tr>
 <% end %>
-</div>
 </div>
 </tbody>
 <% end %>
