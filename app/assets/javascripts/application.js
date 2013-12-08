@@ -15,6 +15,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap3
 //= require bootstrap
+//= require datatables
 //= require turbolinks
 //= require private_pub
 //= require sidebar
