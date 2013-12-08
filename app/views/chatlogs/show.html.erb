@@ -8,7 +8,6 @@
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
 <div class="panel panel-body">
-<div style="height: 350px; overflow-y: auto;" id ="chatscroll">
 <%= render 'chatlogs/chatlog' %>
 </div>
 <% @chatsubscribe = "/chatlog/#{@chat.id}/update" %>
