@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require chatlogs
 //= require bootstrap
 //= require turbolinks
 //= require sidebar
-//= require_tree .
