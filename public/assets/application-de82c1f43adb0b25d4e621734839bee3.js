@@ -24444,6 +24444,7 @@ if ( $.fn.DataTable.TableTools ) {
  $(function() {
     $('#datatable').dataTable( {
     	 "bPaginate": false
+    	 "bSort": false
     });
   } );
 (function() {
