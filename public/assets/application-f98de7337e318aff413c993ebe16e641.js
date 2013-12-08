@@ -24443,7 +24443,7 @@ if ( $.fn.DataTable.TableTools ) {
 	
  $(function() {
     $('#datatable').dataTable( {
-    	 "iDisplayLength": 99999
+    	 "bPaginate": false
     });
   } );
 (function() {
