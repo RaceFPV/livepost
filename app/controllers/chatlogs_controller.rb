@@ -9,6 +9,8 @@ end
 def create
   @chatlog = Chatlog.new(params[:chatlog])
   @chatlog[:chatname] = params[:chatparams][:chatname]
+  @chatlog[:administrators] = [nil]
+  @chatlog[:administrators] << current_user.email
   if @chatlog.save
   redirect_to @chatlog, :flash => {:success => "Successfully created chat" }
   else
@@ -36,7 +38,6 @@ end
 def show
   @chat = Chatlog.find(params[:id])
   @chatposts = @chat.chatpost.all
-  
   @chatsubscribe = "/chatlog/#{@chat.id}/update" 
   @chatshow = "/chatposts/show"
   @users = User.all
