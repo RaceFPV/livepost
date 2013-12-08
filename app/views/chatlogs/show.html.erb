@@ -4,7 +4,7 @@
 <% end %>
 <div class="chatlog">
 <row>
-<div class="col-md-10 col-md-offset-1" style="margin-top: 3%;">
+<div class="col-sm-8 col-sm-offset-1" style="margin-top: 3%;">
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
 <div class="panel panel-body">
@@ -16,7 +16,19 @@
 </div>
 </div>
 </div>
-<div class="col-md-6 col-md-offset-3" style="padding-top:5px;margin-top: 2%;">
+<div class="col-sm-3" style="margin-top: 3%;">
+<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+<h3 class="form-signin-heading" align="center"><b>Users</b></h3>
+<div class="panel panel-body">
+	<div style="height: 350px; overflow-y: auto;" align="center">
+<% @usershere.each do |x|%>
+<p><%= link_to x.name, x %></p>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-8 col-sm-offset-2" style="padding-top:5px;margin-top: 2%;">
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
 <%= render 'chatlogs/newpost' %>

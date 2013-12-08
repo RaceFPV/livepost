@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208175431) do
+ActiveRecord::Schema.define(version: 20131208214512) do
 
   create_table "chatlogs", force: true do |t|
     t.text     "chatname"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20131208175431) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.datetime "lastseen"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

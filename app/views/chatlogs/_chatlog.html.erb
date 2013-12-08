@@ -5,6 +5,7 @@
 </td></tr>
 <% else %>
 <% @chatposts.each do |x| %>
+<% if x != nil %>
 <tr><td height="70px" width="95%">
 	<% @users.each do |y|%>
 	<% if y.name == x.username %>
@@ -29,6 +30,7 @@
 	<% end %>
 	<% end %>
 </tr>
+<% end %>
 <% end %>
 <% end %>
 </table>

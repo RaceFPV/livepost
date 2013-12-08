@@ -40,6 +40,8 @@ def show
   @chatsubscribe = "/chatlog/#{@chat.id}/update" 
   @chatshow = "/chatposts/show"
   @users = User.all
+  current_user.update_attribute(:lastseen, DateTime.now)
+  @usershere = User.find :all, :conditions => ["lastseen > ?",5.minutes.ago.to_s(:db)]
 end
   
 def index
