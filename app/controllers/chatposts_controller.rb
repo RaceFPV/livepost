@@ -26,7 +26,11 @@ def destroy
     @chatpost = @chatlog.chatpost.find(params[:id])
     @chatpost.destroy
     flash[:success] = "Post deleted."
-    redirect_to @chatlog
+    #redirect_to @chatlog
+      respond_to do |format|
+    format.html { redirect_to @chatlog }
+    format.js   {}
+    end
 end
 
 end
