@@ -1,5 +1,7 @@
 <% provide(:title, @chat.chatname.titleize) %>
+<% content_for :header do %>
 <%= javascript_include_tag "chatlogs" %>
+<% end %>
 <div class="chatlog">
 <row>
 <div class="col-md-8 col-md-offset-2" style="margin-top: 3%;">
