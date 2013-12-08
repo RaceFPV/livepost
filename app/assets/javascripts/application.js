@@ -16,3 +16,4 @@
 //= require turbolinks
 //= require private_pub
 //= require sidebar
+//= require popovers
