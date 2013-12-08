@@ -21,6 +21,13 @@
 	<td>
 	<p style="float: right;" class="small"><%= x.created_at.to_datetime.strftime('%H:%M %D')  %></p>
 	</td>
+	<% @chat.administrators.each do |z| %>
+	<% if z == current_user.email %>
+		<td>
+			<%= link_to "", chatlog_chatpost_path(@chat, x), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float: right;margin-right:10px;padding-left: 0px;margin-left:25px;" %>
+		</td>
+	<% end %>
+	<% end %>
 </tr>
 <% end %>
 <% end %>

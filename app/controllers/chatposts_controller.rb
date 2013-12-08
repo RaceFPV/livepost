@@ -21,5 +21,12 @@ def show
   @chatlog = Chatlog.find(params[:id])
 end
 
+def destroy
+    @chatlog = Chatlog.find(params[:chatlog_id])
+    @chatpost = @chatlog.chatpost.find(params[:id])
+    @chatpost.destroy
+    flash[:success] = "Post deleted."
+    redirect_to @chatlog
+end
 
 end
