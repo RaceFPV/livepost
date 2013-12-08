@@ -1,5 +1,4 @@
 <table id="datatable">
-<div id="chatlog">
 <% if @chatposts.count == 0 %>
 <tr><td>
 	No posts
@@ -13,6 +12,7 @@
 	</tr>
 </thead>
 <tbody>
+<div id="chatlog">
 <% @chatposts.each do |x| %>
 <tr>
 	<td height="70px">
@@ -31,7 +31,7 @@
 	</td>
 </tr>
 <% end %>
+</div>
 </tbody>
 <% end %>
-</div>
 </table>
