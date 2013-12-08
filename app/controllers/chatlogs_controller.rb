@@ -9,8 +9,7 @@ end
 def create
   @chatlog = Chatlog.new(params[:chatlog])
   @chatlog[:chatname] = params[:chatparams][:chatname]
-  @chatlog[:administrators] = [nil]
-  @chatlog[:administrators] << current_user.email
+  @chatlog[:administrators] = [nil, current_user.email]
   if @chatlog.save
   redirect_to @chatlog, :flash => {:success => "Successfully created chat" }
   else
