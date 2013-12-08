@@ -5,7 +5,7 @@
 </td></tr>
 <% else %>
 <% @chatposts.each do |x| %>
-<tr><td height="70px">
+<tr><td height="70px" width="95%">
 	<% @users.each do |y|%>
 	<% if y.name == x.username %>
 	<% @postuser = y %>
@@ -18,6 +18,8 @@
 	<%= x.post %>
 	</div>
 	</div>
+	<td>
+	<p style="float: right;" class="small"><%= x.created_at.to_datetime.strftime('%H:%M %D')  %></p>
 	</td>
 </tr>
 <% end %>
