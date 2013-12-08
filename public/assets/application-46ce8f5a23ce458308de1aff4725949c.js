@@ -24441,12 +24441,14 @@ if ( $.fn.DataTable.TableTools ) {
 
 
 // allow searching the chatlogs	
- $(function() {
-    $('#datatable').dataTable( {
-    	 "bPaginate": false
-   		 "aaSorting": []
-    });
-  } );
+$(document).ready( function() {
+  $('#datatable').dataTable({
+  	"bPaginate": false
+    "aaSorting": []
+    "bSort": false
+});
+})
+;
 (function() {
   var CSRFToken, anchoredLink, browserCompatibleDocumentParser, browserIsntBuggy, browserSupportsPushState, cacheCurrentPage, cacheSize, changePage, constrainPageCacheTo, createDocument, crossOriginLink, currentState, executeScriptTags, extractLink, extractTitleAndBody, fetchHistory, fetchReplacement, handleClick, ignoreClick, initializeTurbolinks, installClickHandlerLast, loadedAssets, noTurbolink, nonHtmlLink, nonStandardClick, pageCache, pageChangePrevented, pagesCached, processResponse, recallScrollPosition, referer, reflectNewUrl, reflectRedirectedUrl, rememberCurrentState, rememberCurrentUrl, removeHash, removeNoscriptTags, requestMethod, requestMethodIsSafe, resetScrollPosition, targetLink, triggerEvent, visit, xhr, _ref,
     __hasProp = {}.hasOwnProperty,
