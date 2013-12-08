@@ -25,6 +25,9 @@ gem 'private_pub'
 #faye depends on thin webserver
 gem 'thin'
 
+#Use jquery-datatables to quickly sort table data
+gem 'jquery-datatables-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

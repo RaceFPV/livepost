@@ -1,4 +1,6 @@
-<table id="chatlog" height="300px">
+<table id="datatable" height="300px">
+<div id="chatlog">
+<tbody>
 <% if @chatposts.count == 0 %>
 <tr><td>
 	No posts
@@ -22,4 +24,6 @@
 </tr>
 <% end %>
 <% end %>
+</tbody>
+</div>
 </table>
