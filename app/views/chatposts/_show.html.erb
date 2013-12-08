@@ -1,5 +1,5 @@
 <tr>
-<td height="70px">
+<td height="70px" width="95%">
 	<% User.all.each do |x|%>
 	<% if x.name == @chatpost.username %>
 	<% @postuser = x %>
@@ -12,5 +12,8 @@
 	<%= @chatpost.post %>
 	</div>
 	</div>
+</td>
+<td>
+<p style="float: right;" class="small"><%= @chatpost.created_at.to_datetime.strftime('%H:%M %D')  %></p>
 </td>
 </tr>
