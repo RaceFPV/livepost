@@ -46,4 +46,10 @@ def index
   @chats = Chatlog.all
 end
 
+def destroy
+    Chatlog.find(params[:id]).destroy
+    flash[:success] = "Chat deleted."
+    redirect_to chatlogs_path
+end
+
 end
