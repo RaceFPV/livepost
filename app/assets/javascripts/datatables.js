@@ -1,6 +1,6 @@
 	
  $(function() {
     $('#datatable').dataTable( {
-    	 "iDisplayLength": 99999
+    	 "bPaginate": false
     });
   } );
