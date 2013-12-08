@@ -24440,6 +24440,13 @@ if ( $.fn.DataTable.TableTools ) {
 
 
 
+	
+ $(function() {
+    $('#datatable').dataTable( {
+    	 "iDisplayLength": 15,
+    	 "aLengthMenu": [[15, 25, 50, -1], [15, 25, 50, "All"]]
+    });
+  } );
 (function() {
   var CSRFToken, anchoredLink, browserCompatibleDocumentParser, browserIsntBuggy, browserSupportsPushState, cacheCurrentPage, cacheSize, changePage, constrainPageCacheTo, createDocument, crossOriginLink, currentState, executeScriptTags, extractLink, extractTitleAndBody, fetchHistory, fetchReplacement, handleClick, ignoreClick, initializeTurbolinks, installClickHandlerLast, loadedAssets, noTurbolink, nonHtmlLink, nonStandardClick, pageCache, pageChangePrevented, pagesCached, processResponse, recallScrollPosition, referer, reflectNewUrl, reflectRedirectedUrl, rememberCurrentState, rememberCurrentUrl, removeHash, removeNoscriptTags, requestMethod, requestMethodIsSafe, resetScrollPosition, targetLink, triggerEvent, visit, xhr, _ref,
     __hasProp = {}.hasOwnProperty,
@@ -24980,6 +24987,7 @@ $(function() {
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 
 
 
