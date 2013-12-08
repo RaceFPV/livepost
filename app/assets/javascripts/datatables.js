@@ -1,7 +1,8 @@
 // allow searching the chatlogs	
- $(function() {
-    $('#datatable').dataTable( {
-    	 "bPaginate": false
-   		 "aaSorting": []
-    });
-  } );
+$(document).ready( function() {
+  $('#datatable').dataTable({
+  	"bPaginate": false
+    "aaSorting": []
+    "bSort": false
+});
+})
