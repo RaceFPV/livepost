@@ -1,5 +1,4 @@
-<table id="datatable" height="300px">
-<div id="chatlog">
+<table id="datatable">
 <% if @chatposts.count == 0 %>
 <tr><td>
 	No posts
@@ -14,6 +13,7 @@
 </thead>
 <tbody>
 <div style="height: 350px; overflow-y: auto;" id ="chatscroll">
+<div id="chatlog">
 <% @chatposts.each do |x| %>
 <tr><td height="70px">
 	<% @users.each do |y|%>
@@ -32,7 +32,7 @@
 </tr>
 <% end %>
 </div>
+</div>
 </tbody>
 <% end %>
-</div>
 </table>
