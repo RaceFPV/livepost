@@ -10,5 +10,6 @@
  *
  *= require_self
  *= stylish-portfolio
+ *= require dataTables/jquery.dataTables.bootstrap3
  *= require_tree .
  */
