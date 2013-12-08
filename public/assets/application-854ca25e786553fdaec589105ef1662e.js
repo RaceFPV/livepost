@@ -10182,6 +10182,34 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
   }
 
 })( jQuery );
+// This script allows the top right sidebar to open/close
+
+$(document).ready(function(){
+        $("#menu-close").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });});
+$(document).ready(function(){
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        });
+      $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
+          }
+        });
+});
 /**
  * @summary     DataTables
  * @description Paginate, search and sort HTML tables
@@ -24440,14 +24468,6 @@ if ( $.fn.DataTable.TableTools ) {
 
 
 
-// allow searching the chatlogs	
-$(document).ready( function() {
-  $('#datatable').dataTable({
-  	"bPaginate": false,
-    "aaSorting": [],
-    "bSort": false
-});
-});
 (function() {
   var CSRFToken, anchoredLink, browserCompatibleDocumentParser, browserIsntBuggy, browserSupportsPushState, cacheCurrentPage, cacheSize, changePage, constrainPageCacheTo, createDocument, crossOriginLink, currentState, executeScriptTags, extractLink, extractTitleAndBody, fetchHistory, fetchReplacement, handleClick, ignoreClick, initializeTurbolinks, installClickHandlerLast, loadedAssets, noTurbolink, nonHtmlLink, nonStandardClick, pageCache, pageChangePrevented, pagesCached, processResponse, recallScrollPosition, referer, reflectNewUrl, reflectRedirectedUrl, rememberCurrentState, rememberCurrentUrl, removeHash, removeNoscriptTags, requestMethod, requestMethodIsSafe, resetScrollPosition, targetLink, triggerEvent, visit, xhr, _ref,
     __hasProp = {}.hasOwnProperty,
@@ -24942,34 +24962,6 @@ function buildPrivatePub(doc) {
 }
 
 var PrivatePub = buildPrivatePub(document);
-// This script allows the top right sidebar to open/close
-
-$(document).ready(function(){
-        $("#menu-close").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
-        });});
-$(document).ready(function(){
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
-        });
-        });
-      $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')) {
-
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-              $('html,body').animate({
-                scrollTop: target.offset().top
-              }, 1000);
-              return false;
-            }
-          }
-        });
-});
 // This script allows bootstrap 3 popover functionality
 $(function() {
 	$('[data-toggle="popover-right"]').popover({'placement': 'right', html: 'true'});
@@ -24988,7 +24980,6 @@ $(function() {
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
 
 
 
