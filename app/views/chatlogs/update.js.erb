@@ -6,13 +6,12 @@
 <% publish_to @chatsubscribe do %>
 <!-- append the new submitted form to the chat box using ajax -->
 $("#chatlog").append("<%= j render(@chatshow) %>");
-<% end %>
-
 <!-- This script will auto-scroll the chat window to the lastest post -->
 $(document).ready(function(){
 var objDiv = document.getElementById("chatscroll");
 objDiv.scrollTop = objDiv.scrollHeight;
 });
 
+<% end %>
 <!-- clear the new post form -->
 $("#newpost")[0].reset();
