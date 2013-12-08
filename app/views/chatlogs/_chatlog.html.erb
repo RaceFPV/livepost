@@ -1,23 +1,11 @@
-<table>
-<div id="chatlog">
+<table id="chatlog" height="300px">
 <% if @chatposts.count == 0 %>
 <tr><td>
 	No posts
 </td></tr>
 <% else %>
-<!--
-<thead>
-	<tr>
-		<th>
-			Messages
-		</th>
-	</tr>
-</thead>
-<tbody> -->
-<div id="chatlog">
 <% @chatposts.each do |x| %>
-<tr>
-	<td height="70px">
+<tr><td height="70px">
 	<% @users.each do |y|%>
 	<% if y.name == x.username %>
 	<% @postuser = y %>
@@ -33,7 +21,5 @@
 	</td>
 </tr>
 <% end %>
-<!--</tbody>-->
 <% end %>
-</div>
 </table>
