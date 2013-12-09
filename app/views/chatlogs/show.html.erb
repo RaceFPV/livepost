@@ -21,8 +21,18 @@
 <h3 align="center" style="color: #eaeaea;border-bottom: solid; border-color: #000;padding-bottom: 10px;"><b>Users here</b></h3>
 <div class="panel panel-body" style="background-color: #111;">
 	<div style="height: 350px; overflow-y: auto;" align="center">
-<% @usershere.each do |x|%>
+<% @usershere.each do |x| %>
+<% @alreadylisted = false %>
+<% @chat.administrators.each do |z| %>
+<% if z == x.email and @alreadylisted == false and z != nil%>
+<p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
+<% @alreadylisted = true %>
+<% end %>
+<% if z != x.email and @alreadylisted == false and z != nil %>
 <p><%= link_to x.name, x %></p>
+<% @alreadylisted = true %>
+<% end %>
+<% end %>
 <% end %>
 </div>
 </div>
