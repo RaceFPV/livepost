@@ -18,6 +18,6 @@ http://railscasts.com/episodes/260-messaging-with-faye?view=asciicast
 
 == Installation
 
-Needed for dev: 'sudo apt-get install libsqlite3-dev'
+Needed for dev in *linux*: 'sudo apt-get install libsqlite3-dev'
 
 After you bundle install be sure to run 'rackup private_pub.ru -s thin -E production' to load up faye/private_pub on your machine and allow AJAX/instant messaging
