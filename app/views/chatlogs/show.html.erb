@@ -12,6 +12,10 @@
 <%= render 'chatlogs/chatlog' %>
 </div>
 <% @chatsubscribe = "/chatlog/#{@chat.id}/update" %>
+<% @subscription = subscribe_to @chatsubscribe %>
+<script>
+$function({@subscription.cancel()});
+</script>
 <%= subscribe_to @chatsubscribe %>
 </div>
 </div>
