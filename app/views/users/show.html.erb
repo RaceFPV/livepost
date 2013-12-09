@@ -5,7 +5,7 @@
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
 <h3 class="form-signin-heading" align="center"><b><%= @user.name.titleize %>'s profile</b></h3>
-<p>Profile created on: <%= @user.created_at.to_s.to_date %></p>
+<p>Profile created <%= @local_time_ago(@user.created_at) %></p>
 <p><%= @user.location %></p>
 <p><%= gravatar_for @user %></p>
 <p><%= twitter_for @user %></p>

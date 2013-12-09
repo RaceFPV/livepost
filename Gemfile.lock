@@ -79,6 +79,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     libv8 (3.16.14.3)
+    local_time (0.1.0)
+      coffee-rails
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -179,6 +181,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-datatables-rails
   jquery-rails
+  local_time
   pg
   private_pub
   rails (= 4.0.0)

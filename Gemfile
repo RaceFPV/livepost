@@ -5,6 +5,9 @@ gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Manage time
+gem 'local_time'
+
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
