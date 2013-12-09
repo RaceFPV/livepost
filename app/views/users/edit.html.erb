@@ -10,6 +10,7 @@
 			<%= render 'shared/error_messages', object: f.object %>
 			<%= f.text_field :name, class: "form-control", placeholder: "Your name" %>
 			<%= f.text_field :email, class: "form-control", placeholder: "Email Address" %>
+			<%= f.text_field :location, class: "form-control", placeholder: "Your location" %>
 			<div>
 			<%= gravatar_for @user %>
 			<a href="http://gravatar.com/emails">Change avatar</a>

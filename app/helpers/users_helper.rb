@@ -8,15 +8,15 @@ module UsersHelper
   end
 
   def twitter_for(user)
-  	twitter_url = "https://www.twitter.com/#{twitter_id}"
+  	twitter_url = "https://www.twitter.com/#{@user.twitter_id}"
   end
 
   def facebook_for(user)
-  	facebook_url = "#{facebook}"
+  	facebook_url = "#{@user.facebook}"
   end
 
   def linkedin_for(user)
-	linkedin_url = "#{linkedin}"
+	linkedin_url = "#{@user.linkedin}"
   end
-  
+
 end
