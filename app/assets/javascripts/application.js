@@ -18,3 +18,4 @@
 //= require turbolinks
 //= require private_pub
 //= require popovers
+//= require perfect-scrollbar

@@ -11,7 +11,7 @@ $(document).ready(function(){
 var objDiv = document.getElementById("chatscroll");
 objDiv.scrollTop = objDiv.scrollHeight;
 });
-
+$('#chatscroll').perfectScrollbar('update')
 <% end %>
 <!-- clear the new post form -->
 $("#newpost")[0].reset();

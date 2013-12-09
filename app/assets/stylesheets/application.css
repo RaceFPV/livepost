@@ -11,5 +11,6 @@
  *= require_self
  *= stylish-portfolio
  *= require dataTables/jquery.dataTables.bootstrap3
+ * require perfect-scrollbar
  *= require_tree .
  */
