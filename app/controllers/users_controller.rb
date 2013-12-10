@@ -37,7 +37,9 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		if @user.update_attributes(user_params)
+      params[:user].delete(:password) if params[:user][:password].blank?
+    
+    if @user.update_attributes(params[:user].permit(:name, :email, :password, :password_confirmation, :twitter_id, :facebook, :linkedin, :location))
 			flash[:success] = "Profile updated"
 			redirect_to @user
 		else
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :twitter_id, :facebook, :linkedin, :location)
 	end
 
 	# Before filters

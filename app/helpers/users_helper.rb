@@ -16,7 +16,7 @@ module UsersHelper
   end
 
   def linkedin_for(user)
-	linkedin_url = "#{@user.linkedin}"
+	  linkedin_url = "#{@user.linkedin}"
   end
 
 end
