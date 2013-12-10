@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= content_for :header %>   
+  </head>
+  <body>
+  	<%= render partial: "layouts/flash_messages", flash: flash %>
+  	<%= render partial: "layouts/sidemenu"%>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

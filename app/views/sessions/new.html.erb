@@ -1,0 +1,22 @@
+<% provide(:title, "Sign in") %>
+<div class="signin">
+<row>
+<div class="col-md-6 col-md-offset-3" style="padding-top:5px;margin-top: 10%;">
+<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-body">
+	<h1 class="form-signin-heading"><b>Sign in</b></h1>
+	<%= form_for :session, url: sessions_path, class: "form-signin" do |f| %>
+		<%= f.text_field :email, class: "form-control", placeholder: "Email Address" %>
+		<%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+		<div align="center">
+		<%= f.submit "Sign in", class: "btn btn-large btn-primary", style: "width: 200px;" %>
+		</div>
+	<% end %>
+</div>
+<div class="panel panel-footer">
+<p align="center">New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>
+</div>
+</div>
+</row>
+</div>

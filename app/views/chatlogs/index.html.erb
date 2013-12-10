@@ -1,0 +1,31 @@
+<% provide(:title, "All Chats") %>
+<div class="chatlogs">
+<row>
+<div class="col-md-10 col-md-offset-1" style="padding-top:5px;margin-top: 3%;">
+<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+<div class="panel panel-body">
+<h1 class="form-signin-heading"><b>Active chats</b></h1>
+<table class="table table-striped table-condensed">
+	<% if @chats.count == 0 %>
+	<tr><td>No chats active, create a <a href="chatlogs/new">new chat</a>?</td></tr>
+	<% else %>
+	<% @chats.each do |chat|%>
+  <tr><td><%= link_to "#{chat.chatname.titleize}", chat, style: "margin-right: 20px;" %> Started on: <%= chat.created_at.to_s.to_datetime.strftime('%H:%M %D') %></td>
+  	<% chat.administrators.each do |z| %>
+  	<% if z != nil %>
+	<% if current_user.email == z %>
+  	<td><%= link_to "", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove", style: "float: right;margin-right:10px;padding-left: 0px;margin-left:25px;" %></td>
+  	<% end %>
+  	<% end %>
+  	<% end %>
+  </tr>
+	<% end %>
+	<% end %>
+	
+</table>
+<p style="margin-top: 50px; border-top: solid">Create a <a href="chatlogs/new">new chat</a></p>
+</div>
+</div>
+</div>
+</row>
+</div>

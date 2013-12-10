@@ -1,0 +1,43 @@
+    <!-- header -->
+      <div id="top" class="header">
+      <div class="vert-text">
+      	<% if signed_in? %>
+			<div style="position: fixed; top: 5px; left: 5px;">
+				<aside class="span4">
+					<section>
+						<%= render 'shared/user_info' %>
+					</section>
+				</aside>
+			</div>
+		<% end %>
+        <h1>LivePost</h1>
+        <h4 align="center" style="color: red;">This application is in <b>Active Development</b></h4>
+        <a href="#about" class="btn btn-default btn-lg">Find Out More</a>
+      </div>
+    </div>
+    <!-- /header -->   
+        <!-- Intro -->
+    <div id="about" class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+				<h3 align="center">A nice place to chat.</h3>
+		  </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Intro -->
+    
+    <!-- Call to Action -->
+    <div class="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <h3>Get started</h3>
+            <a href="chatlogs/new" class="btn btn-lg btn-default">New Chat</a>
+            <a href="chatlogs" class="btn btn-lg btn-primary">Show Chats</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Call to Action -->
