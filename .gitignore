@@ -37,3 +37,6 @@ doc/
 log
 log/
 log/*
+.ssh
+.ssh/
+.ssh/*
