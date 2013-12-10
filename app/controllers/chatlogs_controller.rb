@@ -46,7 +46,7 @@ def show
 end
   
 def index
-  @chats = Chatlog.find :all, :conditions => ["privatechat == ?", false]
+  @chats = Chatlog.find :all, :conditions => ["privatechat = ?", false]
   @chats.sort!
 end
 
