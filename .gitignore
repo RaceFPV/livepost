@@ -25,3 +25,4 @@ doc/
 .idea
 .secret
 .rvm
+.rvm/*
