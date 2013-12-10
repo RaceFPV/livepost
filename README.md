@@ -10,4 +10,18 @@ This app is in active development alpha mode
 
 Help develop this app quickly by using a linux ruby box from http://nitrous.io
 
-After you bundle install be sure to run 'rackup private_pub.ru -s thin -E production' to load up faye/private_pub on your machine and allow AJAX/instant messaging
+== Nitrous.io
+
+1. Go to Nitrous.io and sign up for a free account, select rails as the box type.
+2. Once the box has been created, click on 'boxes' in the top right, expand your newly created box, reveil the ssh key, and add it to your github account.
+3. In the console, type 'cd workspace'
+4. In the console, type 'git clone git@github.com:slacker87/livepost.git
+5. In the console, type 'cd livepost'
+6. In the console, type git config --global user.email "youremail@youremail.com"
+7. In the console, type git config --global user.name "yourname"
+8. In the console, run bundle install
+9. Touch this readme file (add a space or something) and make sure you can 'git add .' 'git commit -am "touch"' and 'git push origin master'
+10. If your push is successful, you are ready to start developing livepost on rails!
+
+
+If you want to run the chat backend locally: In a new console run 'rackup private_pub.ru -s thin -E production' in console to load up faye/private_pub
