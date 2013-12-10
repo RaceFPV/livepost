@@ -46,7 +46,8 @@ def show
 end
   
 def index
-  @chats = Chatlog.all
+  @chats = Chatlog.find :all, :conditions => ["privatechat == ?", false]
+  @chats.sort!
 end
 
 def destroy
