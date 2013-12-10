@@ -6,7 +6,6 @@ This app is in active development alpha mode
 
 ****  IF YOU HAVE GIT PULLED RECENTLY BE SURE TO 'RAKE DB:MIGRATE'!
 
-
 == Development
 
 Help develop this app quickly by using a linux ruby box from http://nitrous.io
