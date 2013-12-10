@@ -6,5 +6,17 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
-  
+
+  def twitter_for(user)
+  	twitter_url = "https://www.twitter.com/#{@user.twitter_id}"
+  end
+
+  def facebook_for(user)
+  	facebook_url = "#{@user.facebook}"
+  end
+
+  def linkedin_for(user)
+	linkedin_url = "#{@user.linkedin}"
+  end
+
 end

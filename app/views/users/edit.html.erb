@@ -10,11 +10,16 @@
 			<%= render 'shared/error_messages', object: f.object %>
 			<%= f.text_field :name, class: "form-control", placeholder: "Your name" %>
 			<%= f.text_field :email, class: "form-control", placeholder: "Email Address" %>
+			<%= f.text_field :location, class: "form-control", placeholder: "Your location" %>
 			<div>
 			<%= gravatar_for @user %>
 			<a href="http://gravatar.com/emails">Change avatar</a>
 			</div>
 			<br>
+			<p align="center">Social media links:</p>
+			<%= f.text_field :twitter_id, class: "form-control", placeholder: "Twitter username" %>
+			<%= f.text_field :facebook, class: "form-control", placeholder: "Facebook profile URL" %>
+			<%= f.text_field :linkedin, class: "form-control", placeholder: "LinkedIn profile URL" %>
 			<p align="center">Change your password:</p>
 			<%= f.password_field :password, class: "form-control", placeholder: "Password" %>
 			<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
