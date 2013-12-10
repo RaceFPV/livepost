@@ -113,7 +113,7 @@ body {
   position: relative;
   background-image: url('bg.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -159,7 +159,7 @@ i.service-icon {
   position: relative;
   background-image: url('callout.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -174,7 +174,7 @@ i.service-icon {
   position: relative;
   background-image: url('chain.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -204,7 +204,7 @@ i.service-icon {
   position: relative;
   background-image: url('pillars.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -219,7 +219,7 @@ i.service-icon {
   position: relative;
   background-image: url('sticks.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -234,7 +234,7 @@ i.service-icon {
   position: relative;
   background-image: url('brick.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -250,7 +250,7 @@ i.service-icon {
   position: relative;
   background-image: url('rebar.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -321,13 +321,13 @@ i.scroll:hover {
   .header {
 	background-image: url('bg.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   }
 
   .callout {
 	background-image: url('callout.jpg');
   background-repeat: no-repeat;
-  backround-position: center;
+  background-position: center;
   }
 
   .map {

@@ -11,9 +11,9 @@
     <%= content_for :header %>   
   </head>
   <body>
-  	<%= render partial: "layouts/flash_messages", flash: flash %>
   	<%= render partial: "layouts/sidemenu"%>
     <%= yield %>
+  	<%= render partial: "layouts/flash_messages", flash: flash %>
     <%= render 'layouts/footer' %>
   </body>
 </html>
