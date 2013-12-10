@@ -9,7 +9,7 @@
 <%= form_for :chatparams, url: @chatlog, class: "form-signin" do |f| %>
   <h4 align="center">
   Private chat:
-  <%= f.check_box :chatprivate %>
+    <%= f.check_box :privatechat, {}, true %>
   </h4>
   <span class="label label-default">Chat name</span>
   <%= f.text_field :chatname, class: "form-control", placeholder: "Enter chat name here" %>
