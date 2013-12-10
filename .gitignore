@@ -26,3 +26,14 @@ doc/
 .secret
 .rvm
 .rvm/*
+.nvm
+.parts
+.parts/
+.parts/*
+.rvm/
+.gitconfig
+.secret
+.project
+log
+log/
+log/*
