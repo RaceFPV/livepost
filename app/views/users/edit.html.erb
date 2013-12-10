@@ -5,29 +5,86 @@
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
 <h3 class="form-signin-heading" align="center"><b><%= @user.name.titleize %>'s profile</b></h3>
-		<%= form_for @user, class: "form-signin" do |f| %>
+		 <%= form_for @user, class: "form-signin" do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 			<%= render 'shared/error_messages', object: f.object %>
-			<%= f.text_field :name, class: "form-control", placeholder: "Your name" %>
-			<%= f.text_field :email, class: "form-control", placeholder: "Email Address" %>
-			<%= f.text_field :location, class: "form-control", placeholder: "Your location" %>
-			<div>
-			<%= gravatar_for @user %>
-			<a href="http://gravatar.com/emails">Change avatar</a>
-			</div>
-			<br>
-			<p align="center">Social media links:</p>
-			<%= f.text_field :twitter_id, class: "form-control", placeholder: "Twitter username" %>
-			<%= f.text_field :facebook, class: "form-control", placeholder: "Facebook profile URL" %>
-			<%= f.text_field :linkedin, class: "form-control", placeholder: "LinkedIn profile URL" %>
-			<p align="center">Change your password:</p>
-			<%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-			<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
-			<div align="center">
-			<%= link_to "Cancel", @user, style: "margin-right: 50px;" %>
-			<%= f.submit "Update", class: "btn btn-large btn-primary" %>
+      <div align="left"><span class="label label-default">Email</span></div>
+      <%= f.text_field :email, class: "form-control", disabled: true, style: "color: #999;" %>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+               General User Information
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div align="left"><span class="label label-default">Name</span></div>
+              <%= f.text_field :name, class: "form-control", placeholder: "Your name" %>
+			        <div align="left"><span class="label label-default">Location</span></div>
+              <%= f.text_field :location, class: "form-control", placeholder: "Your location" %>
+			      </div>
+          </div>
+        </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+               Avatar
+             </a>
+           </h4>
+          </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div>
+			        <%= gravatar_for @user %>
+  			      <a href="http://gravatar.com/emails">Change avatar</a>
+			      </div>
+           </div>
+          </div>
+        </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              Social Media
+            </a>
+           </h4>
+          </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div align="left"><span class="label label-default">Twitter</span></div>
+			            <%= f.text_field :twitter_id, class: "form-control", placeholder: "Twitter username" %>
+		            <div align="left"><span class="label label-default">Facebook</span></div>
+                  <%= f.text_field :facebook, class: "form-control", placeholder: "Facebook profile URL" %>
+			          <div align="left"><span class="label label-default">LinkedIn</span></div>
+                  <%= f.text_field :linkedin, class: "form-control", placeholder: "LinkedIn profile URL" %>
+			          </div>
+              </div>
+            </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                Password
+              </a>
+           </h4>
+          </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+          <div class="panel-body">
+			        <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+			        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
+          </div>
+        </div>
+      </div>
+      <div align="center">
+			  <%= link_to "Cancel", @user, style: "margin-right: 50px;" %>
+			  <%= f.submit "Update", class: "btn btn-large btn-primary" %>
 			</div>
 		<% end %>
+</div>
 </div>
 </div>
 </div>
