@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210214156) do
+ActiveRecord::Schema.define(version: 20131210232404) do
 
   create_table "chatlogs", force: true do |t|
     t.text     "chatname"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20131210214156) do
     t.datetime "updated_at"
     t.text     "administrators"
     t.boolean  "privatechat"
+    t.text     "permitted"
   end
 
   create_table "chatposts", force: true do |t|

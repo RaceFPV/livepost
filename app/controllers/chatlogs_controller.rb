@@ -10,6 +10,7 @@ def create
   @chatlog = Chatlog.new(params[:chatlog])
   @chatlog[:chatname] = params[:chatparams][:chatname]
   @chatlog[:administrators] = [nil, current_user.email]
+  @chatlog[:permitted] = [nil, current_user.email]
   @chatlog[:privatechat] = params[:chatparams][:privatechat]
   if @chatlog.save
   redirect_to @chatlog, :flash => {:success => "Successfully created chat" }
@@ -46,8 +47,20 @@ def show
 end
   
 def index
-  @chats = Chatlog.find :all, :conditions => ["privatechat = ?", false]
-  @chats.sort!
+  @publicchats = Chatlog.find :all, :conditions => ["privatechat = ?", false]
+  @publicchats.sort!
+  privatechats = Chatlog.find :all, :conditions => ["privatechat = ?", true]
+  @privatechatsallowed = []
+  privatechats.each do |x|
+    if x != nil and x.permitted != nil
+    x.permitted.each do |y|
+      if y == current_user.email
+        @privatechatsallowed << x
+      end
+    end
+    end
+  end
+  @privatechatsallowed.sort!
 end
 
 def destroy

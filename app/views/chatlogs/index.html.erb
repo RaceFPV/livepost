@@ -1,4 +1,4 @@
-<% provide(:title, "All Chats") %>
+<% provide(:title, "Chats") %>
 <div class="chatlogs">
 <row>
 <div class="col-md-10 col-md-offset-1" style="padding-top:5px;margin-top: 3%;">
@@ -6,25 +6,69 @@
 <div class="panel panel-body">
 <h1 class="form-signin-heading"><b>Active chats</b></h1>
   <div style="max-height: 350px; overflow-y: hidden;position: relative;" id="chatscroll">
-<table class="table table-striped table-condensed">
-	<% if @chats.count == 0 %>
-	<tr><td>No chats active, create a <a href="chatlogs/new">new chat</a>?</td></tr>
-	<% else %>
-	<% @chats.each do |chat|%>
-  <tr><td><%= link_to "#{chat.chatname.titleize}", chat, style: "margin-right: 20px;" %> Started on: <%= chat.created_at.to_s.to_datetime.strftime('%H:%M %D') %></td>
-  	<% chat.administrators.each do |z| %>
+	
+  <!-- start chat list section -->
+  <!-- if there are no chats, let the user know -->
+  <% if @publicchats.count == 0 and @privatechatsallowed.count == 0 %>
+	<p>No chats active, create a <a href="chatlogs/new">new chat</a>?</p>
+	
+  <!-- if there are chats available -->
+  <% else %>
+ 
+  <h4 align="center">Public chats</h4>
+
+  <div class="list-group">
+  <!-- make sure we have public chats to actually show -->
+    <% if @publicchats.count == 0 %>
+    <p>No chats active, create a <a href="chatlogs/new">new chat</a>?</p>
+    <% end %>
+    <!-- list all available public chats -->
+    <% @publicchats.each do |chat|%>
+    <%= link_to chat, class: "list-group-item" do %>
+      <h4 class="list-group-item-heading" style="float: left"><%= chat.chatname.titleize %></h4>
+      <p class="list-group-item-text" style="display: inline-block; float: right;">Started on: <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %>
+    	<% chat.administrators.each do |z| %>
+      	<% if z != nil %>
+	        <% if current_user.email == z %>
+      <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
+      	<% end %>
+        <% end %>
+        </p>
+    	<% end %>
+    <% end %>
+	 <% end %>
+   <!-- end list all public chats -->
+  </div>
+    
+  <h4 align="center">Private chats</h4>
+  
+  <div class="list-group">
+  <!-- make sure we have private chats to actually show -->
+  <% if @privatechatsallowed.count == 0 %>
+    <p>No chats active, create a <a href="chatlogs/new">new chat</a>?</p>
+  <% end %>
+  <!-- list all available private chats -->
+  <% @privatechatsallowed.each do |chat| %>
+    <%= link_to chat, class: "list-group-item" do %>
+    <h4 class="list-group-item-heading" style="float: left"><%= chat.chatname.titleize %></h4>
+    <p class="list-group-item-text" style="display: inline-block; float: right;">Started on: <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %>
+    	<% chat.administrators.each do |z| %>
   	<% if z != nil %>
 	<% if current_user.email == z %>
-  	<td><%= link_to "", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "glyphicon glyphicon-remove", style: "float: right;margin-right:10px;padding-left: 0px;margin-left:25px;" %></td>
+      <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
   	<% end %>
   	<% end %>
+    </p>
+    <% end %>
   	<% end %>
-  </tr>
 	<% end %>
-	<% end %>
-	
-</table>
+  <!-- end list all private chats -->
   </div>
+  
+	<% end %>
+  <!-- end of chat list section -->
+
+</div>
 <p style="margin-top: 50px; border-top: solid">Create a <a href="chatlogs/new">new chat</a></p>
 </div>
 </div>
