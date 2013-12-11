@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20131210232404) do
     t.string   "remember_token"
     t.boolean  "admin",           default: false
     t.datetime "lastseen"
+    t.string   "twitter_id"
+    t.string   "linkedin"
+    t.string   "location"
+    t.string   "facebook"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
