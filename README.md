@@ -23,4 +23,4 @@ Help develop this app quickly by using a Linux Ruby on Rails dev box from [Nitro
 9. Touch this readme file (add a space or something) and make sure you can `git add .`, `git commit -am "touch"`, and `git push origin master`
 10. If your push is successful, you are ready to start developing Livepost on Rails!
 
-*NOTE: If you want to run the chat backend locally: In a new console run `rackup private_pub.ru -s thin -E production` in console to load up `faye/private_pub`*
+*NOTE: If you want to run the chat backend locally: In a new console run `rackup private_pub.ru -s thin -E production` to load up `faye/private_pub`*
