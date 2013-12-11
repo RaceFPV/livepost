@@ -24,8 +24,8 @@
     <% end %>
     <!-- list all available public chats -->
     <% @publicchats.each do |chat|%>
-    <%= link_to chat, class: "list-group-item" do %>
-      <h4 class="list-group-item-heading" style="float: left"><%= chat.chatname.titleize %></h4>
+    <%= link_to chat, class: "list-group-item", style: "height:50px;" do %>
+    <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
       <p class="list-group-item-text" style="display: inline-block; float: right;">Started on: <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %>
     	<% chat.administrators.each do |z| %>
       	<% if z != nil %>
@@ -49,8 +49,8 @@
   <% end %>
   <!-- list all available private chats -->
   <% @privatechatsallowed.each do |chat| %>
-    <%= link_to chat, class: "list-group-item" do %>
-    <h4 class="list-group-item-heading" style="float: left"><%= chat.chatname.titleize %></h4>
+    <%= link_to chat, class: "list-group-item", style: "height:50px;" do %>
+    <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
     <p class="list-group-item-text" style="display: inline-block; float: right;">Started on: <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %>
     	<% chat.administrators.each do |z| %>
   	<% if z != nil %>
