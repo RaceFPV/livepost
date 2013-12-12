@@ -7,15 +7,15 @@
         <div class="panel panel-body">
           <h1 class="form-signin-heading"><b>Start a New Chat</b></h1>
           <div width="100%">
-            <%= form_for :chatparams, url: @chatlog, class: "form-signin" do |f| %>
-              <%= label_tag :chatparams_chatname, "Chat name", class: "label label-default" %>
+            <%= form_for :chatparams, url: {action: "create"}, class: "form-signin" do |f| %>
+              <%= f.label :chatname, "Chat name", class: "label label-default" %>
               <%= f.text_field :chatname, class: "form-control", placeholder: "Enter chat name here" %>
               <%= f.check_box :privatechat, {}, true %>
-              <%= label_tag :chatparams_privatechat, "Private?" %>
+              <%= f.label :privatechat, "Private?" %>
               <br />
               <br />
               <div align="center">
-                <%= submit_tag "Create", class: "btn btn-large btn-primary btn-block"  %>
+                <%= f.submit "Create", class: "btn btn-large btn-primary btn-block"  %>
               </div>
             <% end %>
           </div>
