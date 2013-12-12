@@ -1,22 +1,20 @@
 module UsersHelper
-  
-    # Returns the Gravatar (http://gravatar.com/) for the given user.
+  # Returns the Gravatar for the given user (see: http://gravatar.com/)
   def gravatar_for(user)
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-    image_tag(gravatar_url, alt: user.name, class: "gravatar")
+    image_tag gravatar_url, alt: user.name, class: "gravatar"
   end
 
   def twitter_for(user)
-  	twitter_url = "https://www.twitter.com/#{@user.twitter_id}"
+     user.twitter_id ? "https://www.twitter.com/#{user.twitter_id}" : ""
   end
 
   def facebook_for(user)
-  	facebook_url = "#{@user.facebook}"
+  	"#{user.facebook}"
   end
 
   def linkedin_for(user)
-	  linkedin_url = "#{@user.linkedin}"
+	  "#{user.linkedin}"
   end
-
 end
