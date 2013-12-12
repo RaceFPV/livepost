@@ -1,27 +1,27 @@
-<% provide(:title, "Chats") %>
+<% provide(:title, "Browse Chats") %>
 <div class="chatlogs">
 <row>
 <div class="col-md-10 col-md-offset-1" style="padding-top:5px;margin-top: 3%;">
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
 <div class="panel panel-body">
-<h1 class="form-signin-heading"><b>Active chats</b></h1>
+<h1 class="form-signin-heading"><b>Browse Chats</b></h1>
   <div style="max-height: 350px; overflow-y: hidden;position: relative;" id="chatscroll">
 	
   <!-- start chat list section -->
   <!-- if there are no chats, let the user know -->
   <% if @publicchats.count == 0 and @privatechatsallowed.count == 0 %>
-	<p align="center">No chats active, create a <a href="chatlogs/new">new chat</a>?</p>
+	<p align="center">No chats active, start a <a href="chatlogs/new">new chat</a>?</p>
 	
   <!-- if there are chats available -->
   <% else %>
  
-  <h4 align="center">Public chats</h4>
+  <h4 align="center">Public Chats</h4>
 
   <div class="list-group">
   <!-- make sure we have public chats to actually show -->
     <% if @publicchats.count == 0 %>
     <div class="well">
-    <p>No public chats active, create a <a href="chatlogs/new">new public chat</a>?</p>
+    <p>No public chats active, start a <a href="chatlogs/new">new public chat</a>?</p>
     </div>
     <% end %>
     <!-- list all available public chats -->
@@ -42,13 +42,13 @@
    <!-- end list all public chats -->
   </div>
     
-  <h4 align="center">Private chats</h4>
+  <h4 align="center">My Private Chats</h4>
   
   <div class="list-group">
   <!-- make sure we have private chats to actually show -->
   <% if @privatechatsallowed.count == 0 %>
     <div class="well">
-    <p align="center">No private chats active, create a <a href="chatlogs/new">new private chat</a>?</p>
+    <p align="center">No private chats active, start a <a href="chatlogs/new">new private chat</a>?</p>
     </div>  
   <% end %>
   <!-- list all available private chats -->
@@ -73,7 +73,7 @@
   <!-- end of chat list section -->
 
 </div>
-<p style="margin-top: 50px; border-top: solid">Create a <a href="chatlogs/new">new chat</a></p>
+<p style="margin-top: 50px; border-top: solid"><%= link_to "Start a new chat!", new_chatlog_path %></p>
 </div>
 </div>
 </div>
