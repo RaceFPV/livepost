@@ -11,10 +11,10 @@ module UsersHelper
   end
 
   def facebook_for(user)
-  	"#{user.facebook}"
+  	#{user.facebook}
   end
 
   def linkedin_for(user)
-	  "#{user.linkedin}"
+	  #{user.linkedin}
   end
 end
