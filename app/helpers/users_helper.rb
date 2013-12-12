@@ -7,7 +7,7 @@ module UsersHelper
   end
 
   def twitter_for(user)
-     user.twitter_id ? "https://www.twitter.com/#{user.twitter_id}" : ""
+    user.twitter_id ? "https://www.twitter.com/#{user.twitter_id}" : ""
   end
 
   def facebook_for(user)
