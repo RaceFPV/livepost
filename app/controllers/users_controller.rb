@@ -3,11 +3,14 @@ class UsersController < ApplicationController
 	before_action :correct_user, only: [:edit, :update]
 	before_action :admin_user, only: :destroy
 	skip_before_filter :require_login, :only => [:new, :create]
-	def index
+	
+  def index
 		@user
 	end
 
 	def show
+    # TODO: Redirect to canonical lins if slugs change
+  # see: http://code-worrier.com/blog/custom-slugs-in-rails/
 		@user = User.find(params[:id])
 	end
 
