@@ -1,57 +1,48 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
+ruby '2.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Default Rails gems
 gem 'rails', '4.0.0'
-gem 'bootstrap-sass', '~> 3.0.2.0'
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'sass-rails', '~> 4.0.0' # Use SCSS for stylesheets
+gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
+gem 'coffee-rails', '~> 4.0.0' # Use CoffeeScript for .js.coffee assets and views
+gem 'jquery-rails' # Use jquery as the JavaScript library
+gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
-# Manage time
-gem 'local_time'
+# Non-default gems
+gem 'bootstrap-sass', '~> 3.0.2.0' # Twitter Bootstrap front-end framework
+gem 'bcrypt-ruby', '~> 3.0.0' # Encryption for user passwords
+gem 'local_time' # Manage time
+gem 'faye' # Chat framework
+gem 'private_pub'
+gem 'thin' # Web server (Faye dependent)
+gem 'jquery-datatables-rails' # Quickly sort table data
 
-# Use sqlite3 as the database for Active Record
+group :production do
+  gem 'pg'
+  gem 'rails_12factor' # Heroku support
+end
+
+group :development do
+  gem 'quiet_assets' # Turns off the Rails asset pipeline log
+  gem "bullet", "~> 4.7.1" # Helps increase performance by alerting dev to reduce the number of queries app makes
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'therubyracer'
 end
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+group :test do
+  gem 'selenium-webdriver', '2.0.0'
+  gem 'capybara', '2.1.0'
+  gem 'libnotify', '0.8.1'
+  gem 'factory_girl_rails', '4.2.1'
 end
-
-
-# Use faye as the chat framework
-gem 'faye'
-gem 'private_pub'
-
-#faye depends on thin webserver
-gem 'thin'
-
-#Use jquery-datatables to quickly sort table data
-gem 'jquery-datatables-rails'
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-
