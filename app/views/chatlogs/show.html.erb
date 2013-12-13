@@ -33,6 +33,7 @@ $("#clickonload").click();
 	<% end %>
     <div class="ss-row ss-small">
         <div class="ss-left">
+          <p><%= x.username %></p>
           <%= link_to x.username, @postuser, class: "ss-circle", style: "background-image:url(#{gravatar_url_for @postuser});" %>
         </div>
         <div class="ss-right">
