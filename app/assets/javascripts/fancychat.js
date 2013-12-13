@@ -248,7 +248,9 @@
 				return { init : init };
 			
 			})();
-			
+
+      
+      
 			$sidescroll.init();
-			
+
 		});

@@ -4,9 +4,16 @@
 <%= stylesheet_link_tag "fancychat" %>
 <% end %>
 
+<script type="text/javascript">
+window.onload = function()
+                {
+$("#clickonload").click();
+                };
+</script>
+
             <h2 class="ss-subtitle"><%= @chat.chatname.titleize %></h2>
 			<div id="ss-links" class="ss-links">
-        <a href="#latest">latest</a>
+        <a href="#latest" id="clickonload">latest</a>
 				<!--<a href="#november">Nov</a>
 				<a href="#october">Oct</a>
 				<a href="#september">Sep</a>

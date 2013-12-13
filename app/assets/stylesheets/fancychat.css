@@ -52,6 +52,7 @@ h2.ss-subtitle:after{
 	-ms-transition: background 0.2s linear;
 	transition: background 0.2s linear;
 }
+
 .ss-links a:hover{
 	background: rgba(0,0,0,0.4);
 }
@@ -75,7 +76,7 @@ h2.ss-subtitle:after{
     width: 4px;
     background: rgba(17,17,22,0.8);
     top: 0px;
-    left: 18%;
+    left: 15%;
 	margin-left: -2px;
     content: '';
     height: 100%;
@@ -85,16 +86,17 @@ h2.ss-subtitle:after{
     clear: both;
     float: left;
     position: relative;
-    padding: 30px 0;
+    padding: 10px 0;
 }
 .ss-left{
     float: left;
-    width: 18%;
+    width: 15%;
+    margin-top: 50px;
     position: relative;
 }
 .ss-right{
     float: left;
-    width: 78%;
+    width: 83%;
     position: relative;
 }
 .ss-right{
@@ -127,8 +129,8 @@ h2.ss-subtitle:after{
 	position: static;
 }
 .ss-small .ss-circle{
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 }
 .ss-medium .ss-circle{
 	width: 200px;
