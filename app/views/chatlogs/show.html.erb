@@ -1,53 +1,41 @@
 <% provide(:title, @chat.chatname.titleize) %>
 <% content_for :header do %>
-<%= javascript_include_tag "chatlogs" %>
+<%= javascript_include_tag "fancychat" %>
+<%= stylesheet_link_tag "fancychat" %>
 <% end %>
-<div class="chatlog">
-<row>
-<div class="col-sm-9" style="margin-top: 3%;padding-right:0px;">
-<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-<h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
-<div class="panel panel-body">
-<div style="height: 350px; overflow-y: hidden;position: relative;" id="chatscroll">
-<%= render 'chatlogs/chatlog' %>
-</div>
-<% @chatsubscribe = "/chatlog/#{@chat.id}/update" %>
-<% @subscription = subscribe_to @chatsubscribe %>
-<script>
-$function({@subscription.cancel()});
-</script>
-<%= subscribe_to @chatsubscribe %>
-</div>
-</div>
-</div>
-<div class="col-sm-3" style="margin-top: 3%;padding-left:0px;">
-<div class="panel panel-default" style="padding-bottom: 5px;background-color: #111;border-color: #000;">
-<h3 align="center" style="color: #eaeaea;border-bottom: solid; border-color: #000;padding-bottom: 10px;"><b>Users here</b></h3>
-<div class="panel panel-body" style="background-color: #111;">
-	<div style="height: 350px; overflow-y: auto;" align="center">
-<% @usershere.each do |x| %>
-<% @alreadylisted = false %>
-<% @chat.administrators.each do |z| %>
-<% if z == x.email and @alreadylisted == false and z != nil%>
-<p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
-<% @alreadylisted = true %>
-<% end %>
-<% if z != x.email and @alreadylisted == false and z != nil %>
-<p><%= link_to x.name, x %></p>
-<% @alreadylisted = true %>
-<% end %>
+
+            <h2 class="ss-subtitle"><%= @chat.chatname.titleize %></h2>
+			<!--<div id="ss-links" class="ss-links">
+				<a href="#november">Nov</a>
+				<a href="#october">Oct</a>
+				<a href="#september">Sep</a>
+				<a href="#august">Aug</a>
+				<a href="#july">Jul</a>
+				<a href="#june">Jun</a>
+			</div>-->
+
+
+<div id="ss-container" class="ss-container">
+  <% @chatposts.each do |x| %>
+  <% if x != nil %>
+  <% @users.each do |y|%>
+	<% if y.name == x.username %>
+	<% @postuser = y %>
+  <% end %>
+	<% end %>
+    <div class="ss-row ss-small">
+        <div class="ss-left">
+          <%= link_to x.username, @postuser, class: "ss-circle", style: "background-image:url(#{gravatar_url_for @postuser});" %>
+        </div>
+        <div class="ss-right">
+            <h3>
+                <span><%= x.created_at.to_datetime.strftime('%H:%M %D')  %></span>
+                <a href="#"><%= x.post %></a>
+            </h3>
+        </div>
+    </div>
 <% end %>
 <% end %>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-8 col-sm-offset-2" style="padding-top:5px;margin-top: 2%;">
-<div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-<div class="panel panel-body">
-<%= render 'chatlogs/newpost' %>
-</div>
-</div>
-</div>
-</row>
+  
+    <!-- more rows... -->
 </div>

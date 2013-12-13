@@ -74,6 +74,8 @@ GEM
       multi_json (>= 1.2.0)
     jquery-datatables-rails (1.12.2)
       jquery-rails
+    jquery-easing-rails (0.0.1)
+      railties (>= 3.1.0)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -86,6 +88,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     minitest (4.7.5)
+    modernizr-rails (2.7.0)
     multi_json (1.8.2)
     pg (0.17.0)
     pg (0.17.0-x86-mingw32)
@@ -180,8 +183,10 @@ DEPENDENCIES
   faye
   jbuilder (~> 1.2)
   jquery-datatables-rails
+  jquery-easing-rails
   jquery-rails
   local_time
+  modernizr-rails
   pg
   private_pub
   rails (= 4.0.0)
