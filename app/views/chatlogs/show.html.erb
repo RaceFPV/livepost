@@ -5,14 +5,15 @@
 <% end %>
 
             <h2 class="ss-subtitle"><%= @chat.chatname.titleize %></h2>
-			<!--<div id="ss-links" class="ss-links">
-				<a href="#november">Nov</a>
+			<div id="ss-links" class="ss-links">
+        <a href="#latest">latest</a>
+				<!--<a href="#november">Nov</a>
 				<a href="#october">Oct</a>
 				<a href="#september">Sep</a>
 				<a href="#august">Aug</a>
 				<a href="#july">Jul</a>
-				<a href="#june">Jun</a>
-			</div>-->
+				<a href="#june">Jun</a>-->
+			</div>
 
 
 <div id="ss-container" class="ss-container">
@@ -30,18 +31,18 @@
         <div class="ss-right">
             <h3>
                 <span><%= x.created_at.to_datetime.strftime('%H:%M %D')  %></span>
-                <a href="#"><%= x.post %></a>
+                <p><%= x.post %></p>
             </h3>
         </div>
     </div>
 <% end %>
 <% end %>
-  
-    <!-- more rows... -->
 </div>
+
+
 <div class="col-sm-8 col-sm-offset-2" style="padding-top:5px;margin-top: 2%;">
 <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-<div class="panel panel-body">
+<div class="panel panel-body" id="latest">
 <%= render 'chatlogs/newpost' %>
 </div>
 </div>
