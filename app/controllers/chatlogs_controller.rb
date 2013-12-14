@@ -41,7 +41,7 @@ class ChatlogsController < ApplicationController
     @posts = @chat.chatpost
     @chatsubscribe = "/#{@chat}/update" 
     @chatshow = "/chatposts/show"
-    @usersubscribe = "/#{@chat}/userupdate"
+    @usersubscribe = "/#{@chat}/"
     @usershow = "/chatlogs/usershow"
     current_user.update_attribute(:lastseen, DateTime.now)
     @usershere = User.where("lastseen > ?",5.minutes.ago.to_s(:db))
