@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-	before_save { self.email = email.downcase }
+	has_many :chatpost, dependent: :destroy
+  
+  before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	attr_accessor :twitter_id, :facebook, :linkedin, :location
 

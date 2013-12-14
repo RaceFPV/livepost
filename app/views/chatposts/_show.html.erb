@@ -1,26 +1,31 @@
 <tr>
-<td height="70px" width="95%">
-	<% User.all.each do |x|%>
-	<% if x.name == @chatpost.username %>
-	<% @postuser = x %>
-	<% end %>
-	<% end %>
-	<%= gravatar_for @postuser %><%= link_to @chatpost.username, @postuser %>
-	<div class="popover fade right in" style="display: inline-block; position: relative;">
-	<div class="arrow"></div>
-	<div class="popover-content">
-	<%= @chatpost.post %>
-	</div>
-	</div>
-</td>
-<td>
-<p style="float: right;" class="small"><%= @chatpost.created_at.to_datetime.strftime('%H:%M %D')  %></p>
-</td>
-	<% @chat.administrators.each do |z| %>
-	<% if z == current_user.email %>
-		<td>
-			<%= link_to "", chatlog_chatpost_path(@chat, @chatpost), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float: right;margin-right:10px;padding-left: 0px;margin-left:25px;" %>
-		</td>
-	<% end %>
+  <td height="70px" width="95%">
+    <% User.all.each do |user|%>
+      <% if user.name == @chatpost.user_name %>
+      <% @postuser = user %>
+      <% end %>
+    <% end %>
+    
+    <%= gravatar_for @postuser %><%= link_to @chatpost.username, @postuser %>
+    
+    <div class="popover fade right in" style="display: inline-block; position: relative;">
+      <div class="arrow"></div>
+      <div class="popover-content">
+        <%= @chatpost.post %>
+      </div>
+    </div>
+  </td>
+  <td>
+    <p style="float: right;" class="small">
+      <%= @chatpost.created_at.to_datetime.strftime('%H:%M %D')  %>
+    </p>
+  </td>
+  
+	<% @chat.administrators.each do |admin| %>
+    <% if admin == current_user.email %>
+      <td>
+        <%= link_to "", chatlog_chatpost_path(@chat, @chatpost), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float: right;margin-right:10px;padding-left: 0px;margin-left:25px;" %>
+      </td>
+    <% end %>
 	<% end %>
 </tr>
