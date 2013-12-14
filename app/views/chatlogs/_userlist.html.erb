@@ -7,10 +7,6 @@
            
         <!-- subscribe to the current users list -->
         <% @usersubscribe = "/#{@chat.id}/userupdate" %>
-        <% @usersubscription = subscribe_to @usersubscribe %>
-        <script type="text/javascript">
-          $function({@usersubscription.cancel()});
-        </script>
         <%= subscribe_to @usersubscribe %>
         <!-- end of user list subscription code -->
             
