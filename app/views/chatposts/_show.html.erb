@@ -1,11 +1,11 @@
 <tr>
 <td height="70px" width="95%">
 	<% User.all.each do |x|%>
-	<% if x.name == @chatpost.username %>
+	<% if x.name == @chatpost.user_name %>
 	<% @postuser = x %>
 	<% end %>
 	<% end %>
-	<%= gravatar_for @postuser %><%= link_to @chatpost.username, @postuser %>
+	<%= gravatar_for @postuser %><%= link_to @chatpost.user_name, @postuser %>
 	<div class="popover fade right in" style="display: inline-block; position: relative;">
 	<div class="arrow"></div>
 	<div class="popover-content">
