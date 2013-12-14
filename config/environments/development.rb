@@ -29,4 +29,11 @@ Livepost::Application.configure do
   
   # Speed up data populating by lowering bcrypt's cost function.
   ActiveModel::SecurePassword.min_cost = true
+  
+  # Activate Bullet development gem
+  config.after_initialize do
+    Bullet.enable = false
+    Bullet.alert = true
+    #Bullet.bullet_logger = true
+  end
 end

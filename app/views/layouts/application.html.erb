@@ -3,7 +3,7 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", media: "all",
-                                           "data-turbolinks-track" => true %>
+"data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
@@ -11,9 +11,9 @@
     <%= content_for :header %>   
   </head>
   <body>
-  	<%= render partial: "layouts/sidemenu"%>
+    <%= render partial: "layouts/sidemenu"%>
     <%= yield %>
-  	<%= render partial: "layouts/flash_messages", flash: flash %>
+    <%= render partial: "layouts/flash_messages", flash: flash %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

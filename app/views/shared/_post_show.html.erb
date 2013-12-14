@@ -1,8 +1,8 @@
 <tr>
   <td height="70px" width="95%">
     
-    <%= gravatar_for @postuser %>
-    <%= link_to @chatpost.user_name, @postuser %>
+    <%= gravatar_for post.user %>
+    <%= link_to post.user.name, post.user %>
     
     <div class="popover fade right in" style="display:inline-block;position:relative;">
       <div class="arrow"></div>
@@ -16,9 +16,9 @@
       <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
     </p>
   </td>
-  <% if (@chat.administrators.detect {|id| id == current_user.id}) then %>
+  <% if (chat.administrators.detect {|id| id == current_user.id}) then %>
   <td>
-    <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
+    <%= link_to "", chatlog_chatpost_path(chat, post), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
   </td>
   <% end %>
 </tr>

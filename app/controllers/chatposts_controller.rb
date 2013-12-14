@@ -7,7 +7,7 @@ def create
   @chatpost[:post] = params[:chatparams][:post]
   @chat = @chatlog
   
-  @chatposts = @chatlog.chatpost.all
+  @chatposts = @chatlog.chatpost
   respond_to do |format|
     if @chatpost.save
     flash[:success] = "Successfully sent message"
@@ -24,7 +24,7 @@ end
 def destroy
     @chatlog = Chatlog.find(params[:chatlog_id])
     @chatpost = @chatlog.chatpost.find(params[:id])
-    @chatposts = @chatlog.chatpost.all
+    @chatposts = @chatlog.chatpost
     @chat = @chatlog
     @chatpost.destroy
     flash[:success] = "Post deleted."

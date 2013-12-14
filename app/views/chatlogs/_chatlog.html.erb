@@ -1,37 +1,36 @@
-<table id="chatlog" style="max-height: 300px;max-width: 97%;">
+<table id="chatlog" style="max-height:300px;max-width:97%;">
   <% if @posts.empty? %>
-    <tr>
-      <td>
-        No posts.
-      </td>
-    </tr>
+  <tr>
+    <td>
+      No posts. Start the conversation!
+    </td>
+  </tr>
   <% else %>
-    <% @posts.each do |post| %>
-      <% if !post.blank? %>
-        <tr>
-          <td height="70px" width="95%">
-            <% post_user = User.find(post.user_id) %>
-            <%= gravatar_for post_user %>
-            <%= link_to post_user.name, @post_user %>
-            <div class="popover fade right in" style="display: inline-block; position: relative;">
-              <div class="arrow"></div>
-                <div class="popover-content">
-                  <%= post.post %>
-                </div>
-              </div>
-          </td>
-          <td>
-            <p style="float: right;" class="small"><%= post.created_at.to_datetime.strftime('%H:%M %D')  %></p>
-          </td>
-          <% @chat.administrators.each do |admin| %>
-            <% if admin == current_user.email %>
-              <td>
-                <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float: right;margin-right:10px;padding-left: 0px;margin-left:25px;" %>
-              </td>
-            <% end %>
-          <% end %>
-        </tr>
-      <% end %>
+  <% @posts.each do |post| %>
+  <tr>
+    <td height="70px" width="95%">
+      
+      <%= gravatar_for post.user %>
+      <%= link_to post.user.name, @post_user %>
+      
+      <div class="popover fade right in" style="display:inline-block;position:relative;">
+        <div class="arrow"></div>
+        <div class="popover-content">
+          <%= post.post %>
+        </div>
+      </div>
+    </td>
+    <td>
+      <p style="float: right;" class="small">
+        <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
+      </p>
+    </td>
+    <% if (@chat.administrators.detect {|id| id == current_user.id}) then %>
+    <td>
+      <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
+    </td>
     <% end %>
+  </tr>
+  <% end %>
   <% end %>
 </table>
