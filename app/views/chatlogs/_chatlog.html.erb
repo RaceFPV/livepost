@@ -1,3 +1,8 @@
+    <div class="col-sm-9" style="margin-top: 3%;padding-right:0px;">
+      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+        <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
+        <div class="panel panel-body">
+          <div style="height: 350px; overflow-y: hidden;position: relative;" id="chatscroll">
 <table id="chatlog" style="max-height:300px;max-width:97%;">
   <% if @posts.empty? %>
   <tr>
@@ -34,3 +39,13 @@
   <% end %>
   <% end %>
 </table>
+ </div>
+          <% @chatsubscribe = "/#{@chat.id}/update" %>
+          <% @subscription = subscribe_to @chatsubscribe %>
+          <script>
+            $function({@subscription.cancel()});
+          </script>
+          <%= subscribe_to @chatsubscribe %>
+        </div>
+      </div>
+    </div>
