@@ -1,0 +1,9 @@
+<!-- set some variables for private_pub to know where things should go -->
+<% @usersubscribe = "/#{@chat.id}/" %>
+<% @usershow = "/chatlogs/usershow" %>
+<% @thisuser = current_user %>
+<!-- publish the submitted form to the private_pub server -->
+<% publish_to @usersubscribe do %>
+  <!-- append the new submitted form to the chat box using ajax -->
+  $("#userlist").append("<%= j render(@usershow) %>");
+<% end %>
