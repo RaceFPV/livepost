@@ -1,7 +1,7 @@
 <% provide(:title, @chat.chatname.titleize) %>
 
 <% content_for :header do %>
-  <%= javascript_include_tag "chatlogs" %>
+<%= javascript_include_tag "chatlogs" %>
 <% end %>
 
 <div class="chatlog">
@@ -28,17 +28,17 @@
         <div class="panel panel-body" style="background-color: #111;">
           <div style="height: 350px; overflow-y: auto;" align="center">
             <% @usershere.each do |x| %>
-              <% @alreadylisted = false %>
-              <% @chat.administrators.each do |z| %>
-                <% if z == x.email and @alreadylisted == false and z != nil%>
-                  <p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
-                  <% @alreadylisted = true %>
-                <% end %>
-                <% if z != x.email and @alreadylisted == false and z != nil %>
-                  <p><%= link_to x.name, x %></p>
-                  <% @alreadylisted = true %>
-                <% end %>
-              <% end %>
+            <% @alreadylisted = false %>
+            <% @chat.administrators.each do |z| %>
+            <% if z == x.email and @alreadylisted == false and z != nil%>
+            <p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
+            <% @alreadylisted = true %>
+            <% end %>
+            <% if z != x.email and @alreadylisted == false and z != nil %>
+            <p><%= link_to x.name, x %></p>
+            <% @alreadylisted = true %>
+            <% end %>
+            <% end %>
             <% end %>
           </div>
         </div>
