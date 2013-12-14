@@ -13,7 +13,7 @@
           <div style="height: 350px; overflow-y: hidden;position: relative;" id="chatscroll">
             <%= render 'chatlogs/chatlog' %>
           </div>
-          <% @chatsubscribe = "/#{@chat}/update" %>
+          <% @chatsubscribe = "/#{@chat.id}/update" %>
           <% @subscription = subscribe_to @chatsubscribe %>
           <script>
             $function({@subscription.cancel()});
