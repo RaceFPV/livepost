@@ -31,7 +31,7 @@ class ChatlogsController < ApplicationController
       redirect_to new_chatlog_path, :flash => {:error => "Chat name cannot be blank"}
     end
   end
-
+  
   def new
     @chatlog = Chatlog.new
   end
@@ -61,7 +61,7 @@ class ChatlogsController < ApplicationController
       end
     end
   end
-
+  
   def destroy
     Chatlog.find(params[:id]).destroy
     flash[:success] = "Chat deleted."

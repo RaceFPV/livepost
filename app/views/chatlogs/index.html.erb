@@ -10,8 +10,8 @@
             
             <!-- start chat list section -->
             <!-- if there are no chats, let the user know -->
-            <% if @publicchats.count == 0 and @privatechatsallowed.count == 0 %>
-            <p align="center">No chats active, start a <a href="chatlogs/new">new chat</a>?</p>
+            <% if @publicchats.blank? and @privatechatsallowed.blank? %>
+            <p align="center">No chats active, <%= link_to "start a new chat",  new_chatlog_path %>?</p>
             
             <!-- if there are chats available -->
             <% else %>
@@ -20,9 +20,9 @@
             
             <div class="list-group">
               <!-- make sure we have public chats to actually show -->
-              <% if @publicchats.count == 0 %>
+              <% if @publicchats.blank? %>
               <div class="well">
-                <p>No public chats active, start a <a href="chatlogs/new">new public chat</a>?</p>
+                <p>No public chats active, , <%= link_to "start a new chat",  new_chatlog_path %>?</p>
               </div>
               <% end %>
               <!-- list all available public chats -->
@@ -30,16 +30,13 @@
               <%= link_to chat, class: "list-group-item", style: "height:50px;" do %>
               <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
               <p class="list-group-item-text" style="display: inline-block; float: right;">Started on: <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %>
-                <% chat.administrators.each do |z| %>
-                <% if z != nil %>
-                <% if current_user.email == z %>
+                <% if (chat.administrators.detect {|id| id == current_user.id}) then %>
                 <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
-                <% end %>
                 <% end %>
               </p>
               <% end %>
               <% end %>
-              <% end %>
+              
               <!-- end list all public chats -->
             </div>
             
@@ -47,9 +44,9 @@
             
             <div class="list-group">
               <!-- make sure we have private chats to actually show -->
-              <% if @privatechatsallowed.count == 0 %>
+              <% if @privatechatsallowed.blank? %>
               <div class="well">
-                <p align="center">No private chats active, start a <a href="chatlogs/new">new private chat</a>?</p>
+                <p align="center">No private chats active, <%= link_to "start a new private chat",  new_chatlog_path %>?</p>
               </div>  
               <% end %>
               <!-- list all available private chats -->
@@ -57,14 +54,10 @@
               <%= link_to chat, class: "list-group-item", style: "height:50px;" do %>
               <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
               <p class="list-group-item-text" style="display: inline-block; float: right;">Started on: <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %>
-                <% chat.administrators.each do |z| %>
-                <% if z != nil %>
-                <% if current_user.email == z %>
+                <% if (chat.administrators.detect {|id| id == current_user.id}) then %>
                 <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
                 <% end %>
-                <% end %>
               </p>
-              <% end %>
               <% end %>
               <% end %>
               <!-- end list all private chats -->
