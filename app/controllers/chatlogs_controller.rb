@@ -9,7 +9,7 @@ class ChatlogsController < ApplicationController
     privatechats.each do |x|
       if x != nil and x.permitted != nil
         x.permitted.each do |y|
-          if y == current_user.email
+          if y == current_user.id
             @privatechatsallowed << x
           end
         end
@@ -21,8 +21,8 @@ class ChatlogsController < ApplicationController
   def create
     @chatlog = Chatlog.new(params[:chatlog])
     @chatlog[:chatname] = params[:chatparams][:chatname]
-    @chatlog[:administrators] = [nil, current_user.email]
-    @chatlog[:permitted] = [nil, current_user.email]
+    @chatlog[:administrators] = [current_user.id]
+    @chatlog[:permitted] = [current_user.id]
     @chatlog[:privatechat] = params[:chatparams][:privatechat]
     
     if @chatlog.save
@@ -38,10 +38,9 @@ class ChatlogsController < ApplicationController
   
   def show
     @chat = Chatlog.find(params[:id])
-    @chatposts = @chat.chatpost.all
-    @chatsubscribe = "/chatlog/#{@chat.id}/update" 
+    @posts = @chat.chatpost.all
+    @chatsubscribe = "/#{@chat}/update" 
     @chatshow = "/chatposts/show"
-    @users = User.all
     current_user.update_attribute(:lastseen, DateTime.now)
     @usershere = User.find :all, :conditions => ["lastseen > ?",5.minutes.ago.to_s(:db)]
     @usershere.sort!
@@ -50,7 +49,8 @@ class ChatlogsController < ApplicationController
   def update
     @chatlog = Chatlog.find(params[:id])
     @chatpost = @chatlog.chatpost.new(params[:chatpost])
-    @chatpost[:username] = current_user.name
+    @chatpost[:user_name] = current_user.name
+    @chatpost[:user_id] = current_user.id
     @chatpost[:post] = params[:chatparams][:post]
     @chat = @chatlog
     @chatposts = @chatlog.chatpost.all

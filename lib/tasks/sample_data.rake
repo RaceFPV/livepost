@@ -45,27 +45,27 @@ def make_chatlogs
   Chatlog.create!([
     {
       chatname: "Test Public Chat 1",
-      administrators: [users[1].email],
+      administrators: [users[1].id],
       privatechat: false,
-      permitted: [users[1].email]
+      permitted: [users[1].id]
     },
     {
       chatname: "Test Public Chat 2",
-      administrators: [users[2].email],
+      administrators: [users[2].id],
       privatechat: false,
-      permitted: [users[2].email]
+      permitted: [users[2].id]
     },
     {
       chatname: "Test Private Chat 1",
-      administrators: [users[2].email],
+      administrators: [users[2].id],
       privatechat: true,
-      permitted: [users[2].email]
+      permitted: [users[2].id]
     },
     {
       chatname: "Test Private Chat 2",
-      administrators: [users[1].email, users[2].email],
+      administrators: [users[1].id, users[2].id],
       privatechat: true,
-      permitted: [users[1].email, users[2].email]
+      permitted: [users[1].id, users[2].id]
     }
   ])
 end
@@ -75,37 +75,37 @@ def make_chatposts
   Chatpost.create!([
     {
       post: "Admin post",
-      username: users[0].name,
+      user_id: users[0].id,
       chatlog_id: 1
     },
     {
       post: "Test user 1 post",
-      username: users[1].name,
+      user_id: users[1].id,
       chatlog_id: 1
     },
     {
       post: "Test user 2 post",
-      username: users[2].name,
+      user_id: users[2].id,
       chatlog_id: 2
     },
     {
       post: "Test user 2 private post",
-      username: users[2].name,
+      user_id: users[2].id,
       chatlog_id: 3
     },
     {
       post: "Test user 2 private post 2",
-      username: users[2].name,
+      user_id: users[2].id,
       chatlog_id: 4
     },
     {
       post: "Admin private post",
-      username: users[0].name,
+      user_id: users[0].id,
       chatlog_id: 4
     },
     {
       post: "Test user 1 private post 2",
-      username: users[1].name,
+      user_id: users[1].id,
       chatlog_id: 4
     }
   ])
