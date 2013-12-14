@@ -22,7 +22,7 @@
               <!-- make sure we have public chats to actually show -->
               <% if @publicchats.blank? %>
               <div class="well">
-                <p>No public chats active, , <%= link_to "start a new chat",  new_chatlog_path %>?</p>
+                <p>No public chats active, <%= link_to "start a new chat",  new_chatlog_path %>?</p>
               </div>
               <% end %>
               <!-- list all available public chats -->
