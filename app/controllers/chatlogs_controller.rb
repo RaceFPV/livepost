@@ -38,11 +38,11 @@ class ChatlogsController < ApplicationController
   
   def show
     @chat = Chatlog.find(params[:id])
-    @posts = @chat.chatpost.all
+    @posts = @chat.chatpost
     @chatsubscribe = "/#{@chat}/update" 
     @chatshow = "/chatposts/show"
     current_user.update_attribute(:lastseen, DateTime.now)
-    @usershere = User.find :all, :conditions => ["lastseen > ?",5.minutes.ago.to_s(:db)]
+    @usershere = User.where("lastseen > ?",5.minutes.ago.to_s(:db))
     @usershere.sort!
   end
   
@@ -53,7 +53,7 @@ class ChatlogsController < ApplicationController
     @chatpost[:user_id] = current_user.id
     @chatpost[:post] = params[:chatparams][:post]
     @chat = @chatlog
-    @chatposts = @chatlog.chatpost.all
+    @chatposts = @chatlog.chatpost
     respond_to do |format|
       if @chatpost.save
         format.html { redirect_to @chatlog }
