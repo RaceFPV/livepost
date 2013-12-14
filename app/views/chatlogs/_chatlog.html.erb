@@ -1,51 +1,49 @@
-    <div class="col-sm-9" style="margin-top: 3%;padding-right:0px;">
-      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-        <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
-        <div class="panel panel-body">
-          <div style="height: 350px; overflow-y: hidden;position: relative;" id="chatscroll">
-<table id="chatlog" style="max-height:300px;max-width:97%;">
-  <% if @posts.empty? %>
-  <tr>
-    <td>
-      No posts. Start the conversation!
-    </td>
-  </tr>
-  <% else %>
-  <% @posts.each do |post| %>
-  <tr>
-    <td height="70px" width="95%">
-      
-      <%= gravatar_for post.user %>
-      <%= link_to post.user.name, @post_user %>
-      
-      <div class="popover fade right in" style="display:inline-block;position:relative;">
-        <div class="arrow"></div>
-        <div class="popover-content">
-          <%= post.post %>
-        </div>
+<div class="col-sm-9" style="margin-top: 3%;padding-right:0px;">
+  <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+    <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
+    <div class="panel panel-body">
+      <div style="height: 350px; overflow-y: hidden;position: relative;" id="chatscroll">
+        <table id="chatlog" style="max-height:300px;max-width:97%;">
+          <% if @posts.empty? %>
+            <tr>
+              <td>
+                No posts. Start the conversation!
+              </td>
+            </tr>
+          <% else %>
+            <% @posts.each do |post| %>
+            <tr>
+              <td height="70px" width="95%">
+                <%= gravatar_for post.user %>
+                <%= link_to post.user.name, @post_user %>
+                <div class="popover fade right in" style="display:inline-block;position:relative;">
+                  <div class="arrow"></div>
+                  <div class="popover-content">
+                    <%= post.post %>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p style="float: right;" class="small">
+                  <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
+                </p>
+              </td>
+              <% if (@chat.administrators.detect {|id| id == current_user.id}) then %>
+                <td>
+                  <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
+                </td>
+              <% end %>
+            </tr>
+            <% end %>
+          <% end %>
+        </table>
       </div>
-    </td>
-    <td>
-      <p style="float: right;" class="small">
-        <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
-      </p>
-    </td>
-    <% if (@chat.administrators.detect {|id| id == current_user.id}) then %>
-    <td>
-      <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
-    </td>
-    <% end %>
-  </tr>
-  <% end %>
-  <% end %>
-</table>
- </div>
-          <% @chatsubscribe = "/#{@chat.id}/update" %>
-          <% @subscription = subscribe_to @chatsubscribe %>
-          <script>
-            $function({@subscription.cancel()});
-          </script>
-          <%= subscribe_to @chatsubscribe %>
-        </div>
-      </div>
+      <% @chatsubscribe = "/#{@chat.id}/update" %>
+      <% @subscription = subscribe_to @chatsubscribe %>
+      <script>
+        $function({@subscription.cancel()});
+      </script>
+      <%= subscribe_to @chatsubscribe %>
     </div>
+  </div>
+</div>
