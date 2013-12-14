@@ -39,11 +39,13 @@ class ChatlogsController < ApplicationController
   def show
     @chat = Chatlog.find(params[:id])
     @posts = @chat.chatpost
-    @chatsubscribe = "/#{@chat}/update" 
-    @chatshow = "/chatposts/show"
     current_user.update_attribute(:lastseen, DateTime.now)
     @usershere = User.where("lastseen > ?",5.minutes.ago.to_s(:db))
     @usershere.sort!
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
   
   def update

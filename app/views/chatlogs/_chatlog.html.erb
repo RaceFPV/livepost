@@ -39,9 +39,11 @@
         </table>
       </div>
       <% @chatsubscribe = "/#{@chat.id}/update" %>
-      <% @subscription = subscribe_to @chatsubscribe %>
+      <% @chatsubscription = subscribe_to @chatsubscribe %>
       <script>
-        $function({@subscription.cancel()});
+        $(function() {
+          <%= @chatsubscription %>.cancel()
+        });
       </script>
       <%= subscribe_to @chatsubscribe %>
     </div>
