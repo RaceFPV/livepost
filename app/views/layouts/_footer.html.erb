@@ -1,21 +1,25 @@
 
 <!-- Footer -->
-<footer>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 text-center">
-      <!-- ugly links, FIX ME 
-<ul class="list-inline">
-<li><i class="fa fa-facebook fa-3x"></i></li>
-<li><i class="fa fa-twitter fa-3x"></i></li>
-<li><i class="fa fa-dribbble fa-3x"></i></li>
-</ul>
-<div class="top-scroll">
-<a href="#top"><i class="fa fa-circle-arrow-up scroll fa-4x"></i></a>
-</div>
--->
-      <hr>
-      <p><a href="https://github.com/slacker87/livepost">Livepost</a> by <a href="https://github.com/slacker87">Slacker87</a>, <a href="https://github.com/kcombs">KCombs</a>, <a href="https://github.com/harrisongill">harrisongill</a>, and <a href="https://github.com/stuarthannig">stuarthannig</a></p>
-    </div>
+<hr>
+<footer class="row">  
+  <div class="col-md-10">
+    <%= link_to "Home", root_url %> | 
+    <%= link_to "About", about_path %> | 
+    <%= link_to "Help", help_path %> | 
+    <%= link_to "Contact", contact_path %>
+  </div>
+  <div style="col-md-2">
+    <ul class="list-inline text-right">
+      <li><i class="fa fa-facebook fa-3x"></i></li>
+      <li><i class="fa fa-twitter fa-3x"></i></li>
+    </ul>
+  </div>
+  <div class="col-md-12">
+    <a href="https://github.com/slacker87/livepost">Livepost</a> is a collaborative project by 
+    <a href="https://github.com/slacker87">Slacker87</a>, 
+    <a href="https://github.com/kcombs">KCombs</a>, 
+    <a href="https://github.com/harrisongill">harrisongill</a>, 
+    and <a href="https://github.com/stuarthannig">stuarthannig</a>
   </div>
 </footer>
 <!-- /Footer -->

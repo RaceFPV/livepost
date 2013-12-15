@@ -1,28 +1,21 @@
 <!-- header -->
 <div id="top" class="header">
   <div class="vert-text">
-    <% if signed_in? %>
-    <div style="position: fixed; top: 5px; left: 5px;">
-      <aside class="span4">
-        <section>
-          <%= render 'shared/user_info' %>
-        </section>
-      </aside>
-    </div>
-    <% end %>
     <h1>livepost</h1>
-    <h4 align="center" style="color:red;font-weight:bold;position:relative;top:-72px;right:-135px">alpha</h4>
-    <br />
-    <%= link_to "Sign Up!", signup_path, class: "btn btn-default btn-lg" %>
+    <h4 align="center" style="color:red;font-weight:bold;position:relative;top:-65px;right:-135px;display:inline;">alpha</h4>
+    <div id="buttons" style="margin-top:50px;">
+      <%= link_to "Sign In", signin_path, class: "btn btn-default btn-lg"  %>
+      <%= link_to "Sign up for an account, it's free!", signup_path, style: "display:block;margin-top:10px;font-weight:bold"  %>
+    </div>
   </div>
 </div>
 <!-- /header -->   
 <!-- Intro -->
-<div id="about" class="intro">
+<div id="about call-to-action" class="intro">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3 text-center">
-        <h3 align="center">A nice place to chat.</h3>
+      <div class="col text-center">
+        <h3 align="center">Livepost.io offers a unique community of social like-minded individuals whom like to talk to others. It's easy, fun, and entertaining. Simply, a nice place to chat. So introduce yourself to some new folks, invite you friends, and get the party started!</h3>
       </div>
     </div>
   </div>
@@ -33,10 +26,8 @@
 <div class="call-to-action">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3 text-center">
-        <h3>Get started</h3>
-        <a href="chatlogs/new" class="btn btn-lg btn-default">New Chat</a>
-        <a href="chatlogs" class="btn btn-lg btn-primary">Show Chats</a>
+      <div class="col-md-10 col-md-offset-1 text-center">
+        <h3>What are you waiting for? <%= link_to "Join today!", signup_path %></h3>
       </div>
     </div>
   </div>
