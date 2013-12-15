@@ -15,6 +15,6 @@
 <%= subscribe_to @chatsubscribe %>
 
 <!-- subscribe to the current users list -->
-<% @usersubscribe = "/#{@chat.id}/" %>
+<% @usersubscribe = "/#{@chat.id}/show" %>
 <%= subscribe_to @usersubscribe %>
 <!-- end of user list subscription code -->
