@@ -15,12 +15,12 @@ gem 'bootstrap-sass', '~> 3.0.2.0' # Twitter Bootstrap front-end framework
 gem 'bcrypt-ruby', '~> 3.0.0' # Encryption for user passwords
 gem 'local_time' # Manage time
 gem 'faye' # Chat framework
-gem 'private_pub'
-gem 'thin' # Web server (Faye dependent)
+gem 'private_pub' # Extends chat framework
+gem 'thin' # Web server (Faye dependent) (Hosts chat framework)
 gem 'jquery-datatables-rails' # Quickly sort table data
 
 group :production do
-  gem 'pg'
+  gem 'pg' # Heroku database
   gem 'rails_12factor' # Heroku support
 end
 
@@ -30,9 +30,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
-  gem 'rspec-rails'
-  gem 'therubyracer'
+  gem 'sqlite3' # Development database
+  gem 'rspec-rails' # Run rake tests in development
+  gem 'therubyracer' # Javascript runtime for development
 end
 
 group :test do
