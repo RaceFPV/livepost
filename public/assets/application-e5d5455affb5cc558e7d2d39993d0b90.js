@@ -24976,8 +24976,8 @@ var PrivatePub = buildPrivatePub(document);
 // This script allows bootstrap 3 popover functionality
 $(function() {
 	$('[data-toggle="popover-right"]').popover({'placement': 'right', html: 'true'});
-	$('[data-toggle="popover-bottom"]').popover({'placement': 'bottom', html: 'true'});
-	$('[data-toggle="popover-top"]').popover({trigger: 'hover', 'placement': 'top'});
+	$('[data-toggle="popover-bottom"]').popover({trigger: 'hover', 'placement': 'bottom'});
+  $('[data-toggle="popover-top"]').popover({trigger: 'hover', 'placement': 'top'});
 });
 /*! perfect-scrollbar - v0.4.6
 * http://noraesae.github.com/perfect-scrollbar/
@@ -25243,7 +25243,9 @@ $('#chatscroll').perfectScrollbar({
   };
 
   document.addEventListener("DOMContentLoaded", function() {
+    var textProperty;
     domLoaded = true;
+    textProperty = "textContent" in document.body ? "textContent" : "innerText";
     process("time[data-local]:not([data-localized])", function(element) {
       var datetime, format, local, time;
       datetime = element.getAttribute("datetime");
@@ -25253,7 +25255,7 @@ $('#chatscroll').perfectScrollbar({
       if (isNaN(time)) {
         return;
       }
-      return element.innerText = (function() {
+      return element[textProperty] = (function() {
         switch (local) {
           case "time":
             element.setAttribute("data-localized", true);
