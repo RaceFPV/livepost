@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131214011448) do
+ActiveRecord::Schema.define(version: 20131222033603) do
 
   create_table "chatlogs", force: true do |t|
     t.text     "chatname"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20131214011448) do
     t.string   "linkedin"
     t.string   "location"
     t.string   "facebook"
+    t.string   "SuperUser"
+    t.string   "super_user"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

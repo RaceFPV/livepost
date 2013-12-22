@@ -30,7 +30,7 @@
               <%= link_to chat, class: "list-group-item", style: "height:50px;" do %>
               <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
               <p class="list-group-item-text" style="display: inline-block; float: right;">Started on: <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %>
-                <% if (chat.administrators.detect {|id| id == current_user.id}) then %>
+                <% if (chat.administrators.detect {|id| id == current_user.id}) or (chat.super_admin.detect {|id| id == current_user.id}) then %>
                 <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
                 <% end %>
               </p>
