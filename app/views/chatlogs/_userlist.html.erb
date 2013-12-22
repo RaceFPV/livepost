@@ -7,7 +7,7 @@
             
         <% @usershere.each do |x| %>
           <% @alreadylisted = false %>
-          <% if x.super_admin == true %>
+          <% if x.super_user == true %>
             <p><%= link_to x.name, x %> <span class="label label-danger">SuperAdmin</span></p>
           <% else %>
             <% @chat.administrators.each do |z| %>

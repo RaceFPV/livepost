@@ -26,7 +26,13 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		if @user.save
+    #Make the first user created a super user
+    if User.count == 0
+      @user[:super_user] = true
+    else
+      @user[:super_user] = false
+    end
+    if @user.save
 			sign_in @user
 			flash[:success] = "Welcome to LivePost!"
 			redirect_to chatlogs_path
