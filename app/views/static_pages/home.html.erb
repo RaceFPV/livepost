@@ -3,9 +3,11 @@
   <div class="vert-text">
     <h1>livepost</h1>
     <h4 align="center" style="color:red;font-weight:bold;position:relative;top:-65px;right:-135px;display:inline;">alpha</h4>
-    <div id="buttons" style="margin-top:50px;">
-      <%= link_to "Sign In", signin_path, class: "btn btn-default btn-lg"  %>
-      <%= link_to "Sign up for an account, it's free!", signup_path, style: "display:block;margin-top:10px;font-weight:bold"  %>
+    <div id="buttons" style="margin-top:15px;">
+      <!-- Button trigger modal -->
+      <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#loginModal">
+        Sign in
+      </button>
     </div>
   </div>
 </div>
@@ -33,6 +35,33 @@
   </div>
 </div>
 <!-- /Call to Action -->
+
+
+<!-- sign in modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+          <%= form_for :session, url: sessions_path, class: "form-signin" do |f| %>
+          <%= f.text_field :email, class: "form-control", placeholder: "Email Address" %>
+          <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+          <div align="center">
+            <%= f.submit "Go", class: "btn btn-large btn-primary", style: "width: 200px;" %>
+          </div>
+          <% end %>
+      </div>
+      <div class="modal-footer" style="padding-top:0px;padding-bottom:10px;">
+      <%= link_to "New user?", signup_path, style: "display:block;margin-top:10px;font-weight:bold"  %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 
 <!-- for pretty scroll down action -->
 <script>
