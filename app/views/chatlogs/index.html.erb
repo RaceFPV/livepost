@@ -28,12 +28,21 @@
               <!-- list all available public chats -->
               <% @publicchats.each do |chat|%>
               <%= link_to chat, class: "list-group-item", style: "height:50px;" do %>
-              <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
-              <p class="list-group-item-text" style="display: inline-block; float: right;font-size: 11px;margin-top:7px;"> Started on <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %> by <%= chat.created_by %>
+              <div data-toggle="popover-top" data-content='
+                                                                   <% if chat.chatpost.last != nil %>
+                                                                     <p>Latest post:</p>
+                                                                     <%= chat.chatpost.last.post %>
+                                                                   <% else %>
+                                                                     <p>No new posts</p>
+                                                                   <% end %>
+              '>
+                <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
+                <p class="list-group-item-text" style="display: inline-block; float: right;font-size: 11px;margin-top:7px;"> Started on <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %> by <%= chat.created_by %>
                 <% if (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true then %>
                   <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
                 <% end %>
-              </p>
+                </p>
+              </div>
               <% end %>
               <% end %>
               
@@ -52,12 +61,21 @@
               <!-- list all available private chats -->
               <% @privatechatsallowed.each do |chat| %>
               <%= link_to chat, class: "list-group-item", style: "height:50px;" do %>
+              <div data-toggle="popover-top" data-content='
+                                                                   <% if chat.chatpost.last != nil %>
+                                                                     <p>Latest post:</p>
+                                                                     <%= chat.chatpost.last.post %>
+                                                                   <% else %>
+                                                                     <p>No new posts</p>
+                                                                   <% end %>
+              '>
               <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
               <p class="list-group-item-text" style="display: inline-block; float: right;font-size: 11px;margin-top:7px;"> Started on <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %> by <%= chat.created_by %>
                 <% if (chat.administrators.detect {|id| id == current_user.id}) then %>
-                <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
+                  <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
                 <% end %>
               </p>
+              </div>
               <% end %>
               <% end %>
               <!-- end list all private chats -->
