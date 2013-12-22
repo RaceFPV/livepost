@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222033603) do
+ActiveRecord::Schema.define(version: 20131222034827) do
 
   create_table "chatlogs", force: true do |t|
     t.text     "chatname"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20131222033603) do
     t.string   "linkedin"
     t.string   "location"
     t.string   "facebook"
-    t.boolean   "super_user"
+    t.boolean  "super_user"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

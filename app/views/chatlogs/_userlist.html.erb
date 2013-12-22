@@ -6,17 +6,21 @@
       <div style="height: 350px; overflow-y: auto;" align="center" id="userlist">
             
         <% @usershere.each do |x| %>
-        <% @alreadylisted = false %>
-        <% @chat.administrators.each do |z| %>
-        <% if z == x.email and @alreadylisted == false and z != nil%>
-        <p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
-        <% @alreadylisted = true %>
-        <% end %>
-        <% if z != x.email and @alreadylisted == false and z != nil %>
-        <p><%= link_to x.name, x %></p>
-        <% @alreadylisted = true %>
-        <% end %>
-        <% end %>
+          <% @alreadylisted = false %>
+          <% if x.super_admin == true %>
+            <p><%= link_to x.name, x %> <span class="label label-danger">SuperAdmin</span></p>
+          <% else %>
+            <% @chat.administrators.each do |z| %>
+              <% if z == x.email and @alreadylisted == false and z != nil%>
+                <p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
+                <% @alreadylisted = true %>
+              <% end %>
+              <% if z != x.email and @alreadylisted == false and z != nil %>
+                <p><%= link_to x.name, x %></p>
+                <% @alreadylisted = true %>
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
     </div>

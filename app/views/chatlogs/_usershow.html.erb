@@ -1,11 +1,15 @@
 <% @alreadylisted = false %>
-<% @chat.administrators.each do |z| %>
-  <% if z == @thisuser.email and @alreadylisted == false and z != nil%>
-    <p><%= link_to @thisuser.name, @thisuser %> <span class="label label-danger">Admin</span></p>
-    <% @alreadylisted = true %>
-  <% end %>
-  <% if z != @thisuser.email and @alreadylisted == false and z != nil %>
-    <p><%= link_to @thisuser.name, @thisuser %></p>
-    <% @alreadylisted = true %>
+<% if @thisuser.super_user == true %>
+ <p><%= link_to @thisuser.name, @thisuser %> <span class="label label-danger">SuperAdmin</span></p>
+<% else %>
+  <% @chat.administrators.each do |z| %>
+    <% if z == @thisuser.email and @alreadylisted == false and z != nil%>
+      <p><%= link_to @thisuser.name, @thisuser %> <span class="label label-danger">Admin</span></p>
+      <% @alreadylisted = true %>
+    <% end %>
+    <% if z != @thisuser.email and @alreadylisted == false and z != nil %>
+      <p><%= link_to @thisuser.name, @thisuser %></p>
+      <% @alreadylisted = true %>
+    <% end %>
   <% end %>
 <% end %>
