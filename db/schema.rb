@@ -49,8 +49,7 @@ ActiveRecord::Schema.define(version: 20131222033603) do
     t.string   "linkedin"
     t.string   "location"
     t.string   "facebook"
-    t.string   "SuperUser"
-    t.string   "super_user"
+    t.boolean   "super_user"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

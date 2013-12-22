@@ -28,7 +28,7 @@
                   <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
                 </p>
               </td>
-              <% if (chat.administrators.detect {|id| id == current_user.id}) or (chat.super_admin.detect {|id| id == current_user.id})) then %>
+              <% if (chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_admin == true})) then %>
                 <td>
                   <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
                 </td>
