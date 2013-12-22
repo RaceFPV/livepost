@@ -24,6 +24,7 @@ class ChatlogsController < ApplicationController
     @chatlog[:administrators] = [current_user.id]
     @chatlog[:permitted] = [current_user.id]
     @chatlog[:privatechat] = params[:chatparams][:privatechat]
+    @chatlog[:created_by] = current_user.name
     
     if @chatlog.save
       redirect_to @chatlog, :flash => {:success => "Successfully created chat" }
