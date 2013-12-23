@@ -19,6 +19,8 @@ gem 'private_pub' # Extends chat framework
 gem 'thin' # Web server (Faye dependent) (Hosts chat framework)
 gem 'jquery-datatables-rails' # Quickly sort table data
 gem 'rails_autolink' #Automatically hyperlink http:// text
+gem 'paperclip' #allow file uploading
+gem 'aws-sdk' #allow usage of amazon S3 as the file storage
 
 group :production do
   gem 'pg' # Heroku database
