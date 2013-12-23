@@ -1,6 +1,6 @@
 class ChatlogsController < ApplicationController
   require 'json'
-  
+
   def index
     @publicchats = Chatlog.where(privatechat: false)
     @publicchats.sort!

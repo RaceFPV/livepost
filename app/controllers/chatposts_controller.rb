@@ -1,10 +1,11 @@
 class ChatpostsController < ApplicationController
-
+  
 def create
   @chatlog = Chatlog.find(params[:id])
   @chatpost = @chatlog.chatpost.new(params[:chatpost])
   @chatpost[:username] = current_user.name
   @chatpost[:post] = params[:chatparams][:post]
+  @chatpost[:post] = auto_link(@chatpost[:post])
   @chat = @chatlog
   
   @chatposts = @chatlog.chatpost
