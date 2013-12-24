@@ -16,3 +16,7 @@ $('#chatscroll').perfectScrollbar('update')
 <% end %>
 <!-- clear the new post form -->
 $("#newpost")[0].reset();
+
+
+<!-- update lastseen to the current time since the user has just been active by posting-->
+<% current_user.update_attribute(:lastseen, DateTime.now) %>
