@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }, :unless => lambda{ |user| user.password.blank? }
   
-  # Convert user's name to friently url format
+  # Convert user's name to friendly url format
   def slug
     name.downcase.gsub(" ", "-")  
   end
