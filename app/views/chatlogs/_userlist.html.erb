@@ -11,7 +11,7 @@
             <p><%= link_to x.name, x %> <span class="label label-danger">SuperAdmin</span></p>
           <% else %>
             <% @chat.administrators.each do |z| %>
-              <% if z == x.email and @alreadylisted == false and z != nil%>
+              <% if z == x.id and @alreadylisted == false and z != nil%>
                 <p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
                 <% @alreadylisted = true %>
               <% end %>

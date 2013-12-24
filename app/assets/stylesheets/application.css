@@ -9,8 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= stylish-portfolio
+ *= require stylish-portfolio
  *= require dataTables/jquery.dataTables.bootstrap3
- * require perfect-scrollbar
- *= require_tree .
+ *= require perfect-scrollbar
+ *= require custom
+ *= require font-awesome
+ *= require sessions
+ *= require signin
+ *= require static_pages
+ *= require users
  */
