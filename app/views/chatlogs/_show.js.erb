@@ -7,3 +7,5 @@
   <!-- append the new submitted form to the chat box using ajax -->
   $("#userlist").append("<%= j render(@usershow) %>");
 <% end %>
+<!-- update lastseen to the current time since the user has just been active by posting-->
+<% current_user.update_attribute(:lastseen, DateTime.now) %>
