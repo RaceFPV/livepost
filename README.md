@@ -17,7 +17,7 @@ Help develop this app quickly by using a Linux Ruby on Rails dev box from [Nitro
 3. Click IDE to go to you Web IDE and in the console, type `cd workspace`
 4. Come back to Github and click Fork in upper right, to fork repo.
 5. Back in the console, type `git clone git@github.com:[your-github-username]/livepost.git`
-6. In the console, type `cd livepost` and `bundle install --without-production`
+6. In the console, type `cd livepost` and `bundle install --without production`
 7. In the console, type `git config --global user.email "[your@email.com]"`
 8. In the console, type `git config --global user.name "[your-real-name]"`
 9. Edit the README file (add a space or something at the end) and make sure you can `git add .`, `git commit -m "Touched README."`, and `git push origin master`
