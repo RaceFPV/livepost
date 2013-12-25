@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }, :unless => lambda{ |user| user.password.blank? }
+  validates :location, presence: true, allow_blank: true
+  validates :facebook, presence: true, allow_blank: true
+  validates :linkedin, presence: true, allow_blank: true
+  validates :twitter_id, presence: true, allow_blank: true
+  
   
   # Convert user's name to friendly url format
   def slug

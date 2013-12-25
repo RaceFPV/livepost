@@ -46,13 +46,18 @@ class UsersController < ApplicationController
 	end
 
 	def update
-      params[:user].delete(:password) if params[:user][:password].blank?
-    
+    params[:user].delete(:password) if params[:user][:password].blank?
+    params[:user].update(:location => params[:location]) if params[:user][:location].present?
+    params[:user].update(:facebook => params[:facebook]) if params[:user][:facebook].present?
+    params[:user].update(:linkedin => params[:linkedin]) if params[:user][:linkedin].present?
+    params[:user].update(:twitter_id => params[:twitter_id]) if params[:user][:twitter_id].present?
+    @user.save
+            
     if @user.update_attributes(user_params)
-      @User.save
   flash[:success] = "Profile updated"
   redirect_to @user
 else
+      @users = User.find(:all) 
   render 'edit'
 end
  	end
