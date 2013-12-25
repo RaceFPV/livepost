@@ -48,13 +48,13 @@ class UsersController < ApplicationController
 	def update
       params[:user].delete(:password) if params[:user][:password].blank?
     
-    if @user.update_attributes(params[:user].permit(:name, :email, :password, :password_confirmation, :twitter_id, :facebook, :linkedin, :location))
-			flash[:success] = "Profile updated"
-			redirect_to @user
-		else
-			render 'edit'
-		end
-	end
+    if @user.update_attributes(user_params)
+  flash[:success] = "Profile updated"
+  redirect_to @user
+else
+  render 'edit'
+end
+ 	end
 
 	def destroy
 		User.find(params[:id]).destroy
