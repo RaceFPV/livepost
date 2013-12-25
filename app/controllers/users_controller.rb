@@ -49,6 +49,7 @@ class UsersController < ApplicationController
       params[:user].delete(:password) if params[:user][:password].blank?
     
     if @user.update_attributes(user_params)
+      @User.save
   flash[:success] = "Profile updated"
   redirect_to @user
 else
