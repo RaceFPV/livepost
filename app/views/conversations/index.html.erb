@@ -1,0 +1,17 @@
+<% content_for :title do %>
+  <%=t('message.other')%>
+<% end %>
+
+<section id="conversations">
+
+  <%= render partial: 'toolbar/messages' %>
+
+  <%= render :partial => 'index' %>
+
+  <%= javascript_tag do %>
+    $(function() {
+      SocialStream.Conversation.index();
+    });
+  <% end %>
+
+</section>
