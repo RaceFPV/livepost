@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :chatpost, dependent: :destroy
+    acts_as_messageable
+
   
   before_save { self.email = email.downcase }
 	before_create :create_remember_token
