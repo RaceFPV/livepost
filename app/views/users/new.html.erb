@@ -12,7 +12,48 @@
           <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
           <div align="center">
-            <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+                        <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    <div align="left">
+                      Social Media (optional)
+                    </div>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div align="left"><span class="label label-default">Twitter</span></div>
+                  <%= f.text_field :twitter_id, class: "form-control", placeholder: "Twitter username" %>
+                  <div align="left"><span class="label label-default">Facebook</span></div>
+                  <%= f.text_field :facebook, class: "form-control", placeholder: "Facebook profile URL" %>
+                  <div align="left"><span class="label label-default">LinkedIn</span></div>
+                  <%= f.text_field :linkedin, class: "form-control", placeholder: "LinkedIn profile URL" %>
+                </div>
+              </div>
+            </div>
+            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    <div align="left">
+                    Location (optional)
+                    </div>
+                  </a>
+                </h4>
+              </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div align="left"><span class="label label-default">Location</span></div>
+                  <%= f.text_field :location, class: "form-control", placeholder: "Your location" %>
+                </div>
+              </div>
+              </div>
+            </div>         
+            <br />
+          <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
           </div>
           <% end %>
         </div>
