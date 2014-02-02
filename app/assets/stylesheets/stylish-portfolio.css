@@ -157,13 +157,13 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('callout.jpg');
+  /*background-image: url('callout.jpg');
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 /* Sign in */
@@ -172,13 +172,13 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('chain.jpg');
+  /*background-image: url('chain.jpg');
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 /* Sign up */
@@ -187,13 +187,13 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('cones.jpg');
+ /* background-image: url('cones.jpg');
   background-repeat: no-repeat;
   backround-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 /* chat logs index */
@@ -202,13 +202,13 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('pillars.jpg');
+  /*background-image: url('pillars.jpg');
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 /* new chat log */
@@ -217,13 +217,13 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('sticks.jpg');
+  /*background-image: url('sticks.jpg');
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 /* current chat log */
@@ -232,13 +232,13 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('brick.jpg');
+  /*background-image: url('brick.jpg');
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 
@@ -248,13 +248,13 @@ i.service-icon {
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url('rebar.jpg');
+  /*background-image: url('rebar.jpg');
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 

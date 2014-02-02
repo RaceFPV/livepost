@@ -4,6 +4,38 @@ $grayLight: #999;
 $grayLighter: #aaa;
 $gray: #555;
 $grayDarker: #222;
+$orange: #F84800;
+$black: #050608;
+$white: #B0C0BF;
+$darkorange:  #B64809;
+$lightorange: #E36E39;
+
+body {
+  margin-top: 30px;
+  background-color: $black;
+}
+
+body p {
+  color: #000;
+}
+
+footer {
+  background-color: #FFF;
+}
+
+.panel-body {
+  background-color: $white; 
+  margin: 0;
+}
+
+.list-group-item {
+  background-color: $white;
+  border-color: $orange;
+}
+
+.list-group-item:hover {
+  background-color: #eaeaea;
+}
 
 /* mixins, variables, etc. */
 @mixin box_sizing {
@@ -21,6 +53,14 @@ box-sizing: border-box;
    width: 85%;
    margin-right: 60px;
    margin-left: 60px;
+}
+
+
+/* panel stuff */
+.panel-default {
+  border-color: $orange;
+  border-width: 3px;
+  background-color: $white;
 }
 
 
@@ -44,6 +84,7 @@ margin-bottom: 10px;
 /* typography */
 h1, h2, h3, h4, h5, h6 {
 line-height: 1;
+color: $black;
 }
 h1 {
 font-size: 3em;
@@ -57,7 +98,6 @@ letter-spacing: -1px;
 margin-bottom: 30px;
 text-align: center;
 font-weight: normal;
-color: $grayLight;
 }
 p {
 font-size: 1.1em;
@@ -65,7 +105,6 @@ line-height: 1.7em;
 }
 
 .panel-body-heading {
-  color: #bbb;
   font-size: 1.2em;
   padding-bottom: 5px;
   padding-left: 10px;
