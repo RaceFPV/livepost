@@ -20,3 +20,4 @@
 //= require popovers
 //= require perfect-scrollbar
 //= require local_time
+//= require GoogleAnalytics
