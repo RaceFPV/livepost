@@ -2,7 +2,7 @@
       <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;padding-top:25px;padding-right: 10px;">
         <%= form_for :chatparams, class: "form-signin", url: chatlog_path(@chat),:method => :patch, :remote => true, :html => { :id => "newpost"} do |f| %>
         <div class="input-group" style="width: 100%">
-              <%= f.text_field :post, class: "form-control", placeholder: "Enter new post", autofocus: true, :autocomplete => :off %>
+              <%= f.text_field :post, class: "form-control", placeholder: "Enter new post", id: 'input-line', autofocus: true, :autocomplete => :off %>
           <span class="input-group-btn">
             <%= submit_tag "Send", class: "btn btn-primary", style: "height: 34px;"  %>
       </span>

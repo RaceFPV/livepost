@@ -1,9 +1,9 @@
-<div class="col-sm-12" style="height:90%;">
+<div class="col-sm-12" style="height:88%;">
   <div class="panel panel-default" style="padding-bottom: 0px; margin-bottom: 0px;height: 100%">
     <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
     <div class="panel panel-body">
       <div style="overflow-y: hidden;height: 75%;width:96%;position: absolute;margin-top:5%;" id="chatscroll">
-        <table id="chatlog" style="max-width:97%">
+        <table id="chatlog" class="chatlog" style="max-width:97%">
           <% if @posts.empty? %>
             <tr>
               <td>
@@ -12,7 +12,7 @@
             </tr>
           <% else %>
             <% @posts.each do |post| %>
-            <tr>
+            <tr class="post">
               <td height="70px" width="95%">
                 <%= gravatar_for post.user %>
                 <%= link_to post.user.name, @post_user %>
@@ -41,3 +41,8 @@
     </div>
   </div>
 </div>
+<!-- script to auto-scroll to latest post -->
+<script>
+var mostrecent = $("#chatlog tr").last();
+$("#chatscroll").animate({scrollTop: $(mostrecent).position().top},100);
+</script>

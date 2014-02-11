@@ -2,21 +2,20 @@
 <% @chatsubscribe = "/#{@chat.id}/update" %>
 <% @chatshow = "/chatposts/show" %>
 
-
 <!-- publish the submitted form to the private_pub server -->
 <% publish_to @chatsubscribe do %>
 <!-- append the new submitted form to the chat box using ajax -->
 $("#chatlog").append("<%= j render(@chatshow) %>");
 <!-- This script will auto-scroll the chat window to the lastest post -->
-$(document).ready(function(){
-var objDiv = document.getElementById("chatscroll");
-objDiv.scrollTop = objDiv.scrollHeight;
-});
-$('#chatscroll').perfectScrollbar('update')
+mostrecent = $("#chatlog tr").last();
+$("#chatscroll").animate({scrollTop: $(mostrecent).position().top},100);
+$('#chatscroll').perfectScrollbar('update');
 <% end %>
-<!-- clear the new post form -->
 $("#newpost")[0].reset();
+$('.selectpicker').selectpicker('render');
 
+<!-- focus on the line text box -->
+$('#input-line').focus();
 
 <!-- update lastseen to the current time since the user has just been active by posting-->
 <% current_user.update_attribute(:lastseen, DateTime.now) %>
