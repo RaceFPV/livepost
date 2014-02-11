@@ -18,4 +18,5 @@
  *= require signin
  *= require static_pages
  *= require users
+ *= require sidenav
  */

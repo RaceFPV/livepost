@@ -1,0 +1,98 @@
+	
+
+      /* Side Nav */
+     
+      .side-nav {
+            right: 0px;
+            width: 65px;
+            position: fixed;
+            top: 240px;
+            border-radius: 0;
+            border: none;
+            background-color: transparent;
+            padding-left: 10px;
+            color: #333333;
+      }
+     
+      .side-nav .panel {
+            background-color: transparent;
+      }
+     
+      .side-nav .panel>a {
+            width: 65px;
+            height: 150px;
+            text-decoration: none;
+            font-size: 25px;
+      }
+     
+      .side-nav .panel>a:hover {
+            color: #fff;
+      }
+     
+      .side-nav>li>a {
+            width: 60px;
+            color: #333333;
+           
+      }
+     
+      .side-nav>li>a:hover {
+            color: #fff;
+            text-decoration: none;
+      }
+
+	
+
+       /* Side Nav two */
+     
+      .side-nav-two {
+            margin-left: 0px;
+            right: 2px;
+            width: 220px;
+            position: fixed;
+            top: 75px;
+            height: 100%;
+            border-radius: 0;
+            border: none;
+            background-color: transparent;
+            padding-top: 20px;
+            padding-bottom: 8%;
+      }
+     
+      /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
+     
+      .side-nav-two>li.dropdown>ul.dropdown-menu {
+            position: relative;
+            min-width: 70px;
+            margin: 0;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            background-color: transparent;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+      }
+     
+      .side-nav-two>li.dropdown>ul.dropdown-menu>li>a {
+            color: #999999;
+            padding: 15px 15px 15px 25px;
+      }
+     
+      .side-nav-two>form>li>a {
+            color: #999999;
+            padding: 15px 15px 15px 25px;
+      }
+     
+      .side-nav-two>form>li>a:hover,
+      .side-nav-two>form>li>a:active,
+      .side-nav-two>form>li>a:focus {
+            color: #fff;
+            text-decoration: none;
+      }
+     
+      .side-nav-two>li.dropdown>ul.dropdown-menu>li>a:hover,
+      .side-nav-two>li.dropdown>ul.dropdown-menu>li>a.active,
+      .side-nav-two>li.dropdown>ul.dropdown-menu>li>a:focus {
+            color: #fff;
+            background-color: #080808;
+      }
+

@@ -1,8 +1,8 @@
 development:
-  server: "http://localhost:9292/faye"
+  server: "http://localhost:8080/faye"
   secret_token: "privatepub"
 test:
-  server: "http://localhost:9292/faye"
+  server: "http://localhost:8080/faye"
   secret_token: "privatepub"
 production:
   server: "http://livepost-backend.herokuapp.com/faye"

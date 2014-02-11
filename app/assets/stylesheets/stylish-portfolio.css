@@ -2,8 +2,6 @@
 
 html,
 body {
-  height: 100%;
-  width: 100%;
 }
 
 .vert-text {
@@ -198,63 +196,22 @@ i.service-icon {
 
 /* chat logs index */
 .chatlogs {
-  display: table;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  /*background-image: url('pillars.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
+
 }
 
 /* new chat log */
 .chatlognew {
-  display: table;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  /*background-image: url('sticks.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
 }
 
 /* current chat log */
 .chatlog {
-  display: table;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  /*background-image: url('brick.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
+  
+
 }
 
 
 /* Show user */
 .showuser {
-  display: table;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  /*background-image: url('rebar.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
 }
 
 

@@ -11,19 +11,12 @@
     <%= render 'admin/chatadmin' %>
   <% end %>
 <% end %>
-<!-- end admin section-- >
-
-<!-- render the show javascript for displaying users on the sidebar via AJAX -->
-<%= render 'chatlogs/show.js.erb' %>
+<!-- end admin section -->
 
 <!-- render the chatlog, userlist, and new post sections -->
-<div class="chatlog">
-  <row>
    <%= render 'chatlogs/chatlog' %>
    <%= render 'chatlogs/userlist' %>
    <%= render 'chatlogs/newpost' %>
-  </row>
-</div>
 
 <!-- subscribe to this chat so the user can see private_pub AJAX updates --> 
 <% @chatsubscribe = "/#{@chat.id}/update" %>

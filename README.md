@@ -24,4 +24,4 @@ Help develop this app quickly by using a Linux Ruby on Rails dev box from [Nitro
 10. If your push is successful, you are ready to start developing Livepost on Rails!
 11. Delete the Fork from Settings in the repository to discard and start the process over again but this time implement something useful to the project, don't forget to issue a Pull Request back to Master so your new feature is implemented!
 
-*NOTE: If you want to run the chat backend locally: In a new console run `rackup private_pub.ru -s thin -E production` to load up `faye/private_pub`*
+*NOTE: If you want to run the chat backend locally: In a new console run `rackup private_pub.ru -s thin -E production -p 8080` to load up `faye/private_pub`*
