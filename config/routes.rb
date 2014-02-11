@@ -13,6 +13,7 @@ Livepost::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   
+  
   # The following routes should remain at the end of the file.
   # They are the catch-all for chat rooms slugs.
   # Do NOT remove unless you know what you are doing.

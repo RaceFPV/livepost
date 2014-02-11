@@ -49,21 +49,17 @@ class ChatlogsController < ApplicationController
   end
   
   def update
-    @chatlog = Chatlog.find(params[:id])
+    @chatlog ||= Chatlog.find(params[:id])
     @chatpost = @chatlog.chatpost.new(params[:chatpost])
     @chatpost[:user_name] = current_user.name
     @chatpost[:user_id] = current_user.id
     @chatpost[:post] = params[:chatparams][:post]
-    @chat = @chatlog
-    @chatposts = @chatlog.chatpost
-    respond_to do |format|
-      if @chatpost.save
-        format.html { redirect_to @chatlog }
-        format.js   {}
-      end
-    end
+    @chat ||= @chatlog
+    @chatposts ||= @chatlog.chatpost
+    render 'update'
   end
   
+
   def destroy
     Chatlog.find(params[:id]).destroy
     flash[:success] = "Chat deleted."

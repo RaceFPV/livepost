@@ -1,13 +1,8 @@
 <!-- set some variables for private_pub to know where things should go -->
-<% @chatsubscribe = "/#{@chatlog}/update" %>
-<% @chatshow = "/shared/post_show" %>
+<% @chatsubscribe = "/#{@chat.id}/update" %>
+<% @deleteme = "#{@chatpostid}"%>
 
 <!-- publish the submitted form to the private_pub server -->
 <% publish_to @chatsubscribe do %>
-$("#chatlog").html(<%= j render partial: @chatshow %>);
-<!-- This script will auto-scroll the chat window to the lastest post -->
-$(document).ready(function(){
-var objDiv = document.getElementById("chatscroll");
-objDiv.scrollTop = objDiv.scrollHeight;
-});
+	$('#<%= @deleteme %>').remove();
 <% end %>

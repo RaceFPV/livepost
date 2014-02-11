@@ -11,6 +11,6 @@
                   <%= @chatpost.created_at.to_datetime.strftime('%H:%M %D')  %>
                 </p>
               <% if (@chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_user == true) then %>
-    <%= link_to "", chatlog_chatpost_path(@chat, @chatpost), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
+    <%= link_to "", chatlog_chatpost_path(@chat, @chatpost), method: :delete,remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
               <% end %>
             </div>
