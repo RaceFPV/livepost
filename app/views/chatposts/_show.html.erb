@@ -1,4 +1,4 @@
-            <div class="sentpost" style="height: 50px; width: 95%">
+            <div class="sentpost" id="<%= @chatpost.id %>" style="height: 50px; width: 95%">
                 <%= gravatar_for @chatpost.user %>
                 <%= link_to @chatpost.user_name, @chatpost.user %>
                 <div class="popover fade right in" style="display:inline-block;position:relative;">

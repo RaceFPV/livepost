@@ -44,19 +44,23 @@ class ChatlogsController < ApplicationController
     @chatshow ||= "/chatposts/show"
     @usersubscribe ||= "/#{@chat}/"
     @usershow ||= "/chatlogs/usershow"
-    @usershere ||= User.where("lastseen > ?",5.minutes.ago.to_s(:db))
+    @usershere = User.where("lastseen > ?", 5.minutes.ago)
     @usershere.sort!
   end
   
   def update
-    @chatlog ||= Chatlog.find(params[:id])
+    @chatlog = Chatlog.find(params[:id])
     @chatpost = @chatlog.chatpost.new(params[:chatpost])
     @chatpost[:user_name] = current_user.name
     @chatpost[:user_id] = current_user.id
     @chatpost[:post] = params[:chatparams][:post]
-    @chat ||= @chatlog
-    @chatposts ||= @chatlog.chatpost
-    render 'update'
+    @chat = @chatlog
+    @chatposts = @chatlog.chatpost
+    if @chatpost.save
+    return render 'update'
+    else
+    return render 'update_error'
+    end
   end
   
 
