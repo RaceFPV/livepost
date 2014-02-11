@@ -1,19 +1,11 @@
-<div class="col-sm-12" style="height:88%;">
-  <div class="panel panel-default" style="padding-bottom: 0px; margin-bottom: 0px;height: 100%">
+  <div class="panel panel-default" style="padding-bottom: 0px; margin-bottom: 0px;height: 88%">
     <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
-    <div class="panel panel-body">
-      <div style="overflow-y: hidden;height: 75%;width:96%;position: absolute;margin-top:5%;" id="chatscroll">
-        <table id="chatlog" class="chatlog" style="max-width:97%">
+    <div class="panel panel-body chatscroll" style="overflow-y: hidden;height: 500px;width:96%;position: relative;margin-top:5%;" id="chatscroll">
           <% if @posts.empty? %>
-            <tr>
-              <td>
                 No posts. Start the conversation!
-              </td>
-            </tr>
           <% else %>
             <% @posts.each do |post| %>
-            <tr class="post">
-              <td height="70px" width="95%">
+            <div style="height: 50px; width: 95%" class="sentpost">
                 <%= gravatar_for post.user %>
                 <%= link_to post.user.name, @post_user %>
                 <div class="popover fade right in" style="display:inline-block;position:relative;">
@@ -22,27 +14,14 @@
                     <%= auto_link(post.post) %>
                   </div>
                 </div>
-              </td>
-              <td>
                 <p style="float: right;" class="small">
                   <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
                 </p>
-              </td>
               <% if (@chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_user == true) then %>
-                <td>
                   <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
-                </td>
               <% end %>
-            </tr>
+            </div>
             <% end %>
           <% end %>
-        </table>
-      </div>
     </div>
-  </div>
-</div>
-<!-- script to auto-scroll to latest post -->
-<script>
-var mostrecent = $("#chatlog tr").last();
-$("#chatscroll").animate({scrollTop: $(mostrecent).position().top},100);
-</script>
+    </div>

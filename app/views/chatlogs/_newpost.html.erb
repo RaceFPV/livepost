@@ -1,5 +1,4 @@
-<div class="col-sm-12" style="padding-top:5px;margin-top: 2%;padding-bottom: 3px; margin-bottom: 0px;padding-top: 0px;margin-top: 0px;">
-      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;padding-top:25px;padding-right: 10px;">
+<div class="panel panel-default" style="width: 100%; height: 10%">
         <%= form_for :chatparams, class: "form-signin", url: chatlog_path(@chat),:method => :patch, :remote => true, :html => { :id => "newpost"} do |f| %>
         <div class="input-group" style="width: 100%">
               <%= f.text_field :post, class: "form-control", placeholder: "Enter new post", id: 'input-line', autofocus: true, :autocomplete => :off %>
@@ -8,5 +7,4 @@
       </span>
     </div>
 <% end %>
-</div>
 </div>

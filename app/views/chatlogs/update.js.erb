@@ -1,18 +1,14 @@
 <!-- set some variables for private_pub to know where things should go -->
 <% @chatsubscribe = "/#{@chat.id}/update" %>
 <% @chatshow = "/chatposts/show" %>
-
 <!-- publish the submitted form to the private_pub server -->
 <% publish_to @chatsubscribe do %>
 <!-- append the new submitted form to the chat box using ajax -->
-$("#chatlog").append("<%= j render(@chatshow) %>");
+$("#chatscroll").append("<%= j render(@chatshow) %>");
 <!-- This script will auto-scroll the chat window to the lastest post -->
-mostrecent = $("#chatlog tr").last();
-$("#chatscroll").animate({scrollTop: $(mostrecent).position().top},100);
-$('#chatscroll').perfectScrollbar('update');
+document.getElementById('chatscroll').scrollTop = 9999999;
 <% end %>
 $("#newpost")[0].reset();
-$('.selectpicker').selectpicker('render');
 
 <!-- focus on the line text box -->
 $('#input-line').focus();
