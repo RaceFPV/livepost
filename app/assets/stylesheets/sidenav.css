@@ -166,3 +166,38 @@
   
 }
 
+#sideinvite {
+  margin-right: -250px;
+  right: 0;
+  top: 25%;
+  width: 250px;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+#sideinvite.active {
+  right: 250px;
+  width: 300px;
+  height: 550px;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+#invite-toggle {
+  top: 50%;
+  right: 0;
+  position: fixed;
+  z-index: 1;
+  
+}
+
