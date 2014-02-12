@@ -96,3 +96,38 @@
             background-color: #080808;
       }
 
+#sideusers {
+  margin-right: -250px;
+  right: 0;
+  top: 25%;
+  width: 250px;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+#sideusers.active {
+  right: 250px;
+  width: 250px;
+  height: 450px;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+#users-toggle {
+  top: 30%;
+  right: 0;
+  position: fixed;
+  z-index: 1;
+  
+}
+

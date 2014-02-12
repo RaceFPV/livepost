@@ -2,17 +2,10 @@
 <% @sidesubscribe = "/scenes/#{params[:id]}/show/sidechat" %>
 <%= @sidesubscribed = subscribe_to @sidesubscribe %>
 
-<div class="collapse navbar-collapse navbar-ex1-collapse">
-	<ul class="nav navbar-nav side-nav">
-		<div class="panel-group" id="sideaccordion">
-			<div class="panel">
-				<a class="glyphicon glyphicon-chevron-left" id="sidelistclick" data-toggle="collapse" data-parent="#sideaccordion" data-target="#sidechat" title="Show sidechat" href="#" style=""><br><span style="font-size: 13px;margin-right: 5px; color:#333333;">Users</span><span class="glyphicon glyphicon-certificate" id="sidechatnotify" style="display: none;color: red;margin-right:30px;margin-top:10px;float:left;padding-bottom: 30px;font-size: 24px;"><span class="glyphicon glyphicon-chevron-left" style="margin-top:10px;"></span></span></a>
-				<div id="sidechat" class="panel-collapse collapse">
-					<nav role="navigation">
-						<div class="collapse navbar-collapse navbar-ex1-collapse">
-							<ul class="nav navbar-nav side-nav-two">
-								<a id="sidelistclick1" class="glyphicon glyphicon-chevron-right" data-toggle="collapse" data-parent="#sideaccordion" data-target="#sidechat" title="Hide sidechat" href="#" style="color:#333333; width:35px;float: left; margin-top: 150px;"><br>Hide</a>
-								<div id="userlist" class="panel panel-body" style="height: 70%;background: rgba(255, 255, 255, .5);overflow-y: hidden;border-color: #eaeaea; border-width: 1px; border-style: solid;">
+<a id="users-toggle" class="btn btn-primary btn-lg toggle" style="background-color: #050608;"><i class="fa fa-users"></i></a>
+    <div id="sideusers">
+      <ul class="sidebar-nav">
+		<div id="userlist" class="panel panel-body" style="height: 350px;background: rgba(255, 255, 255, .5);overflow-y: hidden;border-color: #eaeaea; border-width: 1px; border-style: solid;">
         <% @usershere.each do |x| %>
           <% @alreadylisted = false %>
           <% if x.super_user == true %>
@@ -31,27 +24,18 @@
           <% end %>
         <% end %>
       </div>
-								
+        <a id="users-close" class="btn btn-default btn-lg btn-block toggle"><i class="fa fa-times"></i></a>
 							</ul>
 						</div>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</ul>
-</div>
-
-<script>
-$(document).ready(function() {
-  $('#sidelistclick').click(function(e) {
-  e.preventDefault();
-  document.getElementById("sidelistclick").style.display="none";
-  
-});
-  $('#sidelistclick1').click(function(e) {
-  	document.getElementById("sidelistclick").style.display="inherit";
-
-  e.preventDefault();  
-});
-});
-</script>
+    <script>
+        $("#users-close").click(function(e) {
+            e.preventDefault();
+            $("#sideusers").toggleClass("active");
+         	document.getElementById("users-toggle").style.display="inherit";
+        });
+        $("#users-toggle").click(function(e) {
+            e.preventDefault();
+            $("#sideusers").toggleClass("active");
+         	document.getElementById("users-toggle").style.display="none";
+        });
+    </script>
