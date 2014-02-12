@@ -5,6 +5,7 @@
 <a id="users-toggle" class="btn btn-primary btn-lg toggle" style="background-color: #050608;"><i class="fa fa-users"></i></a>
     <div id="sideusers">
       <ul class="sidebar-nav">
+        <li class="sidebar-brand"><%= link_to "User list", root_path %></li>
 		<div id="userlist" class="panel panel-body" style="height: 350px;background: rgba(255, 255, 255, .5);overflow-y: hidden;border-color: #eaeaea; border-width: 1px; border-style: solid;">
         <% @usershere.each do |x| %>
           <% @alreadylisted = false %>
