@@ -4,7 +4,7 @@
       <ul class="sidebar-nav">
         <a id="menu-close" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
         <li class="sidebar-brand"><%= link_to "LivePost", root_url %></li>
-        <% if !signed_in? %>
+        <% if current_user.name.include?("guest_") %>
           <li><%= link_to "Home", root_url %></li>
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Help", help_path %></li>
