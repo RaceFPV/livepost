@@ -1,6 +1,6 @@
   <div class="panel panel-default" style="padding-bottom: 0px; margin-bottom: 0px;height: 100%">
     <h3 class="form-signin-heading" align="center"><b><%= @chat.chatname.titleize %></b></h3>
-    <div class="panel panel-body chatscroll" style="overflow-y: hidden;height: 500px;width:96%;position: relative;margin-top:5%;" id="chatscroll">
+    <div class="panel panel-body chatscroll" style="overflow-y: hidden;width:96%;height: 80%;position: relative;margin-top:5%;margin-bottom: 50px;" id="chatscroll">
           <% if @posts.empty? %>
                 No posts. Start the conversation!
           <% else %>
