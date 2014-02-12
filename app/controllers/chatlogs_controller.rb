@@ -23,7 +23,7 @@ class ChatlogsController < ApplicationController
     @chatlog[:chatname] = params[:chatparams][:chatname]
     @chatlog[:administrators] = [current_user.id]
     @chatlog[:permitted] = [current_user.id]
-    @chatlog[:privatechat] = params[:chatparams][:privatechat]
+    @chatlog[:privatechat] = true
     @chatlog[:created_by] = current_user.name
     
     if @chatlog.save

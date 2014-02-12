@@ -10,8 +10,6 @@
             <%= form_for :chatparams, url: {action: "create"}, class: "form-signin" do |f| %>
             <%= f.label :chatname, "Chat name", class: "label label-default" %>
             <%= f.text_field :chatname, class: "form-control", placeholder: "Enter chat name here" %>
-            <%= f.check_box :privatechat, {}, true %>
-            <%= f.label :privatechat, "Private?" %>
             <br />
             <br />
             <div align="center">
