@@ -250,14 +250,14 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (~> 3.0.2.0)
   bullet (~> 4.7.1)
-  capybara (= 2.1.0)
+  capybara
   coffee-rails (~> 4.0.0)
-  factory_girl_rails (= 4.2.1)
+  factory_girl_rails
   faye
-  jbuilder (~> 1.2)
+  jbuilder
   jquery-datatables-rails
   jquery-rails
-  libnotify (= 0.8.1)
+  libnotify
   local_time
   newrelic_rpm
   omniauth-facebook
@@ -273,7 +273,7 @@ DEPENDENCIES
   ruby-progressbar
   sass-rails (~> 4.0.0)
   sdoc
-  selenium-webdriver (= 2.0.0)
+  selenium-webdriver
   sqlite3
   state_machine
   therubyracer
