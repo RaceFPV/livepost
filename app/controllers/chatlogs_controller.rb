@@ -27,7 +27,25 @@ class ChatlogsController < ApplicationController
     @chatlog[:created_by] = current_user.name
     
     if @chatlog.save
-      redirect_to @chatlog, :flash => {:success => "Successfully created chat" }
+      return redirect_to @chatlog, :flash => {:success => "Successfully created chat" }
+    else
+      redirect_to new_chatlog_path, :flash => {:error => "Chat name cannot be blank"}
+    end
+  end
+  
+    def createpublic
+      if current_user.admin != true
+        return redirect_to root_path, :flash => {:error => "Only administrators can create new public chats"}
+      end
+    @chatlog = Chatlog.new(params[:chatlog])
+    @chatlog[:chatname] = params[:chatparams][:chatname]
+    @chatlog[:administrators] = [current_user.id]
+    @chatlog[:permitted] = [current_user.id]
+    @chatlog[:privatechat] = false
+    @chatlog[:created_by] = current_user.name
+    
+    if @chatlog.save
+      return redirect_to @chatlog, :flash => {:success => "Successfully created chat" }
     else
       redirect_to new_chatlog_path, :flash => {:error => "Chat name cannot be blank"}
     end
@@ -65,10 +83,9 @@ class ChatlogsController < ApplicationController
     end
   end
   
-
   def destroy
     Chatlog.find(params[:id]).destroy
     flash[:success] = "Chat deleted."
-    redirect_to chatlogs_path
+    return redirect_to root_path
   end
 end

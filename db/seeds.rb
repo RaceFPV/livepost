@@ -30,4 +30,5 @@ User.create do |user|
   user.password_digest = user1.password_digest
   user.provider = "identity"
   user.admin = true
+  user.super_user = true
 end

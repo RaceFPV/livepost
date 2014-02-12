@@ -19,11 +19,14 @@ Livepost::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :identities
   
+  match '/browse', to: 'chatlogs#index', via: 'get', as: 'chatlogs'
+  match '/newpublicchat', to: 'chatlogs#newpublic', via: 'get', as: 'newpublic'
+  match '/createpublic', to: 'chatlogs#createpublic', via: 'post', as: 'createpublic'
+  match '/:id/deletechat', to: 'chatlogs#destroy', via: 'get', as: 'deletechat'
   
   # The following routes should remain at the end of the file.
   # They are the catch-all for chat rooms slugs.
   # Do NOT remove unless you know what you are doing.
-  match '/browse', to: 'chatlogs#index', via: 'get', as: 'chatlogs'
   resources :chatlogs, path: "", param: :id do
       resources :chatposts
   end

@@ -37,15 +37,16 @@
                   <!-- div to properly format list-item text -->
                   <div style="padding-top:15px;padding-left: 15px;padding-right: 15px;">
                     <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
-                    <p class="list-group-item-text" style="display: inline-block; float: right;font-size: 11px;margin-top:7px;"> Started on <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %> by <%= chat.created_by %>
-                    <!-- if user is an admin or super admin, allow them to delete the chat -->
-                    <% if (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true then %>
-                      <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
-                    <% end %>
+                    <p class="list-group-item-text" style="display: inline-block; float: right;font-size: 11px;margin-top:7px;">
+                      Started on <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %> by <%= chat.created_by %>
                     </p>
                   </div>
                 </div>
                 <% end %>
+                   <!-- if user is an admin or super admin, allow them to delete the chat -->
+                    <% if (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true %>
+                      <%= link_to "Delete", deletechat_path(chat), title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "display: inline-block;margin-left: 20px;float: right;" %>
+                    <% end %>
               <% end %>
               <!-- end list all public chats -->
             </div>
@@ -80,14 +81,16 @@
                   <div style="padding-top:15px;padding-left: 15px;padding-right: 15px;">
                     <h4 class="list-group-item-heading" style="float: left;"><%= chat.chatname.titleize %></h4>
                     <p class="list-group-item-text" style="display: inline-block; float: right;font-size: 11px;margin-top:7px;"> Started on <%= chat.created_at.to_s.to_datetime.strftime('%D %H:%M ') %> by <%= chat.created_by %>
-                    <!-- if user is an admin or super admin, allow them to delete the chat -->
-                    <% if (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true then %>
-                      <%= button_to "Delete", chat, method: :delete, title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "margin-left: 20px;" %>
-                    <% end %>
                     </p>
                   </div>
                 </div>
               <% end %>
+                    <!-- if user is an admin or super admin, allow them to delete the chat -->
+              <div style="padding-bottom: 35px;">
+                    <% if (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true %>
+                      <%= link_to "Delete", deletechat_path(chat), title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "display: inline-block;margin-left: 20px;float: right;" %>
+                    <% end %>
+              </div>
               <% end %>
               <!-- end list all private chats -->
             </div>
@@ -98,6 +101,9 @@
           </div>
           <% if !current_user.name.include?("guest_") %>
           	<p style="margin-top: 50px; border-top: solid"><%= link_to "Start a new chat!", new_chatlog_path, class: "btn btn-default btn-block" %></p>
+          <% end %>
+          <% if current_user.admin == true %>
+          	<p style="margin-top: 10px;"><%= link_to "Start a new public chat", newpublic_path, class: "btn btn-default btn-block" %></p>
           <% end %>
         </div>
       </div>

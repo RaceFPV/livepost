@@ -1,0 +1,24 @@
+<% provide(:title, "New Public Chat") %>
+
+<div class="chatlognew">
+  <row>
+    <div class="col-md-6 col-md-offset-3" style="padding-top:5px;margin-top: 10%;">
+      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
+        <div class="panel panel-body">
+          <h1 class="form-signin-heading"><b>Start a new public chat</b></h1>
+          <div width="100%">
+            <%= form_for :chatparams, url: {action: "createpublic"}, class: "form-signin" do |f| %>
+            <%= f.label :chatname, "Chat name", class: "label label-default" %>
+            <%= f.text_field :chatname, class: "form-control", placeholder: "Enter chat name here" %>
+            <br />
+            <br />
+            <div align="center">
+              <%= f.submit "Create", class: "btn btn-large btn-primary btn-block"  %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </row>
+</div>
