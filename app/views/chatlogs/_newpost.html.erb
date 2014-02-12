@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="width: 100%; height: 10%">
+<div class="panel panel-default" style="width: 100%;position: fixed; bottom:-22px;">
         <%= form_for :chatparams, class: "form-signin", url: chatlog_path(@chat),:method => :patch, :remote => true, :html => { :id => "newpost"} do |f| %>
         <div class="input-group" style="width: 100%">
               <%= f.text_field :post, class: "form-control", placeholder: "Enter new post", id: 'input-line', autofocus: true, :autocomplete => :off %>
