@@ -56,7 +56,11 @@
               <!-- make sure we have private chats to actually show -->
               <% if @privatechatsallowed.blank? %>
               <div class="well">
-                <p align="center">No private chats active, <%= link_to "start a new private chat",  new_chatlog_path %>?</p>
+          		<% if !current_user.name.include?("guest_") %>
+                	<p align="center">No private chats active, <%= link_to "start a new private chat",  new_chatlog_path %>?</p>
+              	<% else %>
+              		<p align="center">Private chats not allowed for guest accounts </p>
+              	<% end %>
               </div>  
               <% end %>
               <!-- list all available private chats -->
@@ -92,7 +96,9 @@
             <!-- end of chat list section -->
             
           </div>
-          <p style="margin-top: 50px; border-top: solid"><%= link_to "Start a new chat!", new_chatlog_path, class: "btn btn-default btn-block" %></p>
+          <% if !current_user.name.include?("guest_") %>
+          	<p style="margin-top: 50px; border-top: solid"><%= link_to "Start a new chat!", new_chatlog_path, class: "btn btn-default btn-block" %></p>
+          <% end %>
         </div>
       </div>
 
