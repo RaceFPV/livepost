@@ -20,13 +20,6 @@ class SessionsController < ApplicationController
     #redirect to the users profile page if we dont save anything
     redirect_to root_path, :flash => {:notice => "Welcome back, #{user.name}!"}
     end
-    
-      def createomniauth
-    puts "session id: #{session.id}"
-  user = User.from_omniauth(env["omniauth.auth"])
-  session[:user_id] = user.id
-  redirect_to home_path(user), :flash => {:notice => "Welcome back, #{user.name}!"}
-  end
 
 	def destroy
 	  session.destroy

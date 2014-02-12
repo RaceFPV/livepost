@@ -26,8 +26,6 @@ class UsersController < ApplicationController
     if @user.save
       #sign in as the user
       sign_in @user
-      #send an alert notice to the user
-      flash[:success] = "Welcome to the Livepost.io community!"
       #tie the users session to the newly created user account
       session[:user_id] = @user.id
       #redirect the user to their profile
