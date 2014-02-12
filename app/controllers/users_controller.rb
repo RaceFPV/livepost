@@ -15,30 +15,27 @@ class UsersController < ApplicationController
 	end
 
 	def new
-	  #redirect if we are already signed in
-    if signed_in?
-    flash[:notice] = "Already signed in"
-    redirect_to root_path
-    end
     #create a new variable to hold User params
 		@user = User.new
 	end
 
 	def create
-		@user = User.new(user_params)
-    #Make the first user created a super user
-    if User.count == 0
-      @user[:super_user] = true
-    else
-      @user[:super_user] = false
-    end
+    #take the form parameters and create a new user from them
+    @user = User.new(user_params)
+    #if the new user saves to the database do this
     if @user.save
-			sign_in @user
-			flash[:success] = "Welcome to LivePost!"
-			redirect_to chatlogs_path
-		else
-			render 'new'
-		end
+      #sign in as the user
+      sign_in @user
+      #send an alert notice to the user
+      flash[:success] = "Welcome to the Livepost.io community!"
+      #tie the users session to the newly created user account
+      session[:user_id] = @user.id
+      #redirect the user to their profile
+      redirect_to root_path
+      #if the user doesnt save to the database, re-show the registration form
+    else
+      render 'new'
+    end
 	end
 
 	def edit

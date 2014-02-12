@@ -64,7 +64,7 @@ class ApplicationController < ActionController::Base
   def create_guest_user
     username = "guest_#{Time.now.to_i}#{rand(99)}"
     password = "guest_#{Time.now.to_i}#{rand(99)}"
-    u = User.create(:name => username, :email => "#{username}@livepost.io", :password => password)
+    u = User.create(:name => username, :email => "#{username}@livepost.io")
     if u.save(:validate => false)
       session[:guest_user_id] = u.id
       return u

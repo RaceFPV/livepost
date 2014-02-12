@@ -1,19 +1,10 @@
 class User < ActiveRecord::Base
 	has_many :chatpost, dependent: :destroy
-  
   before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	attr_accessor :twitter_id, :facebook, :linkedin, :location
-
-	validates :name, presence: true, length: { maximum: 50 }
-	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, length: { minimum: 6 }, :unless => lambda{ |user| user.password.blank? }
-  validates :location, presence: true, allow_blank: true
-  validates :facebook, presence: true, allow_blank: true
-  validates :linkedin, presence: true, allow_blank: true
-  validates :twitter_id, presence: true, allow_blank: true
+  validates :name, uniqueness: true #make sure each users name is unique
+  validates_length_of :name, :minimum => 3, :maximum => 30
   
   
   # Convert user's name to friendly url format
@@ -27,6 +18,22 @@ class User < ActiveRecord::Base
   def to_param
     "#{id}-#{slug}"
   end
+
+#---------------- for oauth ------------------
+def self.from_omniauth(auth)
+  where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+end
+
+def self.create_from_omniauth(auth)
+  create! do |user|
+    user.provider = auth["provider"]
+    user.uid = auth["uid"]
+    user.name = auth["info"]["name"]
+    user.email = auth["info"]["email"]
+    user.image = auth["info"]["image"]
+  end
+end
+#----------------- end of oauth code ---------------
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64

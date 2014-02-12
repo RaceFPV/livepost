@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222062546) do
+ActiveRecord::Schema.define(version: 20140123235101) do
 
   create_table "chatlogs", force: true do |t|
     t.text     "chatname"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20131222062546) do
 
   add_index "chatposts", ["user_id"], name: "index_chatposts_on_user_id"
 
+  create_table "identities", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -44,13 +52,18 @@ ActiveRecord::Schema.define(version: 20131222062546) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin",            default: false
     t.datetime "lastseen"
     t.string   "twitter_id"
     t.string   "linkedin"
     t.string   "location"
     t.string   "facebook"
     t.boolean  "super_user"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

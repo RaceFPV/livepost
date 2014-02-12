@@ -20,6 +20,10 @@ gem 'thin' # Web server (Faye dependent) (Hosts chat framework)
 gem 'jquery-datatables-rails' # Quickly sort table data
 gem 'rails_autolink' #Automatically hyperlink http:// text
 gem 'newrelic_rpm' #for server statistics tracking
+gem 'state_machine' #may not be used anymore
+gem 'omniauth-identity' #allow logging in locally
+gem 'omniauth-facebook' #allow logins using facebook
+gem 'omniauth-twitter' #allow logins using twitter
 
 group :production do
   gem 'pg' # Heroku database

@@ -6,12 +6,18 @@ Livepost::Application.routes.draw do
   match '/help',  to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-  match '/signup', to: 'users#new', via: 'get'
-  match '/signin', to: 'sessions#new', via: 'get'
-  match '/signout', to: 'sessions#destroy', via: 'delete'
   
-  resources :sessions, only: [:new, :create, :destroy]
+  #generate routes for users
+  match '/signup', to: 'identities#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: 'sessions#failure', via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post, :delete]
+  
+  #generate default routes for users
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :identities
   
   
   # The following routes should remain at the end of the file.
