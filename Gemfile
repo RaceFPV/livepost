@@ -24,6 +24,7 @@ gem 'state_machine' #may not be used anymore
 gem 'omniauth-identity' #allow logging in locally
 gem 'omniauth-facebook' #allow logins using facebook
 gem 'omniauth-twitter' #allow logins using twitter
+gem 'ruby-progressbar' #nice progressbar for seeding process
 
 group :production do
   gem 'pg' # Heroku database
