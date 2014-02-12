@@ -2,8 +2,8 @@
 <div class="signin">
   <row>
     <div class="col-md-6 col-md-offset-3" style="padding-top:5px;margin-top: 10%;">
-      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-        <div class="panel panel-body">
+      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;padding-right: 10px;background-color: #fff;">
+        <div class="panel panel-body" style="background-color: #fff;">
           <h1 class="form-signin-heading"><b>Sign in</b></h1>
 <!--          <div id="user-widget" align="center" style="margin-bottom:5px;">
     			<%= link_to image_tag("FacebookLogin.png", style: 'height:45px; margin-left:-1px; width; 205px;', :border=>0), "/auth/facebook", id: "sign_in" %>
@@ -14,25 +14,25 @@
           <div class="vline" style="margin-bottom: 3px;margin-top: 5px;"></div> 
 -->
           <%= form_tag "/auth/identity/callback" do %>
-          <div class="control-group short-control-group">
+          <div class="control-group short-control-group" align="center">
           	<%= label_tag :auth_key, "Email" %>
           	<div align="center" style="margin-top:-5px;">
-            	<%= text_field_tag :auth_key %>
+              <%= text_field_tag :auth_key, nil, class: 'form-control' %>
             </div>
           </div>
-          <div class="control-group short-control-group" style="margin-top:5px;">
+          <div class="control-group short-control-group" style="margin-top:5px;" align="center">
           	<%= label_tag :password %>
           	<div align="center" style="margin-top:-5px;">
-            	<%= password_field_tag :password %>
+              <%= password_field_tag :password, nil, class: 'form-control' %>
           	</div>
           </div>
           <div align="center" style="margin-top:5px;">
-            <%= submit_tag "Login", class: "btn btn-default" %>
+            <%= submit_tag "Login", class: "btn btn-primary" %>
           </div>
         <% end %>
         </div>
-        <div class="panel panel-footer">
-              <%= link_to "Create an account", new_identity_path, style: 'color: rgb(0, 116, 217)' %>
+        <div class="panel panel-footer" style="margin: 0; padding: 0;margin-top:20px;" align="center">
+          <%= link_to "Create a new account", new_identity_path, class: 'btn btn-block btn-default btn-xs' %>
         </div>
       </div>
     </div>

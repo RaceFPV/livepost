@@ -1,9 +1,9 @@
 <% provide(:title, 'Sign up') %>
 <div class="signup">
   <row>
-    <div class="col-md-6 col-md-offset-3" style="padding-top:5px;margin-top: 10%;" align="center">
-      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-        <div class="panel panel-body">
+    <div class="col-md-6 col-md-offset-3" style="padding-top:5px;margin-top: 10%;">
+      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;padding-right: 10px;background-color: #fff;">
+        <div class="panel panel-body" style="background-color: #fff;" align="center">
           <h1 class="form-signin-heading"><b>Sign up</b></h1>
 
 <%= form_tag "/auth/identity/register" do %>
@@ -23,20 +23,20 @@
   	<div class="field">
     	<%= label_tag :scriptname %><br>
     	<%= text_field_tag :scriptname, params[:scriptname], class: "form-control" %>
-  	</div></div><br>
+  	</div></div>
   <% end %>
   <div class="field" style="width: 40%">
     <%= label_tag :name %><br>
     <%= text_field_tag :name, @identity.try(:name), class: "form-control" %>
-  </div><br>
+  </div>
   <div class="field" style="width: 40%">
     <%= label_tag :email %><br>
     <%= text_field_tag :email, @identity.try(:email), class: "form-control" %>
-  </div><br>
+  </div>
   <div class="field" style="width: 40%">
     <%= label_tag :password %><br>
     <%= password_field_tag :password, nil, class: "form-control"  %>
-  </div><br>
+  </div>
   <div class="field" style="width: 40%">
     <%= label_tag :password_confirmation %><br>
     <%= password_field_tag :password_confirmation, nil, class: "form-control"  %>
