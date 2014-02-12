@@ -23,6 +23,7 @@ Livepost::Application.routes.draw do
   match '/newpublicchat', to: 'chatlogs#newpublic', via: 'get', as: 'newpublic'
   match '/createpublic', to: 'chatlogs#createpublic', via: 'post', as: 'createpublic'
   match '/:id/deletechat', to: 'chatlogs#destroy', via: 'get', as: 'deletechat'
+  match '/:id/leftchat', to: 'chatlogs#leftchat', via: 'get', as: 'leftchat'
   
   # The following routes should remain at the end of the file.
   # They are the catch-all for chat rooms slugs.

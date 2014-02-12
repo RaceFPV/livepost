@@ -83,6 +83,10 @@ class ChatlogsController < ApplicationController
     end
   end
   
+  def leftchat
+    return render 'leftchat'
+  end
+  
   def destroy
     Chatlog.find(params[:id]).destroy
     flash[:success] = "Chat deleted."

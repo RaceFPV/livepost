@@ -27,3 +27,15 @@
 <% @usersubscribe = "/#{@chat.id}/show" %>
 <%= @subscribedtousers = subscribe_to @usersubscribe %>
 <!-- end of user list subscription code -->
+
+<script>
+	var leftchatpath = "<%= leftchat_path(@chat) %>";
+	  //before we leave the window change the count
+    window.onunload = window.onbeforeunload = (function(){
+      $.ajax({
+        url:    leftchatpath,
+        type:   'get',
+        async:  true
+  		})
+	});
+</script>
