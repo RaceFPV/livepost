@@ -47,16 +47,27 @@
         <h4 class="modal-title" id="myModalLabel">Login</h4>
       </div>
       <div class="modal-body">
-          <%= form_for :session, url: sessions_path, class: "form-signin" do |f| %>
-          <%= f.text_field :email, class: "form-control", placeholder: "Email Address" %>
-          <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-          <div align="center">
-            <%= f.submit "Go", class: "btn btn-large btn-primary", style: "width: 200px;" %>
+          <%= form_tag "/auth/identity/callback" do %>
+          <div class="control-group short-control-group" align="center">
+          	<%= label_tag :auth_key, "Email" %>
+          	<div align="center" style="margin-top:-5px;">
+              <%= text_field_tag :auth_key, nil, class: 'form-control' %>
+            </div>
           </div>
-          <% end %>
+          <div class="control-group short-control-group" style="margin-top:5px;" align="center">
+          	<%= label_tag :password %>
+          	<div align="center" style="margin-top:-5px;">
+              <%= password_field_tag :password, nil, class: 'form-control' %>
+          	</div>
+          </div>
+          <div align="center" style="margin-top:5px;width: 300px;margin-left: 120px;">
+            <%= submit_tag "Login", class: "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+        </div>
+      <div class="modal-footer" style="padding-top:10px;padding-bottom:10px;" align="center">
+          <%= link_to "Create a new account", new_identity_path, class: 'btn btn-block btn-default btn-xs' %>
       </div>
-      <div class="modal-footer" style="padding-top:0px;padding-bottom:10px;">
-      <%= link_to "New user?", signup_path, style: "display:block;margin-top:10px;font-weight:bold"  %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

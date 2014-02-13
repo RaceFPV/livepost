@@ -4,16 +4,10 @@ class StaticPagesController < ApplicationController
   
   def home
     # If visitor is signed in, redirect to Chats index
-    if signed_in? then
+    if signed_in? and !current_user.name.include?("guest_")
       # TODO: Would be neat to use render rather than redirect_to
       # so URL doesn't change, similiar to Facebook.
-      redirect_to chatlogs_url
+      return redirect_to chatlogs_url
     end
-  end
-
-  def help
-  end
-
-  def about
   end
 end
