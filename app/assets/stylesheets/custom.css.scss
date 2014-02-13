@@ -9,11 +9,12 @@ $black: #050608;
 $white: #B0C0BF;
 $darkorange:  #B64809;
 $lightorange: #E36E39;
+$blue: #428BCA;
 
 html, body {
   height: 100%;
   width: 100%;
-  background-color: $white;
+  background-color: $grayMediumLight;
 }
 
 body p {
@@ -21,12 +22,12 @@ body p {
 }
 
 .panel-body {
-  background-color: $white; 
+  background-color: $grayMediumLight; 
   margin: 0;
 }
 
 .list-group-item {
-  background-color: $white;
+  background-color: $grayMediumLight;
 }
 
 .list-group-item:hover {
@@ -64,7 +65,7 @@ box-sizing: border-box;
 /* panel stuff */
 .panel-default {
   border-width: 3px;
-  background-color: $white;
+  background-color: $grayMediumLight;
 }
 
 

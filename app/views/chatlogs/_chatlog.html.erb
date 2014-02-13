@@ -9,6 +9,7 @@
           <% if @posts.empty? %>
                 No posts. Start the conversation!
           <% else %>
+          <div style="padding-top: 80px;"></div>
             <% @posts.each do |post| %>
             <div style="height: 50px; width: 95%" class="sentpost" id="<%= post.id %>">
                 <%= gravatar_for post.user %>

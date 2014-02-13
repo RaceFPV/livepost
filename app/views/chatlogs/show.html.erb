@@ -7,7 +7,6 @@
 <!-- check if the user is an admin -->
 <% @chat.administrators.each do |z| %>
   <% if z != nil and current_user != nil and z == current_user.id %>
-    <%= stylesheet_link_tag "chatadmin" %>
     <%= render 'admin/chatadmin' %>
   <% end %>
 <% end %>

@@ -1,11 +1,11 @@
-<a id="admin-toggle" class="btn btn-primary btn-lg toggle" style="background-color: #050608;"><i class="fa fa-lock"></i></a>
+<a id="admin-toggle" class="btn btn-primary btn-lg toggle" style="background-color: #428BCA;"><i class="fa fa-lock"></i></a>
     <div id="sideadmin">
       <ul class="sidebar-nav">
-        <li class="sidebar-brand"><%= link_to "Admin Panel", root_path %></li>
-		<div class="panel panel-body" style="height: 350px;background: rgba(255, 255, 255, .5);overflow-y: hidden;border-color: #eaeaea; border-width: 1px; border-style: solid;">
+        <a id="admin-close" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+        <li class="sidebar-brand"><%= link_to "Admin Panel", nil %></li>
+		<div style="overflow-y: hidden;">
       <li> Admin stuff goes here </li>
       </div>
-        <a id="admin-close" class="btn btn-default btn-lg btn-block toggle"><i class="fa fa-times"></i></a>
 							</ul>
 						</div>
     <script>

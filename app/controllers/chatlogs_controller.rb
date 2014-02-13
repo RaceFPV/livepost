@@ -84,6 +84,7 @@ class ChatlogsController < ApplicationController
   end
   
   def leftchat
+    @chat ||= Chatlog.find(params[:id])
     return render 'leftchat'
   end
   
