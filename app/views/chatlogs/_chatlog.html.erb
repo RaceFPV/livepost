@@ -11,9 +11,10 @@
           <% else %>
           <div style="padding-top: 80px;"></div>
             <% @posts.each do |post| %>
+            <% user = post.user %>
             <div style="height: 50px; width: 95%" class="sentpost" id="<%= post.id %>">
-                <%= gravatar_for post.user %>
-                <%= link_to post.user.name, post.user %>
+                <%= gravatar_for user %>
+                <%= link_to user.name, user %>
                 <div class="popover fade right in" style="display:inline-block;position:relative;">
                   <div class="arrow"></div>
                   <div class="popover-content">
@@ -23,7 +24,7 @@
                 <p style="float: right;" class="small">
                   <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
                 </p>
-              <% if (@chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_user == true) then %>
+              <% if (@chat.administrators.detect {|id| id == user.id}) or (user.super_user == true) then %>
                   <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
               <% end %>
             </div>

@@ -57,7 +57,7 @@ class ChatlogsController < ApplicationController
   
   def show
     @chat ||= Chatlog.find(params[:id])
-    @posts ||= @chat.chatpost
+    @posts ||= @chat.chatpost.includes(:user)
     @chatsubscribe ||= "/#{@chat}/update" 
     @chatshow ||= "/chatposts/show"
     @usersubscribe ||= "/#{@chat}/"

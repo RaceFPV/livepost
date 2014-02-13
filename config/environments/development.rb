@@ -32,8 +32,17 @@ Livepost::Application.configure do
   
   # Activate Bullet development gem
   config.after_initialize do
-    Bullet.enable = false
-    Bullet.alert = true
-    #Bullet.bullet_logger = true
+  Bullet.enable = true #enable bullet
+  Bullet.alert = true #alert in the browser via a javascript popup
+  #Bullet.bullet_logger = true #don't log things to a special log file
+  #Bullet.console = true #dont log things to the web log file
+  #Bullet.growl = true #we dont use growl
+  #Bullet.xmpp = { :account  => 'bullets_account@jabber.org', #we dont use jabber/xmpp
+  #                :password => 'bullets_password_for_jabber',
+  #                :receiver => 'your_account@jabber.org',
+  #                :show_online_status => true }
+  Bullet.rails_logger = true #let alerts be sent to the rails log
+  #Bullet.airbrake = true #we dont use airbrake
+  Bullet.add_footer = true
   end
 end
