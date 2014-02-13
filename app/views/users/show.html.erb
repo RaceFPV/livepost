@@ -9,11 +9,11 @@
           <p>Profile created <%= local_time_ago(@user.created_at) %></p>
           <p><%= @user.location %></p>
           <p><%= gravatar_for @user %></p>
-          <p><%= twitter_for @user %></p>
-          <p><%= facebook_for @user %></p>
-          <p><%= linkedin_for @user %></p>
+          <p><%= @user.twitter_id %></p>
+          <p><%= @user.facebook %></p>
+          <p><%= @user.linkedin %></p>
           <% if @user == current_user %>
-          <%= link_to "Edit your profile", edit_user_path(@user) %>
+          	<%= link_to "Edit your profile", edit_user_path(@user) %>
           <% end %>
         </div>
       </div>

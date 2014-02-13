@@ -40,22 +40,78 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
-	def update
+  def update
+    @user = User.find(params[:id])
+    #if we aren't updating the password, don't ask us about it
     params[:user].delete(:password) if params[:user][:password].blank?
-    params[:user].update(:location => params[:location]) if params[:user][:location].present?
-    params[:user].update(:facebook => params[:facebook]) if params[:user][:facebook].present?
-    params[:user].update(:linkedin => params[:linkedin]) if params[:user][:linkedin].present?
-    params[:user].update(:twitter_id => params[:twitter_id]) if params[:user][:twitter_id].present?
-    @user.save
-            
-    if @user.update_attributes(user_params)
-  flash[:success] = "Profile updated"
-  redirect_to @user
-else
-      @users = User.find(:all) 
-  render 'edit'
-end
- 	end
+    params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
+    #updates the password if the password field isn't blank
+    if params[:user][:password]
+      #find the identity for omniauth
+      user_identity = Identity.find_by_email(@user.email)
+      #set the identity password to the params from the form
+      user_identity.password = params[:user][:password]
+      #make sure its confirmed
+      user_identity.password_confirmation = params[:user][:password_confirmation]
+      #if it saves, keep going through the controller
+      if !user_identity.save
+      #if it doesn't save, flash an error and re-render the page
+        flash[:error] = "Error changing password"
+        return render 'edit'
+      end
+    end
+    
+    #update Identity as well as User model for the username
+    if params[:user][:name] != @user.name
+      if @user.provider == "identity"
+        #find the identity for the user we are editing
+        user_identity = Identity.find_by_email(@user.email)
+        #set the user name to the field entry
+        user_identity.name = params[:user][:name]
+        #if it saves, start trying to save the user field
+        if user_identity.save
+          #set the user name to the field params
+          @user[:name] = params[:user][:name]
+          #if the user saves, alert that it was successful and redirect back to the profile page
+          if @user.save
+            #notify user of the update
+           flash[:success] = "Profile updated"
+           #toss them back to their profile
+            return redirect_to @user
+          #if the save fails, warn the user and re-render the page
+          else
+            flash[:error] = "Username already exists"
+            return render 'edit'
+          end
+        else
+          flash[:error] = "Username already exists"
+          return render 'edit'
+        end
+      else
+        @user[:name] = "#{params[:user][:name]}"
+        if @user.save
+          #notify user of the update
+          flash[:success] = "Profile updated"
+          #toss them back to their profile
+          return redirect_to @user
+          #if the save fails, warn the user and re-render the page
+        else
+          flash[:error] = "Username already exists"
+          return render 'edit'
+        end
+      end
+    end
+      #save our changes to the user model
+      if @user.update_attributes(user_params)
+        #notify user of the update
+        flash[:success] = "Profile updated"
+        #toss them back to their profile
+        return redirect_to @user
+      else
+        flash[:error] = "Username already exists"
+        return render 'edit'
+      end
+  end
 
 	def destroy
 		User.find(params[:id]).destroy
@@ -68,7 +124,7 @@ end
 	private
 
 	def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :twitter_id, :facebook, :linkedin, :location)
+    params[:user].permit(:name, :email, :password, :password_confirmation, :twitter_id, :facebook, :linkedin, :location)
 	end
 
 	# Before filters

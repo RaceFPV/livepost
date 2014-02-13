@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
 	has_many :chatpost, dependent: :destroy
   before_save { self.email = email.downcase }
 	before_create :create_remember_token
-	attr_accessor :twitter_id, :facebook, :linkedin, :location
   validates :name, uniqueness: true #make sure each users name is unique
   validates_length_of :name, :minimum => 3, :maximum => 30
   
