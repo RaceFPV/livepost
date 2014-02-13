@@ -1,8 +1,8 @@
 <% provide(:title, "Browse Chats") %>
-      <div class="panel panel-default" style="height: 100%; width: 100%;padding: 0; margin: 0;">
+      <div class="panel panel-default" style="width: 100%;padding: 0; margin: 0;margin-top:5%;width: 60%;margin-left:20%;">
         <div class="panel panel-body">
           <h1 class="form-signin-heading"><b>Browse Chats</b></h1>
-          <div style="max-height: 350px; overflow-y: hidden;position: relative;" id="chatscroll">
+          <div align="center" style="max-height: 80%; overflow-y: hidden;" id="chatscroll">
             
             <!-- start chat list section -->
             <!-- if there are no chats, let the user know -->
@@ -12,7 +12,7 @@
             <!-- if there are chats available -->
             <% else %>
             
-            <h4 align="center">Public Chats</h4>
+            <h4>Public Chats</h4>
             
             <div class="list-group">
               <!-- make sure we have public chats to actually show -->
@@ -44,14 +44,16 @@
                 </div>
                 <% end %>
                    <!-- if user is an admin or super admin, allow them to delete the chat -->
+              <div style="padding-bottom: 35px;">
                     <% if (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true %>
                       <%= link_to "Delete", deletechat_path(chat), title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "display: inline-block;margin-left: 20px;float: right;" %>
                     <% end %>
+              </div>
               <% end %>
               <!-- end list all public chats -->
             </div>
             
-            <h4 align="center">My Private Chats</h4>
+            <h4>Private Chats</h4>
             
             <div class="list-group">
               <!-- make sure we have private chats to actually show -->
