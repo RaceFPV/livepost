@@ -122,7 +122,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-    params[:user].permit(:name, :email, :password, :password_confirmation, :twitter_id, :facebook, :linkedin, :location)
+    params[:user].permit(:name, :email, :twitter_id, :facebook, :linkedin, :location)
 	end
 
 	# Before filters
