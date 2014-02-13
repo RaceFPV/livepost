@@ -9,8 +9,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-    # TODO: Redirect to canonical lins if slugs change
-  # see: http://code-worrier.com/blog/custom-slugs-in-rails/
 		@user = User.find(params[:id])
 	end
 

@@ -7,11 +7,19 @@
           <h3 class="form-signin-heading" align="center"><b><%= @user.name.titleize %>'s profile</b></h3>
           <!--<p>Profile created on: <%#= @user.created_at.to_s.to_date %></p>-->
           <p>Profile created <%= local_time_ago(@user.created_at) %></p>
-          <p><%= @user.location %></p>
+          <% if !@user.location.blank? %>
+          	<p>Location: <%= @user.location %></p>
+          <% end %>
           <p><%= gravatar_for @user %></p>
-          <p><%= @user.twitter_id %></p>
-          <p><%= @user.facebook %></p>
-          <p><%= @user.linkedin %></p>
+          <% if !@user.twitter_id.blank? %>
+          	<p>Twitter: <%= @user.twitter_id %></p>
+          <% end %>
+          <% if !@user.facebook.blank? %>
+          	<p>Facebook: <%= @user.facebook %></p>
+          <% end %>
+          <% if !@user.linkedin.blank? %>
+          	<p>Linked In:<%= @user.linkedin %></p>
+          <% end %>
           <% if @user == current_user %>
           	<%= link_to "Edit your profile", edit_user_path(@user) %>
           <% end %>
