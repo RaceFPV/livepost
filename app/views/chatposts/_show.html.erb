@@ -1,4 +1,5 @@
-<% post = @chatpost%>
+<% post = @chatpost %>
+<% chat = @chat %>
             <div class="sentpost" id="<%= post.id %>" style="height: 50px; width: 95%">
                 <%= gravatar_for post.user %>
                 <%= link_to post.user_name, post.user %>
@@ -11,7 +12,7 @@
                 <p style="float: right;" class="small">
                   <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
                 </p>
-              <% if (@chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_user == true) then %>
-    <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete,remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
+              <% if (chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_user == true) then %>
+    <%= link_to "", chatlog_chatpost_path(chat, post), method: :delete,remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
               <% end %>
             </div>
