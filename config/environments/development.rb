@@ -27,6 +27,8 @@ Livepost::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   
+  config.quiet_assets = true
+  
   # Speed up data populating by lowering bcrypt's cost function.
   ActiveModel::SecurePassword.min_cost = true
   

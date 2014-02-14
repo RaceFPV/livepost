@@ -25,6 +25,9 @@ gem 'omniauth-identity' #allow logging in locally
 gem 'omniauth-facebook' #allow logins using facebook
 gem 'omniauth-twitter' #allow logins using twitter
 gem 'ruby-progressbar' #nice progressbar for seeding process
+gem "gritter", "1.1.0" #for better flash messages
+
+
 
 group :production do
   gem 'pg' # Heroku database
@@ -40,6 +43,14 @@ group :development, :test do
   gem 'sqlite3' # Development database
   gem 'rspec-rails' # Run rake tests in development
   gem 'therubyracer' # Javascript runtime for development
+  gem "better_errors"
+    gem 'flay'
+    gem 'annotate'
+    gem 'lol_dba'
+    gem 'rails_best_practices'
+    gem 'smusher'
+    gem 'reek'
+    gem 'rack-mini-profiler'
 end
 
 group :test do

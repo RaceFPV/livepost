@@ -21,3 +21,4 @@
 //= require perfect-scrollbar
 //= require local_time
 //= require GoogleAnalytics
+//= require gritter

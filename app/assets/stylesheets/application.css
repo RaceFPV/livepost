@@ -19,4 +19,5 @@
  *= require static_pages
  *= require users
  *= require sidenav
+ *= require gritter
  */

@@ -25,3 +25,15 @@ Help develop this app quickly by using a Linux Ruby on Rails dev box from [Nitro
 11. Delete the Fork from Settings in the repository to discard and start the process over again but this time implement something useful to the project, don't forget to issue a Pull Request back to Master so your new feature is implemented!
 
 *NOTE: If you want to run the chat backend locally: In a new console run `rackup private_pub.ru -s thin -E production -p 8080` to load up `faye/private_pub`*
+
+
+#### Development tools being used
+
+rails_best_practices:
+started via: 'rails_best_practices .'
+
+reek:
+started via: 'reek .'
+
+lol_dba:
+started via: 'lol_dba db:find_indexes'
