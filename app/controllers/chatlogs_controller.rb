@@ -65,9 +65,8 @@ class ChatlogsController < ApplicationController
     if post.nil? == false
       @post = post
       return render 'update'
-    else
-      return render :nothing => true
     end
+    return render :nothing => true
   end
 
   def leftchat
@@ -79,12 +78,6 @@ class ChatlogsController < ApplicationController
     Chatlog.find(params[:id]).destroy
     flash[:success] = "Chat deleted."
     return redirect_to root_path
-  end
-  
-    private
-
-  def post_params
-    params[:chatparams].permit(:user_name, :user_id, :post)
   end
 
   
