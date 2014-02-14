@@ -16,7 +16,7 @@
     </div>
   </div>
 </div>
-<!-- /header -->   
+<!-- /header -->
 <!-- Intro -->
 <div id="about call-to-action" class="intro">
   <div class="container">
@@ -83,9 +83,8 @@
 <script>
   $(function() {
     $('a[href*=#]:not([href=#])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
           || location.hostname == this.hostname) {
-        
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {

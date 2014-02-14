@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     session[:guest_user_id] = nil
     puts "new user id: #{session[:user_id]}"
-    
     if user.created_at == user.updated_at
       return redirect_to root_path, :flash => {:notice => "Welcome to Livepost.io, #{user.name}!"}
     end
@@ -26,7 +25,7 @@ class SessionsController < ApplicationController
 		sign_out
 		redirect_to root_url
 	end
-	
+
 	  #if the user fails to sign in properly, redirect and alert them
   def failure
     redirect_to root_url, :flash => {:error => "Error logging in"}

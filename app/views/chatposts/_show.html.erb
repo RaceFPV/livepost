@@ -1,16 +1,17 @@
-            <div class="sentpost" id="<%= @chatpost.id %>" style="height: 50px; width: 95%">
-                <%= gravatar_for @chatpost.user %>
-                <%= link_to @chatpost.user_name, @chatpost.user %>
+<% post = @chatpost%>
+            <div class="sentpost" id="<%= post.id %>" style="height: 50px; width: 95%">
+                <%= gravatar_for post.user %>
+                <%= link_to post.user_name, post.user %>
                 <div class="popover fade right in" style="display:inline-block;position:relative;">
                   <div class="arrow"></div>
                   <div class="popover-content">
-                    <%= auto_link(@chatpost.post) %>
+                    <%= auto_link(post.post) %>
                   </div>
                 </div>
                 <p style="float: right;" class="small">
-                  <%= @chatpost.created_at.to_datetime.strftime('%H:%M %D')  %>
+                  <%= post.created_at.to_datetime.strftime('%H:%M %D')  %>
                 </p>
               <% if (@chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_user == true) then %>
-    <%= link_to "", chatlog_chatpost_path(@chat, @chatpost), method: :delete,remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
+    <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete,remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
               <% end %>
             </div>

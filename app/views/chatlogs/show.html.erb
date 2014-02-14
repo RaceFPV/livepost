@@ -1,11 +1,12 @@
-<% provide(:title, @chat.chatname.titleize) %>
+<% chat = @chat%>
+<% provide(:title, chat.chatname.titleize) %>
 
 <% content_for :header do %>
   <%= javascript_include_tag "chatlogs" %>
 <% end %>
 
 <!-- check if the user is an admin -->
-<% @chat.administrators.each do |z| %>
+<% chat.administrators.each do |z| %>
   <% if z != nil and current_user != nil and z == current_user.id %>
     <%= render 'admin/chatadmin' %>
   <% end %>
@@ -18,17 +19,17 @@
   <%= render 'chatlogs/side/invite' %>
    <%= render 'chatlogs/newpost' %>
 
-<!-- subscribe to this chat so the user can see private_pub AJAX updates --> 
-<% @chatsubscribe = "/#{@chat.id}/update" %>
-<%= @subscribedtochat = subscribe_to @chatsubscribe %>
+<!-- subscribe to this chat so the user can see private_pub AJAX updates -->
+<% chatsubscribe = "/#{@chat.id}/update" %>
+<%= subscribedtochat = subscribe_to chatsubscribe %>
 
 <!-- subscribe to the current users list -->
-<% @usersubscribe = "/#{@chat.id}/show" %>
-<%= @subscribedtousers = subscribe_to @usersubscribe %>
+<% usersubscribe = "/#{@chat.id}/show" %>
+<%= subscribedtousers = subscribe_to usersubscribe %>
 <!-- end of user list subscription code -->
 
 <script>
-	var leftchatpath = "<%= leftchat_path(@chat) %>";
+	var leftchatpath = "<%= leftchat_path(chat) %>";
 	  //before we leave the window change the count
     window.onunload = window.onbeforeunload = (function(){
       $.ajax({

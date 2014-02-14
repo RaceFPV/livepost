@@ -10,7 +10,7 @@ module ApplicationHelper
     end
   end
 
-  
+
   # for pretty alert messages using the flash command
    def bootstrap_class_for flash_type
     case flash_type
@@ -28,7 +28,7 @@ module ApplicationHelper
     flash_type.to_s
 end
 end
- 
- 
+
+
 end
   

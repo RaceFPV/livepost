@@ -58,7 +58,7 @@ class UsersController < ApplicationController
         return render 'edit'
       end
     end
-    
+
     #update Identity as well as User model for the username
     if params[:user][:name] != @user.name
       if @user.provider == "identity"
@@ -143,5 +143,3 @@ class UsersController < ApplicationController
 		redirect_to(root_url) unless current_user.admin?
 	end
 end
-
-

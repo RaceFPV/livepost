@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   #don't require login for these pages, as they are public
   skip_before_filter :require_login
-  
+
   def home
     # If visitor is signed in, redirect to Chats index
     if signed_in? and !current_user.name.include?("guest_")

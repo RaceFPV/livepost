@@ -39,6 +39,17 @@ GEM
       erubis (>= 2.6.6)
     bootstrap-sass (3.0.2.1)
       sass (~> 3.2)
+    brakeman (2.4.0)
+      erubis (~> 2.6)
+      fastercsv (~> 1.5)
+      haml (>= 3.0, < 5.0)
+      highline (~> 1.6.20)
+      multi_json (~> 1.2)
+      ruby2ruby (~> 2.0.5)
+      ruby_parser (~> 3.4.0)
+      sass (~> 3.0)
+      slim (>= 1.3.6, < 3.0)
+      terminal-table (~> 1.4)
     builder (3.1.4)
     bullet (4.7.1)
       activesupport
@@ -84,6 +95,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.9)
       multipart-post (~> 1.2.0)
+    fastercsv (1.5.5)
     faye (1.0.1)
       cookiejar (>= 0.3.0)
       em-http-request (>= 0.3.0)
@@ -101,7 +113,10 @@ GEM
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.0)
     gritter (1.1.0)
+    haml (4.0.5)
+      tilt
     hashie (2.0.5)
+    highline (1.6.20)
     hike (1.2.3)
     http_parser.rb (0.6.0)
     httpauth (0.2.0)
@@ -247,6 +262,9 @@ GEM
       json_pure
       rubyzip
     sexp_processor (4.4.1)
+    slim (2.0.2)
+      temple (~> 0.6.6)
+      tilt (>= 1.3.3, < 2.1)
     smusher (0.4.9)
       httpclient (>= 2.2)
       json
@@ -263,6 +281,8 @@ GEM
     sqlite3 (1.3.8)
     sqlite3 (1.3.8-x86-mingw32)
     state_machine (1.2.0)
+    temple (0.6.7)
+    terminal-table (1.4.5)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -297,13 +317,14 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   better_errors
   bootstrap-sass (~> 3.0.2.0)
+  brakeman
   bullet (~> 4.7.1)
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails
   faye
   flay
-  gritter (= 1.1.0)
+  gritter
   jbuilder
   jquery-datatables-rails
   jquery-rails

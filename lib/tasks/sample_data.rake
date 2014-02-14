@@ -12,7 +12,7 @@ end
 def make_users
   # Random user detail generator API
   random_user_api = 'http://api.randomuser.me/0.2/'
-  
+
   # Create administrator
   admin = User.create!(
     name: "admin1",
@@ -21,16 +21,16 @@ def make_users
     password_confirmation: "admin1",
     admin: true
     )
-  
+
   # Create members
   5.times do |n|
     random_user = ActiveSupport::JSON.decode(open(random_user_api))
     user = random_user['results'][0]['user']
-    
+
     name = user['name']['first'] + " " + user['name']['last']
     email = "testuser#{n+1}@test.com"  # user['email']
     password = "testuser#{n+1}"        # user['md5_hash'],
-    
+
     User.create!(
       name: name,
       email: email,

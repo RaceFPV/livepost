@@ -25,7 +25,7 @@ gem 'omniauth-identity' #allow logging in locally
 gem 'omniauth-facebook' #allow logins using facebook
 gem 'omniauth-twitter' #allow logins using twitter
 gem 'ruby-progressbar' #nice progressbar for seeding process
-gem "gritter", "1.1.0" #for better flash messages
+gem "gritter" #for better flash messages
 
 
 

@@ -4,19 +4,20 @@
         <a id="users-close" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
         <li class="sidebar-brand"><%= link_to "User list", nil %></li>
 		<div id="userlist" style="overflow-y: hidden;">
-        <% @usershere.each do |x| %>
-          <% @alreadylisted = false %>
+		<% usershere = @usershere%>
+        <% usershere.each do |x| %>
+          <% alreadylisted = false %>
           <% if x.super_user == true %>
             <p><%= link_to x.name, x %> <span class="label label-danger">SuperAdmin</span></p>
           <% else %>
-            <% @chat.administrators.each do |z| %>
-              <% if z == x.id and @alreadylisted == false and z != nil%>
+            <% chat.administrators.each do |z| %>
+              <% if z == x.id and alreadylisted == false and z != nil%>
                 <p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
-                <% @alreadylisted = true %>
+                <% alreadylisted = true %>
               <% end %>
-              <% if z != x.email and @alreadylisted == false and z != nil %>
+              <% if z != x.email and alreadylisted == false and z != nil %>
                 <p><%= link_to x.name, x %></p>
-                <% @alreadylisted = true %>
+                <% alreadylisted = true %>
               <% end %>
             <% end %>
           <% end %>

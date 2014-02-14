@@ -10,15 +10,14 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   #rescue users if a save catastrophically fails
   rescue_from ActiveRecord::RecordNotUnique, :with => :getmeoutofhere
-  
+
   def getmeoutofhere
     return redirect_to root_path, :flash => {:error => "Something went wrong, please try again later"}
   end
-  
+
   def require_username
     redirect_to start_path if session[:user].blank? || session[:user].strip.blank?
   end
-
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
     if session[:user_id] == nil and session[:guest_user_id] == nil
@@ -48,7 +47,7 @@ class ApplicationController < ActionController::Base
   def initialize_user
     current_or_guest_user
   end
-  
+
   #used to find out who is online, when the user does anything, update the users modified_at field
   def user_activity
     user ||= User.find(current_character_hash[:user_id]) rescue nil
