@@ -16,6 +16,7 @@
 /tmp
 
 # Ignore other unneeded files.
+config/database.yml
 database.yml
 doc/
 *.swp
