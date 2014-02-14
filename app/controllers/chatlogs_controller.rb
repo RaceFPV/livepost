@@ -60,18 +60,13 @@ class ChatlogsController < ApplicationController
   end
 
   def update
-    chatlog ||= Chatlog.find(params[:id])
-    chatpost = chatlog.chatpost.new(params[:chatpost])
-    chatpost[:user_name] = current_user.name
-    chatpost[:user_id] = current_user.id
-    chatpost[:post] = params[:chatparams][:post]
-    @chat ||= chatlog
-    current_user.update_attribute(:lastseen, DateTime.now)
-    if chatpost.save
-      @chatpost = chatpost
+    @chat ||= Chatlog.find(params[:id])
+    post = ChatlogsHelper.makepost(@chat,params[:chatparams][:post],current_user)
+    if post.nil? == false
+      @post = post
       return render 'update'
     else
-      return render 'update_error'
+      return render :nothing => true
     end
   end
 
@@ -85,4 +80,12 @@ class ChatlogsController < ApplicationController
     flash[:success] = "Chat deleted."
     return redirect_to root_path
   end
+  
+    private
+
+  def post_params
+    params[:chatparams].permit(:user_name, :user_id, :post)
+  end
+
+  
 end
