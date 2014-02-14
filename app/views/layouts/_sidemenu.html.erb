@@ -1,4 +1,3 @@
-    <!-- Side Menu -->
 <a id="menu-toggle" class="btn btn-primary btn-lg toggle" style="background-color: #428BCA"><i class="fa fa-bars"></i></a>
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
@@ -18,17 +17,13 @@
         <% end %>
       </ul>
     </div>
-    <!-- /Side Menu -->
-
-    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
-    <script>
-        $("#menu-close").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
-        });
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
-        });
-    </script>
-   
+<script>
+$("#menu-close").click(function(e) {
+	e.preventDefault();
+	$("#sidebar-wrapper").toggleClass("active");
+});
+$("#menu-toggle").click(function(e) {
+	e.preventDefault();
+	$("#sidebar-wrapper").toggleClass("active");
+});
+</script>

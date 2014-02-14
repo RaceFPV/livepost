@@ -23,10 +23,9 @@ def destroy
     chatlog ||= Chatlog.find(params[:chatlog_id])
     chatpost = chatlog.chatpost.find(params[:id])
     chatposts ||= chatlog.chatpost
-    chatpostid = chatpost.id.to_s
-    chat ||= chatlog
+    @chatpostid = chatpost.id.to_s
+    @chat ||= chatlog
     chatpost.destroy
-    puts "deleting post: #{@chatpost.id}"
     render 'destroy'
 end
 

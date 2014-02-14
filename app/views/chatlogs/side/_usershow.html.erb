@@ -1,15 +1,8 @@
-<% alreadylisted = false %>
+<% thisuser ||= current_user %>
 <% if thisuser.super_user == true %>
- <p><%= link_to thisuser.name, thisuser %> <span class="label label-danger">SuperAdmin</span></p>
+	<li><%= link_to thisuser do %> <%= thisuser.name %> <span class="label label-danger">SuperAdmin</span><% end %></li>
+<% elsif @chat.administrators.include?(thisuser.email) %>
+	<li><%= link_to thisuser do %> <%= thisuser.name %> <span class="label label-danger">Admin</span><% end %></li>
 <% else %>
-  <% chat.administrators.each do |z| %>
-    <% if z == thisuser.email and alreadylisted == false and z != nil%>
-      <p><%= link_to thisuser.name, thisuser %> <span class="label label-danger">Admin</span></p>
-      <% alreadylisted = true %>
-    <% end %>
-    <% if z != thisuser.email and alreadylisted == false and z != nil %>
-      <p><%= link_to thisuser.name, thisuser %></p>
-      <% alreadylisted = true %>
-    <% end %>
-  <% end %>
+	<li><%= link_to thisuser.name, thisuser %></li>
 <% end %>
