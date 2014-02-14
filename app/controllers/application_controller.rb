@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   #require a login to access web pages
   before_filter :initialize_user
-  after_filter :user_activity
+  #after_filter :user_activity
   protect_from_forgery with: :exception
   respond_to :html, :json
   #include the SessionsHelper which manages user signin/signout
@@ -44,7 +44,9 @@ class ApplicationController < ActionController::Base
   private
 
   def initialize_user
-    current_or_guest_user
+    if !session[:user_id] and !session[:guest_user_id]
+      return create_guest_user
+    end
   end
 
   #used to find out who is online, when the user does anything, update the users modified_at field

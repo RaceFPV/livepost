@@ -3,24 +3,18 @@
         <div class="panel panel-body">
           <h1 class="form-signin-heading"><b>Browse Chats</b></h1>
           <div align="center" style="max-height: 80%; overflow-y: hidden;" id="chatscroll">
-
-            <!-- start chat list section -->
             <!-- if there are no chats, let the user know -->
             <% if @publicchats.blank? and @privatechatsallowed.blank? %>
-            <p align="center">No chats active, <%= link_to "start a new chat",  new_chatlog_path %>?</p>
-
-            <!-- if there are chats available -->
+            	<p align="center">No chats active, <%= link_to "start a new chat",  new_chatlog_path %>?</p>
             <% else %>
-
-            <h4>Public Chats</h4>
-
-            <div class="list-group">
-              <!-- make sure we have public chats to actually show -->
-              <% if @publicchats.blank? %>
-              <div class="well">
-                <p>No public chats active, <%= link_to "start a new chat",  new_chatlog_path %>?</p>
-              </div>
-              <% end %>
+            	<h4>Public Chats</h4>
+            	<div class="list-group">
+              		<!-- make sure we have public chats to actually show -->
+              		<% if @publicchats.blank? %>
+              			<div class="well">
+                		<p>No public chats active, <%= link_to "start a new chat",  new_chatlog_path %>?</p>
+              			</div>
+              		<% end %>
               <!-- list all available public chats -->
               <% @publicchats.each do |chat|%>
                 <!-- link to each chat -->

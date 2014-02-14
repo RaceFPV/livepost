@@ -2,23 +2,15 @@ class ChatlogsController < ApplicationController
   require 'json'
 
   def index
-    publicchats = Chatlog.where(privatechat: false)
-    @publicchats = publicchats.sort!
-    privatechats = Chatlog.where(privatechat: true, permitted: true)
-    privatechatsallowed = []
-    myid = current_user.id
-    privatechats.each do |x|
-      x.permitted.include?(myid)
-      privatechatsallowed << x
-    end
-    @privatechatsallowed = privatechatsallowed.sort!
+    @publicchats = Chatlog.where('privatechat = ?', false).order('chatname DESC') rescue nil
+    @privatechatsallowed = Chatlog.where('privatechat = ? AND permitted LIKE ?', true, "%#{current_user.id}%").order('chatname DESC') rescue nil
   end
 
   def create
     chatlog = Chatlog.new(params[:chatlog])
     chatlog[:chatname] = params[:chatparams][:chatname]
-    chatlog[:administrators] = [current_user.id]
-    chatlog[:permitted] = [current_user.id]
+    chatlog[:administrators] = current_user.id
+    chatlog[:permitted] = current_user.id
     chatlog[:privatechat] = true
     chatlog[:created_by] = current_user.name
 
@@ -35,8 +27,8 @@ class ChatlogsController < ApplicationController
       end
     chatlog = Chatlog.new(params[:chatlog])
     chatlog[:chatname] = params[:chatparams][:chatname]
-    chatlog[:administrators] = [current_user.id]
-    chatlog[:permitted] = [current_user.id]
+    chatlog[:administrators] = current_user.id
+    chatlog[:permitted] = current_user.id
     chatlog[:privatechat] = false
     chatlog[:created_by] = current_user.name
 
