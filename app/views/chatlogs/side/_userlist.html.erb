@@ -1,37 +1,28 @@
 <a id="users-toggle" class="btn btn-primary btn-lg toggle" style="background-color: #428BCA;"><i class="fa fa-users"></i></a>
-    <div id="sideusers">
-      <ul class="sidebar-nav">
-        <a id="users-close" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+<div id="sideusers">
+	<ul class="sidebar-nav">
+		<a id="users-close" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
         <li class="sidebar-brand"><%= link_to "User list", nil %></li>
 		<div id="userlist" style="overflow-y: hidden;">
-		<% usershere = @usershere%>
-        <% usershere.each do |x| %>
-          <% alreadylisted = false %>
-          <% if x.super_user == true %>
-            <p><%= link_to x.name, x %> <span class="label label-danger">SuperAdmin</span></p>
-          <% else %>
-            <% chat.administrators.each do |z| %>
-              <% if z == x.id and alreadylisted == false and z != nil%>
-                <p><%= link_to x.name, x %> <span class="label label-danger">Admin</span></p>
-                <% alreadylisted = true %>
-              <% end %>
-              <% if z != x.email and alreadylisted == false and z != nil %>
-                <p><%= link_to x.name, x %></p>
-                <% alreadylisted = true %>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-							</ul>
-						</div>
-    <script>
-        $("#users-close").click(function(e) {
-            e.preventDefault();
-            $("#sideusers").toggleClass("active");
-        });
-        $("#users-toggle").click(function(e) {
-            e.preventDefault();
-            $("#sideusers").toggleClass("active");
-        });
-    </script>
+        	<% @usershere.each do |x| %>
+				<% if x.super_user == true %>
+					<li><%= link_to x do %> <%= x.name %> <span class="label label-danger">SuperAdmin</span><% end %></li>
+				<% elsif @chat.administrators.include?(x.email) %>
+					<li><%= link_to x do %> <%= x.name %> <span class="label label-danger">Admin</span><% end %></li>
+				<% else %>
+					<li><%= link_to x.name, x %></li>
+				<% end %>
+			<% end %>
+		</div>
+	</ul>
+</div>
+<script>
+$("#users-close").click(function(e) {
+	e.preventDefault();
+	$("#sideusers").toggleClass("active");
+});
+$("#users-toggle").click(function(e) {
+	e.preventDefault();
+	$("#sideusers").toggleClass("active");
+});
+</script>
