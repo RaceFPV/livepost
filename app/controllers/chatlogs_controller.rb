@@ -47,8 +47,7 @@ class ChatlogsController < ApplicationController
     @chat ||= Chatlog.find(params[:id])
     @posts ||= @chat.chatpost.includes(:user)
     current_user.update_attribute(:lastseen, DateTime.now)
-    @usershere ||= User.where("lastseen > ?", 5.minutes.ago)
-    @usershere.sort!
+    @usershere ||= User.where("lastseen > ?", 5.minutes.ago).order('name DESC')
   end
 
   def update

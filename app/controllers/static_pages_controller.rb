@@ -5,9 +5,10 @@ class StaticPagesController < ApplicationController
   def home
     # If visitor is signed in, redirect to Chats index
     if current_user and !current_user.name.include?("guest_")
-      # TODO: Would be neat to use render rather than redirect_to
-      # so URL doesn't change, similiar to Facebook.
-      return redirect_to chatlogs_url
+      @publicchats = Chatlog.where('privatechat = ?', false).order('chatname DESC') rescue nil
+      @privatechatsallowed = Chatlog.where('privatechat = ? AND permitted LIKE ?', true, "%#{current_user.id}%").order('chatname DESC') rescue nil
+      return render 'chatlogs/index'
     end
   end
+
 end
