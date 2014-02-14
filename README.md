@@ -31,9 +31,16 @@ Help develop this app quickly by using a Linux Ruby on Rails dev box from [Nitro
 
 rails_best_practices:
 started via: 'rails_best_practices .'
+Checks the current code against rails best practices
 
 reek:
 started via: 'reek .'
+Checks the current code for sloppyness
 
 lol_dba:
 started via: 'lol_dba db:find_indexes'
+Checks the DB for missing indexes
+
+brakeman:
+started via: 'brakeman .'
+Checks the current code for SQL attack risks

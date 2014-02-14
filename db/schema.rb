@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123235101) do
+ActiveRecord::Schema.define(version: 20140214014721) do
 
   create_table "chatlogs", force: true do |t|
     t.text     "chatname"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140123235101) do
     t.integer  "user_id"
   end
 
+  add_index "chatposts", ["chatlog_id"], name: "index_chatposts_on_chatlog_id"
   add_index "chatposts", ["user_id"], name: "index_chatposts_on_user_id"
 
   create_table "identities", force: true do |t|
