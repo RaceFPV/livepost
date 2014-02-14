@@ -1,41 +1,27 @@
-<% chat = @chat%>
-<% provide(:title, chat.chatname.titleize) %>
+<% provide(:title, @chat.chatname.titleize) %>
 
 <% content_for :header do %>
   <%= javascript_include_tag "chatlogs" %>
 <% end %>
 
 <!-- check if the user is an admin -->
-<% chat.administrators.each do |z| %>
-  <% if z != nil and current_user != nil and z == current_user.id %>
-    <%= render 'admin/chatadmin' %>
-  <% end %>
+<% if @chat.administrators.find(current_user.id) then %>
+	<%= render 'admin/chatadmin' %>
 <% end %>
-<!-- end admin section -->
 
 <!-- render the chatlog, userlist, and new post sections -->
-   <%= render 'chatlogs/chatlog' %>
-  <%= render 'chatlogs/side/userlist' %>
-  <%= render 'chatlogs/side/invite' %>
-   <%= render 'chatlogs/newpost' %>
+<%= render 'chatlogs/chatlog' %>
+<%= render 'chatlogs/side/userlist' %>
+<%= render 'chatlogs/side/invite' %>
+<%= render 'chatlogs/newpost' %>
 
 <!-- subscribe to this chat so the user can see private_pub AJAX updates -->
-<% chatsubscribe = "/#{@chat.id}/update" %>
-<%= subscribedtochat = subscribe_to chatsubscribe %>
+<%= subscribedtochat = subscribe_to "/#{@chat.id}/update" %>
 
 <!-- subscribe to the current users list -->
-<% usersubscribe = "/#{@chat.id}/show" %>
-<%= subscribedtousers = subscribe_to usersubscribe %>
-<!-- end of user list subscription code -->
+<%= subscribedtousers = subscribe_to "/#{@chat.id}/show" %>
 
 <script>
-	var leftchatpath = "<%= leftchat_path(chat) %>";
-	  //before we leave the window change the count
-    window.onunload = window.onbeforeunload = (function(){
-      $.ajax({
-        url:    leftchatpath,
-        type:   'get',
-        async:  true
-  		})
-	});
+//for the path when a user unloads
+var leftchatpath = "<%= leftchat_path(@chat) %>";
 </script>

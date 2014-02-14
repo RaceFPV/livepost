@@ -20,14 +20,13 @@ class ApplicationController < ActionController::Base
   end
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
-    if session[:user_id] == nil and session[:guest_user_id] == nil
+    if !session[:user_id] and !session[:guest_user_id]
         return create_guest_user
-    end
-    if session[:guest_user_id] == nil and session[:user_id] != nil
+    elsif session[:user_id]
         return current_user
-      else
+    else
         return guest_user
-      end
+    end
   end
 
   # find guest_user object associated with the current session,
@@ -62,11 +61,11 @@ class ApplicationController < ActionController::Base
   #generate a guest user with a random username and password based on the current time and a random number
   def create_guest_user
     username = "guest_#{Time.now.to_i}#{rand(99)}"
-    password = "guest_#{Time.now.to_i}#{rand(99)}"
-    u = User.create(:name => username, :email => "#{username}@livepost.io")
-    if u.save(:validate => false)
-      session[:guest_user_id] = u.id
-      return u
+    password = username
+    user = User.create(:name => username, :email => "#{username}@livepost.io")
+    if user.save(:validate => false)
+      session[:guest_user_id] = user.id
+      return user
     else
       return create_guest_user
     end

@@ -6,7 +6,7 @@
 
             <!-- start chat list section -->
             <!-- if there are no chats, let the user know -->
-            <% if publicchats.blank? and privatechatsallowed.blank? %>
+            <% if @publicchats.blank? and @privatechatsallowed.blank? %>
             <p align="center">No chats active, <%= link_to "start a new chat",  new_chatlog_path %>?</p>
 
             <!-- if there are chats available -->
@@ -16,13 +16,13 @@
 
             <div class="list-group">
               <!-- make sure we have public chats to actually show -->
-              <% if publicchats.blank? %>
+              <% if @publicchats.blank? %>
               <div class="well">
                 <p>No public chats active, <%= link_to "start a new chat",  new_chatlog_path %>?</p>
               </div>
               <% end %>
               <!-- list all available public chats -->
-              <% publicchats.each do |chat|%>
+              <% @publicchats.each do |chat|%>
                 <!-- link to each chat -->
                 <%= link_to chat, class: "list-group-item", style: "padding: 0" do %>
                 <!-- add a nice popover to view the latest post -->
@@ -57,7 +57,7 @@
 
             <div class="list-group">
               <!-- make sure we have private chats to actually show -->
-              <% if privatechatsallowed.blank? %>
+              <% if @privatechatsallowed.blank? %>
               <div class="well">
           		<% if !current_user.name.include?("guest_") %>
                 	<p align="center">No private chats active, <%= link_to "start a new private chat",  new_chatlog_path %>?</p>
@@ -67,7 +67,7 @@
               </div>
               <% end %>
               <!-- list all available private chats -->
-              <% privatechatsallowed.each do |chat| %>
+              <% @privatechatsallowed.each do |chat| %>
                 <!-- link to each chat -->
                 <%= link_to chat, class: "list-group-item", style: "padding: 0" do %>
                 <!-- add a nice popover to view the latest post -->

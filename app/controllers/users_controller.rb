@@ -44,9 +44,8 @@ class UsersController < ApplicationController
     params[:user].delete(:password) if params[:user][:password].blank?
     params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
     #updates the password if the password field isn't blank
+    user_identity = Identity.find_by_email(@user.email)
     if params[:user][:password]
-      #find the identity for omniauth
-      user_identity = Identity.find_by_email(@user.email)
       #set the identity password to the params from the form
       user_identity.password = params[:user][:password]
       #make sure its confirmed
@@ -62,8 +61,6 @@ class UsersController < ApplicationController
     #update Identity as well as User model for the username
     if params[:user][:name] != @user.name
       if @user.provider == "identity"
-        #find the identity for the user we are editing
-        user_identity = Identity.find_by_email(@user.email)
         #set the user name to the field entry
         user_identity.name = params[:user][:name]
         #if it saves, start trying to save the user field
@@ -73,7 +70,7 @@ class UsersController < ApplicationController
           #if the user saves, alert that it was successful and redirect back to the profile page
           if @user.save
             #notify user of the update
-           flash[:success] = "Profile updated"
+           flash[:success] = "updated successfully"
            #toss them back to their profile
             return redirect_to @user
           #if the save fails, warn the user and re-render the page

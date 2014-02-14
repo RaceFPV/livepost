@@ -3,7 +3,7 @@ class ChatlogsController < ApplicationController
 
   def index
     publicchats = Chatlog.where(privatechat: false)
-    publicchats.sort!
+    @publicchats = publicchats.sort!
     privatechats = Chatlog.where(privatechat: true, permitted: true)
     privatechatsallowed = []
     myid = current_user.id
@@ -11,7 +11,7 @@ class ChatlogsController < ApplicationController
       x.permitted.include?(myid)
       privatechatsallowed << x
     end
-    privatechatsallowed.sort!
+    @privatechatsallowed = privatechatsallowed.sort!
   end
 
   def create
@@ -54,12 +54,8 @@ class ChatlogsController < ApplicationController
   def show
     @chat ||= Chatlog.find(params[:id])
     @posts ||= @chat.chatpost.includes(:user)
-    chatsubscribe ||= "/#{@chat}/update"
-    chatshow ||= "/chatposts/show"
-    usersubscribe ||= "/#{@chat}/"
     current_user.update_attribute(:lastseen, DateTime.now)
-    usershow ||= "/chatlogs/usershow"
-    @usershere = User.where("lastseen > ?", 5.minutes.ago)
+    @usershere ||= User.where("lastseen > ?", 5.minutes.ago)
     @usershere.sort!
   end
 
