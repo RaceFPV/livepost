@@ -16,10 +16,10 @@
 <%= render 'chatlogs/newpost' %>
 
 <!-- subscribe to this chat so the user can see private_pub AJAX updates -->
-<%= subscribedtochat = subscribe_to "/#{@chat.id}/update" %>
+<%= @subscribedtochat = subscribe_to "/#{@chat.id}/update" %>
 
 <!-- subscribe to the current users list -->
-<%= subscribedtousers = subscribe_to "/#{@chat.id}/show" %>
+<%= @subscribedtousers = subscribe_to "/#{@chat.id}/show" %>
 
 <script>
 //for the path when a user unloads
