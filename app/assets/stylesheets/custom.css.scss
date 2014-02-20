@@ -14,7 +14,8 @@ $blue: #428BCA;
 html, body {
   height: 100%;
   width: 100%;
-  background-color: $grayMediumLight;
+  background-color: #241205;
+  background-image: url("leather.png");
 }
 
 body p {
@@ -22,7 +23,8 @@ body p {
 }
 
 .panel-body {
-  background-color: $grayMediumLight; 
+   background-color: #241205;
+  background-image: url("leather.png");
   margin: 0;
 }
 
