@@ -36,6 +36,8 @@
 
 .intro {
   padding: 50px 0;
+  background-image: none;
+  background: #ffffff;
 }
 
 /* Services */
@@ -149,6 +151,7 @@ i.service-icon {
 .call-to-action {
   color: #ffffff;
   background: #0a5175;
+  background-image: none;
   padding-top: 20px;
   padding-bottom: 50px;
 }

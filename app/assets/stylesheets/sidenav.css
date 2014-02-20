@@ -4,8 +4,8 @@
   margin-right: -250px;
   right: 0;
   top: 0;
-  width: 250px;
-  background: #000;
+  width: 252px;
+  background-repeat: repeat;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -26,7 +26,7 @@
 
 #sidebar-wrapper.active {
   right: 250px;
-  width: 250px;
+  width: 252px;
   -webkit-transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
   -ms-transition: all 0.4s ease 0s;
@@ -38,8 +38,8 @@
   margin-right: -250px;
   right: 0;
   top: 0;
-  width: 250px;
-  background: #000;
+  width: 252px;
+  background-repeat: repeat;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -53,7 +53,7 @@
 
 #sideusers.active {
   right: 250px;
-  width: 250px;
+  width: 252px;
   -webkit-transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
   -ms-transition: all 0.4s ease 0s;
@@ -73,8 +73,8 @@
   margin-right: -250px;
   right: 0;
   top: 0;
-  width: 250px;
-  background: #000;
+  width: 252px;
+  background-repeat: repeat;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -88,7 +88,7 @@
 
 #sideadmin.active {
   right: 250px;
-  width: 250px;
+  width: 252px;
   -webkit-transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
   -ms-transition: all 0.4s ease 0s;
@@ -108,8 +108,8 @@
   margin-right: -250px;
   right: 0;
   top: 0;
-  width: 250px;
-  background: #000;
+  width: 252px;
+  background-repeat: repeat;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -123,7 +123,7 @@
 
 #sideinvite.active {
   right: 250px;
-  width: 250px;
+  width: 252px;
   -webkit-transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
   -ms-transition: all 0.4s ease 0s;
@@ -139,6 +139,13 @@
   
 }
 
+.leather {
+  background-color: #000;
+  background-image: url("leather.png");
+  border-left: 2px;
+  border-left-style: double;
+  border-left-color: #222;
+}
 
 .sidebar-nav {
   position: absolute;
