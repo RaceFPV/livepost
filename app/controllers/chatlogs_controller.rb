@@ -52,7 +52,9 @@ class ChatlogsController < ApplicationController
 
   def update
     @chat ||= Chatlog.find(params[:id])
-    post = ChatlogsHelper.makepost(@chat,params[:chatparams][:post],current_user)
+    if params[:chatparams][:post] != ""
+      post = ChatlogsHelper.makepost(@chat,params[:chatparams][:post],current_user)
+    end
     if post.nil? == false
       @post = post
       return render 'update'

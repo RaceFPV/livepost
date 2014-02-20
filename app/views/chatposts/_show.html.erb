@@ -1,6 +1,8 @@
-            <div class="sentpost" id="<%= @post.id %>" style="height: 50px; width: 95%">
+            <div class="sentpost" id="<%= @post.id %>" style="width: 95%">
+              <div style="display:inline-block;position:relative;">
                 <%= gravatar_for @post.user %>
                 <%= link_to @post.user_name, @post.user %>
+              </div>
                 <div class="popover fade right in" style="display:inline-block;position:relative;">
                   <div class="arrow"></div>
                   <div class="popover-content">
@@ -11,6 +13,6 @@
                   <%= @post.created_at.to_datetime.strftime('%H:%M %D')  %>
                 </p>
               <% if (@chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_user == true) then %>
-    <%= link_to "", chatlog_chatpost_path(params[:id], @post), method: :delete,remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
+                <%= link_to "", chatlog_chatpost_path(params[:id], @post), method: :delete,remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
               <% end %>
             </div>
