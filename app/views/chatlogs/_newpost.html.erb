@@ -1,10 +1,25 @@
-<div class="panel panel-default" style="width: 100%;position: fixed; bottom:-22px;">
-        <%= form_for :chatparams, class: "form-signin", url: chatlog_path(@chat),:method => :patch, :remote => true, :html => { :id => "newpost"} do |f| %>
-        <div class="input-group" style="width: 100%">
-              <%= f.text_field :post, class: "form-control", placeholder: "Enter new post", id: 'input-line', autofocus: true, :autocomplete => :off %>
-          <span class="input-group-btn">
-            <%= submit_tag "Send", class: "btn btn-primary", style: "height: 34px;", disable_with: 'Sending…'  %>
-      </span>
-    </div>
+<%= javascript_include_tag "jquery-te-1.4.0.min" %>
+<%= stylesheet_link_tag "jquery-te-1.4.0" %>
+
+<div style="width: 100%;position: fixed; bottom:20px;height: 160px;">
+  <div style="width: 100%; height: 100px;">
+        <%= form_for :chatparams, url: chatlog_path(@chat),:method => :patch, :remote => true, :html => { :id => "newpost"} do |f| %>
+              <%= f.text_area :post, class: "jqte", placeholder: "Enter new post", id: 'input-line', autofocus: true, :autocomplete => :off %>
+  </div>
+  <div style="width: 100%; height: 20px;position: fixed; bottom: 10px;">
+    <%= submit_tag "Send", class: "btn btn-primary btn-block",style: "border-radius: 0px", disable_with: 'Sending…'  %>
+  </div>
 <% end %>
 </div>
+
+<script>
+	$('.jqte').jqte();
+	
+	// settings of status
+	var jqteStatus = true;
+	$(".status").click(function()
+	{
+		jqteStatus = jqteStatus ? false : true;
+		$('.jqte').jqte({"status" : jqteStatus})
+	});
+</script>
