@@ -6,7 +6,7 @@
 		<div id="userlist" style="overflow-y: hidden;">
         	<% @usershere.each do |x| %>
         <% y = User.find_by_id(x) %>
-        <% if y.name == nil %>
+        <% if y == nil %>
           <li>Guest</li>
 				<% elsif y.name.include?("guest_") %>
           <li><%= link_to y.name, y %></li>
