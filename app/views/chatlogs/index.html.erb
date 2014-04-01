@@ -95,10 +95,10 @@
             <!-- end of chat list section -->
 
           </div>
-          <% if !current_user.name.include?("guest_") %>
+          <% if  current_user != nil and !current_user.name.include?("guest_") %>
           <p style="margin-top: 50px;width: 80%;margin-left: 10%"><%= link_to "Start a new chat!", new_chatlog_path, class: "btn btn-primary btn-block" %></p>
           <% end %>
-          <% if current_user.admin == true %>
+          <% if  current_user != nil and current_user.admin == true %>
           	<p style="margin-top: 50px;width: 80%;margin-left: 10%"><%= link_to "Start a new public chat", newpublic_path, class: "btn btn-primary btn-block" %></p>
           <% end %>
         </div>
