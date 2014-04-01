@@ -8,7 +8,7 @@
         <% y = User.find_by_id(x) %>
 				<% if y.super_user == true %>
 					<li><%= link_to y do %> <%= y.name %> <span class="label label-danger">SuperAdmin</span><% end %></li>
-				<% if @chat.administrators.include?(x.email) %>
+				<% elsif @chat.administrators.include?(x.email) %>
 					<li><%= link_to y do %> <%= y.name %> <span class="label label-danger">Admin</span><% end %></li>
 				<% else %>
 					<li><%= link_to y.name, y %></li>
