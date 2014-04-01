@@ -79,7 +79,6 @@ class ApplicationController < ActionController::Base
     if @current_user == nil
       @current_user = User.find(session[:user_id]) rescue nil
     end
-    return @current_user
   end
   helper_method :current_user
 end

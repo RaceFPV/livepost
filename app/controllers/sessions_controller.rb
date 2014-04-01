@@ -11,13 +11,13 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       session[:guest_user_id] = nil
       if user.created_at == user.updated_at
-        return redirect_to root_path, :flash => {:notice => "Welcome to Livepost.io, #{user.name}!"}
+        return redirect_to chatlogs_path, :flash => {:notice => "Welcome to Livepost.io, #{user.name}!"}
       else
         #redirect to the users profile page if we dont save anything
-        return redirect_to root_path, :flash => {:notice => "Welcome back, #{user.name}!"}
+        return redirect_to chatlogs_path, :flash => {:notice => "Welcome back, #{user.name}!"}
       end
       else
-       return redirect_to root_path, :flash => {:error => "error signing in, please try again with a unique name/email"}
+       return redirect_to signin_path, :flash => {:error => "error signing in, please try again with a unique name/email"}
     end
   end
 
@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
 
 	  #if the user fails to sign in properly, redirect and alert them
   def failure
-    return redirect_to root_url, :flash => {:error => "Error logging in"}
+    return redirect_to signin_path, :flash => {:error => "Error logging in"}
   end
 end

@@ -2,8 +2,8 @@
 <div class="showuser">
   <row>
     <div class="col-md-6 col-md-offset-3" style="margin-top: 6%;">
-      <div class="panel panel-default" style="padding-bottom: 15px;padding-left: 10px;">
-        <div class="panel panel-body">
+      <div class="panel panel-default">
+        <div class="panel panel-body" style="background-color: #fff">
           <h3 class="form-signin-heading" align="center"><b><%= @user.name.titleize %>'s profile</b></h3>
           <%= form_for @user, method: :patch, class: "form-signin" do |f| %>
           <%= form_tag :action => 'update', :id => @user %>
@@ -20,7 +20,7 @@
                 </h4>
               </div>
               <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="panel-body">
+                <div class="panel-body" style="background-color: #fff">
                   <div align="left"><span class="label label-default">Name</span></div>
                   <%= f.text_field :name, class: "form-control", placeholder: "Your name" %>
                   <div align="left"><span class="label label-default">Location</span></div>
@@ -37,7 +37,7 @@
                 </h4>
               </div>
               <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
+                <div class="panel-body" style="background-color: #fff">
                   <div>
                     <%= gravatar_for @user %>
                     <a href="http://gravatar.com/emails">Change avatar</a>
@@ -54,7 +54,7 @@
                 </h4>
               </div>
               <div id="collapseThree" class="panel-collapse collapse">
-                <div class="panel-body">
+                <div class="panel-body" style="background-color: #fff">
                   <div align="left"><span class="label label-default">Twitter</span></div>
                   <%= f.text_field :twitter_id, class: "form-control", placeholder: "Twitter username" %>
                   <div align="left"><span class="label label-default">Facebook</span></div>
@@ -73,7 +73,7 @@
                 </h4>
               </div>
               <div id="collapseFour" class="panel-collapse collapse">
-                <div class="panel-body">
+                <div class="panel-body" style="background-color: #fff">
                   <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
                   <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
                 </div>
