@@ -39,7 +39,7 @@
                 <% end %>
                    <!-- if user is an admin or super admin, allow them to delete the chat -->
               <div style="padding-bottom: 35px;">
-                    <% if (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true %>
+                    <% if !current_user.nil? or (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true %>
                       <%= link_to "Delete", deletechat_path(chat), title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "display: inline-block;margin-left: 20px;float: right;" %>
                     <% end %>
               </div>
@@ -83,7 +83,7 @@
               <% end %>
                     <!-- if user is an admin or super admin, allow them to delete the chat -->
               <div style="padding-bottom: 35px;">
-                    <% if (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true %>
+                    <% if !current_user.nil? or (chat.administrators.detect {|id| id == current_user.id}) or current_user.super_user == true %>
                       <%= link_to "Delete", deletechat_path(chat), title: "Delete this chat", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs", style: "display: inline-block;margin-left: 20px;float: right;" %>
                     <% end %>
               </div>
