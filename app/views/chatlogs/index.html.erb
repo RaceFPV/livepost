@@ -59,7 +59,7 @@
               		<p align="center">Private chats not allowed for guest accounts </p>
               	<% end %>
               </div>
-              <% end %>
+              <% else %>
               <!-- list all available private chats -->
               <% @privatechatsallowed.each do |chat| %>
                 <!-- link to each chat -->
@@ -90,6 +90,7 @@
               <% end %>
               <!-- end list all private chats -->
             </div>
+            <% end %>
 
             <% end %>
             <!-- end of chat list section -->
