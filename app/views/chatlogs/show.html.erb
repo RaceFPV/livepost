@@ -5,7 +5,7 @@
 <% end %>
 
 <!-- check if the user is an admin -->
-<% if @chat.administrators.find(current_user.id) then %>
+<% if @chat.administrators.include?(current_user) then %>
 	<%= render 'admin/chatadmin' %>
 <% end %>
 
