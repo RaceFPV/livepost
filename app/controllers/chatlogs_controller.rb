@@ -52,7 +52,6 @@ class ChatlogsController < ApplicationController
       @usershere = []
       @chat.save!
     end
-    current_user.update_attribute(:lastseen, DateTime.now)
     if !@usershere.include?(current_user)
       @usershere << current_user
       @chat.save!
