@@ -9,13 +9,13 @@ class ChatlogsController < ApplicationController
   def create
     chatlog = Chatlog.new(params[:chatlog])
     chatlog[:chatname] = params[:chatparams][:chatname]
-    chatlog[:administrators] = current_user.id
+    chatlog[:administrators] = [current_user.id]
     chatlog[:permitted] = current_user.id
     chatlog[:privatechat] = true
     chatlog[:created_by] = current_user.name
 
     if chatlog.save
-      return redirect_to @chatlog, :flash => {:success => "Successfully created chat" }
+      return redirect_to chatlog, :flash => {:success => "Successfully created chat" }
     else
       redirect_to new_chatlog_path, :flash => {:error => "Chat name cannot be blank"}
     end
@@ -27,7 +27,7 @@ class ChatlogsController < ApplicationController
       end
     chatlog = Chatlog.new(params[:chatlog])
     chatlog[:chatname] = params[:chatparams][:chatname]
-    chatlog[:administrators] = current_user.id
+    chatlog[:administrators] = [current_user.id]
     chatlog[:permitted] = current_user.id
     chatlog[:privatechat] = false
     chatlog[:created_by] = current_user.name
