@@ -2,17 +2,7 @@
               <div style="display:inline-block;position:relative;">
                 <%= gravatar_for @post.user %>
                 <%= link_to @post.user_name, @post.user %>
-              </div>
-                <div class="popover fade right in" style="display:inline-block;position:relative;">
-                  <div class="arrow"></div>
-                  <div class="popover-content">
-                    <%= auto_link(@post.post) %>
-                  </div>
-                </div>
-                <p style="float: right;" class="small">
-                  <%= @post.created_at.to_datetime.strftime('%H:%M %D')  %>
-                </p>
-              <% if (@chat.administrators.detect {|id| id == current_user.id}) or (current_user.super_user == true) then %>
-                <%= link_to "", chatlog_chatpost_path(params[:id], @post), method: :delete,remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
-              <% end %>
+                <br/>
+            <%= auto_link(@post.post) %>
+      			<%= link_to "", chatlog_chatpost_path(@chat, @post), method: :delete, remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
             </div>
