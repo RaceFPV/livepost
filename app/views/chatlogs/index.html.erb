@@ -51,7 +51,7 @@
 
             <div class="list-group">
               <!-- make sure we have private chats to actually show -->
-              <% if @privatechatsallowed.blank? %>
+              <% if  current_user != nil or @privatechatsallowed.blank? %>
               <div class="well" style="padding: 10px;padding-bottom: 5px;">
           		<% if  current_user != nil and !current_user.name.include?("guest_") %>
                 <p align="center" style="margin-top: 5px;">No private chats active, <%= link_to "start a new private chat",  new_chatlog_path %>?</p>
