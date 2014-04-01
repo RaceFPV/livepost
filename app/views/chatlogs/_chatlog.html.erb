@@ -20,11 +20,13 @@
           <% if current_user == post.user %>
             <%= auto_link(post.post) %>
       			<%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
+          <% elsif current_user == nil %>
+            <%= auto_link(post.post) %>  
           <% elsif (@chat.administrators.detect {|id| id == user.id}) or super_user == true %>
 							<%= auto_link(post.post) %>
               <%= link_to "", chatlog_chatpost_path(@chat, post), method: :delete, remote: true, title: "Delete this post", class: "glyphicon glyphicon-remove", style: "float:right;margin-right:10px;padding-left:0px;margin-left:25px;" %>
           <% else %>
-<%= auto_link(post.post) %>      
+            <%= auto_link(post.post) %>      
       <% end %>
 				</div>
             <% end %>
