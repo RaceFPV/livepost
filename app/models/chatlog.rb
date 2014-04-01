@@ -6,6 +6,7 @@ class Chatlog < ActiveRecord::Base
 
   serialize :administrators
   serialize :permitted
+  serialize :usershere
 
   # Generate random hash string to be used as slug
   before_save { self.slug ||= Digest::MD5.hexdigest(rand(999999999).to_s)[0..8] }

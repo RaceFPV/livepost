@@ -13,6 +13,7 @@ class ChatlogsController < ApplicationController
     chatlog[:permitted] = current_user.id
     chatlog[:privatechat] = true
     chatlog[:created_by] = current_user.name
+    chatlog[:users_here] = []
 
     if chatlog.save
       return redirect_to chatlog, :flash => {:success => "Successfully created chat" }
@@ -46,8 +47,16 @@ class ChatlogsController < ApplicationController
   def show
     @chat ||= Chatlog.find(params[:id])
     @posts ||= @chat.chatpost.includes(:user)
+    @usershere = @chat.usershere
+    if @usershere.nil?
+      @usershere = []
+      @chat.save!
+    end
     current_user.update_attribute(:lastseen, DateTime.now)
-    @usershere ||= User.where("lastseen > ?", 5.minutes.ago).order('name DESC')
+    if !@usershere.include?(current_user)
+      @usershere << current_user
+      @chat.save!
+    end
   end
 
   def update
@@ -64,6 +73,9 @@ class ChatlogsController < ApplicationController
 
   def leftchat
     @chat ||= Chatlog.find(params[:id])
+    @usershere = @chat.usershere
+    @usershere.delete(current_user)
+    @chat.save!
     return render 'leftchat'
   end
 

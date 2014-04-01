@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214014721) do
+ActiveRecord::Schema.define(version: 20140401043950) do
 
   create_table "chatlogs", force: true do |t|
     t.text     "chatname"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140214014721) do
     t.text     "permitted"
     t.string   "slug"
     t.string   "created_by"
+    t.text     "usershere"
   end
 
   add_index "chatlogs", ["slug"], name: "index_chatlogs_on_slug", unique: true
