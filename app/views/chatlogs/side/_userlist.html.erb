@@ -6,7 +6,7 @@
 		<div id="userlist" style="overflow-y: hidden;">
         	<% @usershere.each do |x| %>
         <% y = User.find_by_id(x) %>
-				<% if.include("guest_") %>
+				<% if y.name.include?("guest_") %>
           <li><%= link_to y.name, y %></li>
         <% elsif y.super_user == true %>
 					<li><%= link_to y do %> <%= y.name %> <span class="label label-danger">SuperAdmin</span><% end %></li>
