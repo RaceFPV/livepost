@@ -5,9 +5,7 @@
         <li class="sidebar-brand"><%= link_to "User list", nil %></li>
 		<div id="userlist" style="overflow-y: hidden;">
         	<% @usershere.each do |x| %>
-				<% if x.super_user == true %>
-					<li><%= link_to x do %> <%= x.name %> <span class="label label-danger">SuperAdmin</span><% end %></li>
-				<% elsif @chat.administrators.include?(x.email) %>
+				<% if @chat.administrators.include?(x.email) %>
 					<li><%= link_to x do %> <%= x.name %> <span class="label label-danger">Admin</span><% end %></li>
 				<% else %>
 					<li><%= link_to x.name, x %></li>
