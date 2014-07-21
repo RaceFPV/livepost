@@ -5,6 +5,6 @@ test:
   server: "http://localhost:8080/faye"
   secret_token: "privatepub"
 production:
-  server: "http://livepost.io/faye"
+  server: "http://livepost.io:8080/faye"
   secret_token: "privatepub"
   signature_expiration: 3600 # one hour
